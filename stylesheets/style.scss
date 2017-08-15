@@ -1,0 +1,1932 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Image locations
+$imageLocation: '../images/index';
+
+// Media query screen sizes
+$bigScreen: 1200px;
+$midScreen: 1000px;
+$smallScreen: 640px;
+
+// Media query screen ratios
+$tabletRatio: 4#{'/'}3;
+
+// Main background color
+$bg: #f4f5f7;
+
+// Main profile picture dimensions
+$profilePicBoxDimension: 13%;
+$profilePicDimension: 80%;
+
+// Font stacks
+$mainFontStack: 'Raleway', Arial, sans-serif;
+$subFontStack: 'Open Sans', Lucida, serif;
+
+// Main font color
+$mainFontColor: #31476e;
+
+// Top nav size and colors
+$navSize: 12px;
+$navColor: rgb(100, 100, 100);
+$navbarColor: $bg;
+
+// Frontpage name size and color
+$nameSize: 52px;
+$nameColor: #244684;
+
+// Frontpage subtitle size and color
+$subtitleSize: 18px;
+$subtitleColor: #678dcb;
+
+// Frontpage links size and color
+$fpLinkSize: 24px;
+$fpLinkColor: $mainFontColor;
+
+// Frontpage Scroll indicator size and color
+$scrollIndicatorSize: 20px;
+$scrollIndicatorColor: #c5c5c5;
+
+// Navbar heights for large and small screens
+$navbarHeightLarge: 35px;
+$navbarHeightSmall: 0px;
+
+// Mobile menu related
+$mobileIconContainerHeight: 76px;
+$mobileIconHeight: 50px;
+$mobileIconColor: #244684;
+$mobileLinksColor: #d5e2fb;
+$activeHamburgerColor: #a7c6ff;
+$draggerColor: #a7c6ff;
+$trackColor: #507dc8;
+
+// Main content size with sidebar
+$contentWrapper: 80%;
+$sidebarContainer: $contentWrapper * 0.15;
+
+// Main content font color
+$contentFontColor: #6a768a;
+
+// Forms invalid color
+$formInvalidColor: #e72825;
+$formValidColor: #3ec02c;
+
+$sidebarDeactivateColor: #b8b9bb;
+$sidebarActivateColor: #74a2ff;
+
+// Transform mixins
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	   -moz-transform: $transform;
+		-ms-transform: $transform;
+			transform: $transform;
+}
+@mixin transform-origin($transform) {
+	-webkit-transform-origin: $transform;
+	   -moz-transform-origin: $transform;
+		-ms-transform-origin: $transform;
+			transform-origin: $transform;
+}
+
+// Transition mixin
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	     -o-transition: $transition;
+	    	transition: $transition;
+}
+
+@mixin transition-delay($delay) {
+	-webkit-transition-delay: $delay;
+	   -moz-transition-delay: $delay;
+	     -o-transition-delay: $delay;
+	    	transition-delay: $delay;
+}
+
+// Animation keyframes mixin
+@mixin keyframes($animationName) {
+	@-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+// Animation mixin
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	   -moz-animation: $animation;
+	     -o-animation: $animation;
+	    	animation: $animation;
+}
+
+// Mixin for centering absolute element
+@mixin center() {
+	left: 50%; top: 50%;
+	@include transform(translate(-50%, -50%));
+}
+
+// Mixin for horizontally centering absolute element
+@mixin horizontalCenter() {
+	left: 50%;
+	@include transform(translateX(-50%));
+}
+
+// Mixin for vertically centering absolute element
+@mixin verticalCenter() {
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+// Mixin for making a triangle
+@mixin triangle($dir, $side, $base, $color) {
+	width: 0; height: 0;
+	// If making vertical triangle
+	@if $dir == 'up' or $dir == 'down' {
+		border-left: $side solid transparent;
+		border-right: $side solid transparent;
+		@if $dir == 'up' {border-bottom: $base solid $color;}
+		@else {border-top: $base solid $color;}
+	}
+	// If making horizontal triangle
+	@else if $dir == 'right' or $dir == 'left' {
+		border-top: $side solid transparent;
+		border-bottom: $side solid transparent;
+		@if $dir == 'right' {border-left: $base solid $color;}
+		@else {border-right: $base solid $color;}
+	}
+}
+
+// Padding accounts for increased spacing after last letter
+@mixin letter-spacing($length) {
+	letter-spacing: $length;
+	padding-left: $length;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body.disable-scroll {
+	overflow: hidden;
+	position: fixed;
+}
+
+body {
+	background: $bg;
+	opacity: 0;
+	@include transition(opacity 0.15s ease-out);
+	&.page-loaded {opacity: 1;}
+}
+
+// Text selection color
+::-moz-selection {background: #8caff6;}
+::selection{background: #8caff6;}
+
+.pixelated {
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+// Landing page content wrapper properties
+.landing-page {height: 100%; position: relative; display: table;}
+
+// Content spacing to account for fixed navbar
+.content-spacing {
+	height: $navbarHeightLarge;
+
+	// Adjust for smaller screens
+	@media only screen and (max-width: $bigScreen) {
+		& {height: $navbarHeightSmall;}
+	}
+}
+
+.spacing {
+	width: 100%;
+	height: 0;
+
+	// Introduce space between different contents on smaller screens
+	@media only screen and (max-width: $bigScreen) {
+		height: 5%;
+	}
+
+	@media only screen and (max-device-aspect-ratio: $tabletRatio) {
+		height: 0;
+	}
+}
+
+// Top navigation
+#nav-wrapper {
+	width: 100%;
+	background: $navbarColor;
+	z-index: 999;
+	position: fixed;
+	box-shadow: 0px 0px 6px -4px rgb(140, 140, 140);
+
+	// Nav container
+	#nav-container {
+		position: relative;
+		display: inline-block;
+		left: 3%;
+
+		// Nav link styles
+		.nav-links {
+			display: inline-block;
+			vertical-align: top;
+			padding: 10px 16px;
+			letter-spacing: 2px;
+			color: $navColor;
+			font-family: $mainFontStack;
+			font-size: $navSize;
+			text-decoration: none;
+			@include transition(all 0.2s ease-out);
+
+			// Hover shows underline
+			&:hover {
+	    		box-shadow: inset 0px -4px $navColor;
+			}
+		}
+	}
+
+	// Don't display nav on smaller screens
+	@media only screen and (max-width: $bigScreen) {
+		& {display: none};
+	}
+}
+
+// Mobile menu
+#mobile-menu {
+
+	// Mobile icon
+	&-icon-container {
+		z-index: -999;
+		display: none;
+		position: fixed;
+		top: 3%; right: 4%;
+		width: 50px; height: 40px;
+		background: $mobileIconColor;
+		cursor: pointer;
+		@include transition(opacity 0.15s ease-in-out);
+
+		// Only shows up on smaller screens
+		@media only screen and (max-width: $bigScreen) {
+			z-index: 9999;
+			display: block;
+		}
+
+		&.hide-icon-container {
+			opacity: 0.1;
+		}
+
+		// Mobile menu changes state on click
+		&.show-menu {
+
+			// Icon changes to X
+			#mobile-menu-icon {
+				&-top {
+					opacity: 0;
+					top: 50%;
+					@include transform(translateY(-50%));
+				}
+
+				&-mid-1 {
+					@include transform(translateY(-50%) rotate(45deg));
+				}
+
+				&-mid-2 {
+					@include transform(translateY(-50%) rotate(-45deg));
+				}
+				
+				&-low {
+					opacity: 0;
+					bottom: 50%;
+					@include transform(translateY(50%));
+				}
+			}
+
+			// Change icon color
+			.hamburger-icon {
+				background: $activeHamburgerColor;
+			}
+
+			// Show actual menu
+			& + #mobile-menu-content-wrapper {
+				// Only show this menu on smaller screens
+				@media only screen and (max-width: $bigScreen) {
+					z-index: 1999;
+					opacity: 1;
+					@include transition(z-index 0s, opacity 0.2s ease-out);
+				}
+
+				// Dragger appears
+				#mobile-menu-dragger {
+					opacity: 1;
+					@include transform(scale(1, 1));
+				}
+			}
+		}
+	}
+
+	// Icon positioner
+	&-icon-positioner {
+		position: absolute;
+		left: 50%; top: 50%;
+		@include transform(translate(-50%, -50%));
+		width: 70%; height: 80%;
+	}
+
+	// Actual icon
+	&-icon {
+
+		// Top part of the icon
+		&-top {
+			left: 0; top: 15%;
+		}
+
+		// mid part of the icon
+		&-mid-1 {
+			left: 0; top: 50%;
+			@include transform(translateY(-50%));
+		}
+
+		// mid part of the icon
+		&-mid-2 {
+			left: 0; top: 50%;
+			@include transform(translateY(-50%));
+		}
+
+		// Bottom part of the icon
+		&-low {
+			left: 0; bottom: 15%;
+		}
+	}
+
+	// Content wrapper
+	&-content-wrapper {
+		display: none;
+		z-index: -9999;
+		position: fixed;
+		width: 100%; height: 100%;
+		background: $mobileIconColor;
+		opacity: 0;
+		@include transition(z-index 0s 0.2s, opacity 0.2s ease-out);
+
+		@media only screen and (max-width: $bigScreen) {
+			display: block;
+		}
+	}
+
+	// Content positioner
+	&-content-positioner {
+		position: absolute;
+		left: 0; bottom: 0;
+		width: 100%; height: 80%;
+	}
+
+	// Content container
+	&-content-container {
+		position: relative;
+		width: 100%; height: 89%;
+		margin: 0 auto;
+	}
+
+	// Content
+	&-content {
+		width: 84%;
+		margin-left: 10%;
+	}
+
+	// Scrollbar
+	&-scrollbar {
+		width: 1%;
+		margin-right: 5%;
+	}
+
+	// Scrollbar dragger
+	&-dragger {
+		opacity: 0;
+		background: $draggerColor;
+		@include transform(scale(0, 1));
+		@include transform-origin(50% 0%);
+		-webkit-transition: -webkit-transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s;
+			-ms-transition: -ms-transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s;
+				transition: transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s;
+	}
+
+	// Scrollbar track
+	&-track {
+		height: 100%;
+		background: $trackColor;
+	}
+}
+
+.mobile-menu-link-container {
+	display: block;
+	position: relative;
+
+	// Links appear staggered
+	@for $i from 1 to 6 {
+		#mobile-menu-icon-container.show-menu + #mobile-menu-content-wrapper &:nth-child(#{$i}) .mobile-menu-link {
+			@include transition-delay(0.075s * $i);
+		}
+	}
+}
+
+// Left-spacing on mobile menu items
+$linkSpacing: 7%;
+
+// Mobile menu navigation links
+.mobile-menu-link {
+	display: inline-block;
+	padding: 10px 20px 10px $linkSpacing;
+	text-decoration: none;
+	font-size: 28px;
+	font-family: $mainFontStack;
+	color: $mobileLinksColor;
+	opacity: 0;
+	@include transform(translateX(10px));
+	@include transition(all 0.2s ease-out);
+}
+
+#mobile-menu-icon-container.show-menu + #mobile-menu-content-wrapper .mobile-menu-link {
+	@include transform(translateX(0));
+	opacity: 1;
+}
+
+.mobile-menu-link-bar {
+	top: 0;
+	left: 2%;
+	position: absolute;
+	width: 3px;
+	height: 54px;
+	background: $mobileLinksColor;
+	opacity: 0;
+	@include transform(translateX(-150%));
+	@include transition(all 0.2s ease-out);
+
+	@media only screen and (min-width: $smallScreen) {
+		left: 5%;
+	}
+
+	.mobile-menu-link.active + & {
+		@include transition(all 0.2s 0.4s ease-out);
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+}
+
+.mobile-menu-separator {
+	display: block;
+	width: 70%;
+	height: 2px;
+	margin: 15px 0 15px $linkSpacing;
+	background: $mobileLinksColor;
+}
+
+.mobile-menu-external-link-container {
+	margin: 0 0 0 $linkSpacing;
+	padding: 0;
+}
+
+.mobile-menu-external-link {
+	display: block;
+	list-style: none;
+
+	& * {
+		opacity: 0;
+		@include transition(all 0.2s ease-out);
+	}
+
+	#mobile-menu-icon-container.show-menu + #mobile-menu-content-wrapper & * {
+		@include transition-delay(0.5s);
+	}
+
+	& a {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 8px 0 8px 4px;
+		font-size: 14px;
+		font-family: $mainFontStack;
+		color: $mobileLinksColor;
+		text-decoration: none;
+		cursor: pointer;
+		@include transform(translateX(8px));
+	}
+
+	& .external-link-icon {
+		display: inline-block;
+		vertical-align: middle;
+		width: 10px;
+		height: auto;
+		@include transform(translateX(-8px));
+	}
+}
+
+// External links appear from the side
+#mobile-menu-icon-container.show-menu + #mobile-menu-content-wrapper .mobile-menu-external-link {
+	
+	& * {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+}
+
+// Hamburger menu icon settings
+.hamburger-icon {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	border-radius: 10px;
+	background: #d5e2fb;
+	@include transition(0.2s ease-out);
+}
+
+// Front Page (Landing Page)
+#frontpage-wrapper {
+	width: 100%;
+
+	// Used to fix weird bug on iPhone where frontpage contents flashed momentarily when mobile menu pops up
+	body.disable-scroll & #cloud-layer-container {
+		opacity: 0;
+	}
+
+	// Used to fix weird bug on iPhone where frontpage contents flashed momentarily when mobile menu pops up
+	body.disable-scroll & #frontpage-cell {
+		opacity: 0;
+	}
+
+	// Adapt spacing for landing page as table-row
+	.content-spacing {display: table-row;}
+
+	// Cloud layer container to prevent overflow when transforming cloud layers
+	#cloud-layer-container {
+		position: absolute;
+		width: 100%;
+		height: 90%;
+		z-index: -1;
+		overflow: hidden;
+	}
+
+	// Cloud layers which will be animated
+	.cloud-layer {
+		position: absolute;
+		width: 100%;
+
+		// Animation to move cloud layer across small screen
+		@include keyframes(moving-cloud-layer-small) {
+			0% {
+				@include transform(translateX(-150%));
+			}
+
+			50% {
+				@include transform(translateX(0));
+			}
+
+			100% {
+				@include transform(translateX(150%));
+			}
+		}
+
+		// Animation to move cloud layer across big screen
+		@include keyframes(moving-cloud-layer-big) {
+			0% {
+				@include transform(translateX(-100%));
+			}
+
+			50% {
+				@include transform(translateX(0));
+			}
+
+			100% {
+				@include transform(translateX(100%));
+			}
+		}
+	}
+
+	// CSS-made cloud shape
+	.cloud {
+		position: absolute;
+		width: 200px;
+		height: 50px;
+		border-radius: 25%/100%;
+		background: rgb(235, 235, 235);
+		z-index: 1;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: -110%;
+			left: 13%;
+			border-radius: 100%;
+			background: inherit;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			top: -60%;
+			right: 15%;
+			border-radius: 100%;
+			background: inherit;
+		}
+
+		// Smaller clouds on small screens
+		@media only screen and (max-width: $smallScreen) {
+			width: 100px;
+			height: 25px;
+
+			&:before {
+				width: 50px;
+				height: 50px;
+			}
+
+			&:after {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+
+	// Foreground layer
+	.foreground {
+
+		height: 100%;
+
+		&.before {
+			
+			@include animation(moving-cloud-layer-big 30s -15s linear infinite);
+
+			// Use greater offset animation for smaller screens to hide elements popping in
+			@media only screen and (max-width: $bigScreen) {
+				@include animation(moving-cloud-layer-small 20s -10s linear infinite);
+			}
+
+			// Set position of clouds
+			.cloud:nth-child(1) {
+				top: 50%;
+				left: 20%;
+			}
+
+			.cloud:nth-child(2) {
+				top: 70%;
+				left: 70%;
+			}
+		}
+
+		&.after {
+
+			@include animation(moving-cloud-layer-big 30s -30s linear infinite);
+
+			// Use greater offset animation for smaller screens to hide elements popping in
+			@media only screen and (max-width: $bigScreen) {
+				@include animation(moving-cloud-layer-small 20s -20s linear infinite);
+			}
+
+			// Set position of clouds
+			.cloud:nth-child(1) {
+				top: 30%;
+				left: 40%;
+			}
+
+			.cloud:nth-child(2) {
+				top: 80%;
+				left: 85%;
+			}
+		}
+	}
+
+	// Background layer
+	.background {
+
+		height: 100%;
+
+		&.before {
+
+			@include animation(moving-cloud-layer-big 19.5s -9.75s linear infinite);
+
+			// Use greater offset animation for smaller screens to hide elements popping in
+			@media only screen and (max-width: $bigScreen) {
+				@include animation(moving-cloud-layer-small 13s -6.5s linear infinite);
+			}
+
+			// Set position of clouds
+			.cloud:nth-child(1) {
+				top: 40%;
+				left: 10%;
+			}
+
+			.cloud:nth-child(2) {
+				top: 90%;
+				left: 60%;
+			}
+		}
+
+		&.after {
+
+			@include animation(moving-cloud-layer-big 19.5s -19.5s linear infinite);
+
+			// Use greater offset animation for smaller screens to hide elements popping in
+			@media only screen and (max-width: $bigScreen) {
+				@include animation(moving-cloud-layer-small 13s -13s linear infinite);
+			}
+
+			// Set position of clouds
+			.cloud:nth-child(1) {
+				top: 15%;
+				left: 4%;
+			}
+
+			.cloud:nth-child(2) {
+				top: 26%;
+				left: 47%;
+			}
+		}
+	}
+
+
+	// Using table cell method to vertical align
+	#frontpage-cell {
+		display: table-cell;
+		vertical-align: middle;
+
+		// Each element will have a containing div block
+		// Elements inside are centered align by using text-align
+		.frontpage-element-container {text-align: center;}
+		.frontpage-element {display: inline-block; vertical-align: top;}
+	}
+
+	// Profile Pic
+	#profile-pic-box {
+		width: $profilePicBoxDimension;
+		position: relative;
+
+		// Responsive square using after pseudo element
+		&:after {
+			content: '';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		// Setting profile picture
+		.profile-pic {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: $profilePicDimension; height: $profilePicDimension;
+			pointer-events: none;
+			@include transform(translate(-50%, -50%));
+		}
+
+		// Rotate the semicircle into place on page load
+		#C-half {
+			opacity: 0;
+			@include transition(all 0.5s ease-in-out);
+			@include transform-origin(50% 50%);
+			@include transform(translate(-50%, -50%) rotate(90deg));
+		}
+		
+		// Rest of the logo appears after semicircle is in place
+		#Y-half {
+			opacity: 0;
+			@include transition(all 0.5s 0.5s ease-in-out);
+		}
+
+		// Slighly enlarge profile pic when on small screen
+		@media only screen and (max-width: $midScreen) {
+			width: $profilePicBoxDimension * 3;
+		}
+	}
+
+	// Name Style
+	#name {
+		color: $nameColor;
+		font-family: $mainFontStack;
+		font-size: $nameSize;
+		line-height: 1;
+		@include letter-spacing(14px);
+		position: relative;
+
+		// Name underline
+		&:after {
+			content: '';
+			display: block;
+			height: 2px;
+			background: $nameColor;
+			@include transform(translateX(-7px) scaleX(0));
+			@include transition(all 0.3s ease-out);
+		}
+
+		// Media query settings
+		@media only screen and (max-width: $smallScreen) {
+			& {font-size: $nameSize/1.5; line-height: $nameSize/1.5; @include letter-spacing(8px);}
+			&:after {transform: translateX(-4px) scaleX(0);}
+			// &.name-initial-start:after {@include transform(translateX(-4px) scaleX(1));}
+		}
+	}
+
+	// Subtitle Style
+	#subtitle {
+		margin-top: 0.25%;
+		position: relative;
+		color: $subtitleColor;
+		font-family: $subFontStack;
+		font-size: $subtitleSize;
+		width: 100%;
+
+		// Center subtitles inside container
+		& > span {
+			position: absolute;
+			margin: 0;
+			@include horizontalCenter();
+			white-space: nowrap;
+			opacity: 0;
+			@include transition(all 0.3s ease-in);
+		}
+
+		// Subtitle with active class appears
+		& > span.active {opacity: 1;}
+	}
+
+	// Frontpage navigation links
+	#frontpage-links-container {
+		margin-top: 3em;
+
+		// Link style
+		.frontpage-links {
+			display: inline-block;
+			margin: 0 48px;
+			padding: 20px 0;
+			text-decoration: none;
+			color: $fpLinkColor;
+			font-size: $fpLinkSize;
+			font-family: $mainFontStack;
+
+			// Link underline
+			&:after {
+				content: '';
+				display: block;
+				height: 2px;
+				background: $fpLinkColor;
+				visibility: hidden;	// Fallback for browsers without transform
+				@include transform(scaleX(0));
+				@include transition(all 0.2s ease-out);
+			}
+
+			// Stretch underline on hover
+			body.hover-enable &:hover:after {visibility: visible; @include transform(scaleX(1));}
+		}
+
+		// Adjust margin between links on small screen
+		@media only screen and (max-width: $bigScreen) {
+			.frontpage-links {margin: 0 12px;}
+		}
+		@media only screen and (max-width: $midScreen) {
+			.frontpage-links {display: block; margin-top: 10px; padding: 0;}
+		}
+	}
+
+	// Scroll indicator
+	#frontpage-scroll-container {
+		margin-top: 5%;
+		margin-bottom: 5%;
+
+		// Indicator animation
+		@include keyframes(indicatorBob) {
+			0%, 100% {@include transform(translateY(0));}
+			5% {@include transform(translateY(75%));}
+			10% {@include transform(translateY(0));}
+			15% {@include transform(translateY(75%));}
+			20% {@include transform(translateY(0));}
+		}
+
+		// Scroll indicator arrow
+		#frontpage-scroll-indicator {
+			opacity: 0;
+			@include transform(translateY(-100%));
+			@include triangle('down', $scrollIndicatorSize, $scrollIndicatorSize, $scrollIndicatorColor);
+			@include transition(all 0.15s ease-out);
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			margin-top: 20%;
+		}
+	}
+
+	// Transitions after page load
+	body.page-loaded & {
+
+		// Underline under name
+		#name:after {
+			@include transform(translateX(-7px) scaleX(1));
+			// Adjust for smaller screen
+			@media only screen and (max-width: $smallScreen) {
+				@include transform(translateX(-4px) scaleX(1));
+			}
+		}
+
+		// Scroll indicator arrow appears
+		#frontpage-scroll-container > #frontpage-scroll-indicator {
+			opacity: 1;
+			@include transform(translateY(0));
+			@include animation(indicatorBob 4s ease-in-out infinite);
+		}
+
+		#profile-pic-box > #C-half {
+			opacity: 1;
+			@include transform(translate(-50%, -50%) rotate(0deg));
+		}
+
+		#profile-pic-box > #Y-half {
+			opacity: 1;
+		}
+	}
+}
+
+// Content wrapper properties
+.content-wrapper {
+	height: 100%;
+	width: $contentWrapper;
+	margin: 0 auto;
+	position: relative;
+	display: table;
+
+	@media only screen and (max-device-aspect-ratio: $tabletRatio) {
+		height: 50%;
+	}
+
+	// Float all containers to left
+	.content-div {float: left;}
+
+	// Sidebar spacing
+	.sidebar-spacing {
+		width: 15%;
+		min-height: 1px;
+	}
+
+	// Content cell
+	.content-cell {
+		width: 85%;
+		min-height: 1px;
+		margin-top: 2.6em;
+		overflow: hidden;
+		@include transition(all 0.3s ease-out);
+		&.hidden {
+			opacity: 0;
+		}
+	}
+
+	// Adjust content width with smaller resolution
+	@media only screen and (max-width: $bigScreen) {
+		// Content fills 100% of screen without sidebar
+		& {width: 100%}
+		.sidebar-spacing {width: 0%;}
+
+		// Content remains at the center
+		.content-container {text-align: center;}
+		.content-cell {
+			width: 100%;
+			margin-top: 0;
+		}
+	}
+
+	// Content title
+	.content-title {
+		color: $mainFontColor;
+		font-family: $mainFontStack;
+		font-size: 36px;
+		letter-spacing: 6px;
+	}
+
+	// Content text
+	.content-text {
+		color: $contentFontColor;
+		font-family: $subFontStack;
+		font-size: 14px;
+		line-height: 200%;
+	}
+}
+
+// Sidebar container
+#sidebar-container {
+	position: relative;
+	z-index: 998;
+	margin-top: 2.6em;
+	@include transition(0.4s cubic-bezier(.62,.17,.49,1.33));
+
+	// Hide sidebar off to the side before scroll gets in position
+	&.hidden {
+		opacity: 0;
+		@include transform(translateX(-60%));
+	}
+
+	// Sidebar fixed properties
+	&.fixed-sidebar {
+		// Top is below nav
+		// Width is 15% of about-me width
+		position: fixed;
+		top: $navbarHeightLarge;
+		width: $sidebarContainer;
+	}
+
+	// Take out sidebar on smaller screen
+	@media only screen and (max-width: $bigScreen) {
+		& {display: none;}
+	}
+
+	// Links list container
+	#sidebar-links-list {
+		margin: 0;
+		padding: 0;
+
+		// Links
+		.sidebar-links {
+			list-style-type: none;
+
+			// Make entire anchor clickable
+			a {
+				display: block;
+				padding: 15px 16px;
+				text-align: left;
+				text-decoration: none;
+				font-family: $mainFontStack;
+				color: $sidebarDeactivateColor;
+				@include transition(0.3s);
+			}
+
+			// Color changes on activation
+			&.active > a {color: $sidebarActivateColor;}
+		}
+	}
+
+	// Sidebar active link indicator
+	#sidebar-links-indicator {
+		width: 3px; height: 0;
+		background: #74a2ff;
+		position: absolute;
+		top: 0; right: 0;
+		@include transition(0.175s ease-in-out);
+	}
+}
+
+@media only screen and (max-width: $bigScreen) {
+	.content-container {
+		text-align: center;
+	}
+}
+
+// About Me Page
+#about-me {
+
+	// About Me Image Properties
+	&-image {
+		width: 30%;
+		margin-left: 5%;
+		display: inline-block;
+		vertical-align: top;
+		background: url($imageLocation + '/about-me.jpg') no-repeat;
+		background-position: 23% 0;
+		background-size: cover;
+		pointer-events: none;
+
+		// Make image a fixed size
+		&:after {
+			content: '';
+			display: block;
+			padding-bottom: 200%;
+		}
+
+		@media only screen and (max-device-aspect-ratio: $tabletRatio) {
+			vertical-align: top;
+		}
+	}
+
+	// About Me Description Properties
+	&-description {
+		width: 60%;
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 3%;
+
+		@media only screen and (max-device-aspect-ratio: $tabletRatio) {
+			vertical-align: middle;
+		}
+	}
+
+	// About Me description title
+	&-title {
+		display: block;
+		margin: 0% 0 4% 0;
+		@include transition(all 0.3s ease-out);
+
+		.content-cell.hidden & {
+			@include transform(translate(30px, 0px));
+
+			@media only screen and (max-width: $smallScreen) {
+				@include transform(translate(0px, 30px));
+			}
+		}
+	}
+
+
+	// About Me description text
+	&-text {
+		margin: 0 0 2% 0;
+		opacity: 1;
+
+		.intro-text {
+			font-size: 24px;
+			opacity: 1;
+			@include transition(all 0.3s 0.2s ease-out);
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transition-delay(0s);
+				@include transform(translate(30px, 0px));
+				
+				@media only screen and (max-width: $smallScreen) {
+					@include transform(translate(0px, 30px));
+				}
+			}
+		}
+
+		.detail-text {
+			opacity: 1;
+			@include transition(all 0.3s 0.3s ease-out);
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transition-delay(0s);
+				@include transform(translate(30px, 0px));
+				
+				@media only screen and (max-width: $smallScreen) {
+					@include transform(translate(0px, 30px));
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bigScreen) {
+		// Makes sure content is at the center of the screen
+		&-image {
+			margin-left: 0;
+		}
+		&-description {
+			text-align: left;
+		}
+	}
+
+	// About me page takes up whole width if smaller screen
+	@media only screen and (max-width: $smallScreen) {
+
+		// Image takes up whole width and is block
+		&-image {
+			width: 100%;
+			margin-left: 0px;
+			display: block;
+			background-position: 0% 50%;
+			&:after {
+				padding-bottom: 50%;
+			}
+		}
+
+		// Description is block
+		&-description {
+			width: 90%;
+			margin: 0 auto;
+			display: block;
+		}
+
+		// Slightly adjust text spacing and alignment
+		&-title {margin: 5% 0 2% 0; text-align: center;}
+		&-text {text-align: justify;}
+	}
+}
+
+// Skills section
+#skills {
+
+	// Container for containing a list of icons
+	&-list-container {
+		width: 50%;
+		margin-left: 5%;
+		display: inline-block;
+		vertical-align: middle;
+		@include transition(all 0.3s ease-out);
+
+		// Icons align to the left on non-HD screens
+		@media only screen and (max-width: $bigScreen) {
+			margin-left: 0%;
+			text-align: left;
+		}
+
+		// Text displayed for small screens
+		.mobile-text {
+			display: none;
+			width: 90%;
+			margin: 0 auto 5% auto;
+			text-align: justify;
+			opacity: 1;
+			@include transition(all 0.3s 0.2s ease-out);
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transition-delay(0s);
+				@include transform(translateY(30px));
+			}
+
+			@media only screen and (max-width: $smallScreen) {
+				display: block;
+			}
+		}
+
+		// Icons container fills up whole screen on smaller screens
+		@media only screen and (max-width: $smallScreen) {
+			width: 100%;
+			display: block;
+			margin-left: 0;
+		}
+
+		.skills-subtitle {
+			font-family: $subFontStack;
+			font-size: 18px;
+			color: $mainFontColor;
+			text-align: left;
+			margin-bottom: 1%;
+			opacity: 1;
+			@include transition(all 0.3s 0.2s ease-out);
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transition-delay(0s);
+				@include transform(translateY(30px));
+			}
+
+			@media only screen and (max-width: $smallScreen) {
+				text-align: center;
+				margin-bottom: 5%;
+				@include transition(all 0.3s 0.3s ease-out);
+			}
+		}
+
+		.list-container {
+			width: 100%;
+			opacity: 1;
+			@include transition(all 0.3s 0.2s ease-out);
+
+			// Icons are centered on small screens
+			@media only screen and (max-width: $smallScreen) {
+				text-align: center;
+				@include transition(all 0.3s 0.3s ease-out);
+			}
+
+			& > ul {
+				padding: 0;
+				margin: 0;
+			}
+
+			#programming-list {
+				margin-bottom: 6%;
+
+				@media only screen and (max-width: $midScreen) {
+					margin-bottom: 10%;
+				}
+			}
+
+			// Prevent icons clipping due to vertical translation
+			#other-list {
+				margin-bottom: 10%;
+
+				@media only screen and (max-width: $smallScreen) {
+					margin-bottom: 15%;
+				}
+			}
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transition-delay(0s);
+				@include transform(translateY(30px));
+			}
+		}
+
+		.skills-list-item {
+			width: 22%;
+			margin: 1% 2% 1% 0;
+			display: inline-block;
+			vertical-align: top;
+			list-style: none;
+
+			// Adjust icons spacing when centered on small screens
+			@media only screen and (max-width: $smallScreen) {
+				margin: 1%;
+			}
+		}
+
+		.skills-icon {
+			width: 100%;
+			margin: 0 auto;
+			position: relative;
+
+			&:after {
+				content: '';
+				display: block;
+				padding-bottom: 100%;
+			}
+		}
+
+		.icon-image {
+			max-width: 85%;
+			max-height: 85%;
+			position: absolute;
+			pointer-events: none;
+			@include center();
+
+			&:after {
+				content: '';
+				display: block;
+				padding-bottom: 100%;
+			}
+		}
+
+		.skills-text {
+			width: 100%;
+			font-family: $subFontStack;
+			font-size: 14px;
+			color: $subtitleColor;
+			text-align: center;
+		}
+
+		.skills-years-text {
+			width: 100%;
+			font-family: $subFontStack;
+			font-size: 12px;
+			color: rgb(120, 120, 120);
+			text-align: center;
+		}
+	}
+
+	&-title {
+		margin-bottom: 4%;
+		text-align: left;
+		@include transition(transform 0.3s ease-out);
+
+		.content-cell.hidden & {
+			@include transform(translateY(30px));
+		}
+
+		@media only screen and (max-width: $bigScreen) {
+			margin-top: 6%;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			text-align: center;
+		}
+	}
+
+	// Container for the icon descriptions
+	&-description-container {
+		width: 43%;
+		min-height: 10px;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+		margin-top: 15%;
+
+		.content-text {
+			width: 90%;
+			margin-left: 10%;
+			opacity: 1;
+			@include transition(all 0.3s 0.5s ease-out);
+
+			// Text comes in from the left when content appears
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transform(translateX(5%));
+				@include transition-delay(0s);
+			}
+		}
+
+		// Hide description for small screens
+		@media only screen and (max-width: $smallScreen) {
+			display: none;
+		}
+	}
+}
+
+// Projects section
+#projects {
+	
+	&-container {
+		width: 100%;
+
+		@media only screen and (max-width: $bigScreen) {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	&-list-container {
+		width: 93.3%;
+		display: inline-block;
+		margin-left: 5%;
+
+		@media only screen and (max-width: $bigScreen) {
+			margin: 0 auto;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			width: 100%;
+		}
+
+		.list-container {
+
+			& ul {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		.project-item {
+			width: 49.5%;
+			display: inline-block;
+			vertical-align: top;
+			margin-bottom: 5%;
+			opacity: 1;
+
+			@media only screen and (max-width: $smallScreen) {
+				width: 100%;
+				display: block;
+				margin-bottom: 10%;
+			}
+
+			.content-cell.hidden & {
+				@include transition-delay(0s);
+				opacity: 0;
+			}
+
+			@for $i from 1 to 5 {
+				&:nth-child(#{$i}) {
+					@include transition(opacity 0.3s 0.3s + 0.15 * $i ease-out);
+				}
+			}
+		}
+
+		.project-image {
+			position: relative;
+			width: 95%;
+			cursor: pointer;
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				pointer-events: none;
+			}
+
+			video {
+				width: 100%;
+				height: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				@include transition(opacity 0.3s ease-out);
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			@media only screen and (max-width: $smallScreen) {
+				width: 100%;
+			}
+		}
+
+		.project-description {
+			width: 95%;
+			text-align: left;
+
+			.project-title {
+				margin: 2% 0 1% 0;
+				font-family: $subFontStack;
+				font-size: 24px;
+				color: $mainFontColor;
+
+				@media only screen and (max-width: $smallScreen) {
+					text-align: center;
+				}
+			}
+
+			p {
+				margin: 0;
+				font-family: $subFontStack;
+				font-size: 14px;
+				color: rgb(120, 120, 120);
+
+				@media only screen and (max-width: $smallScreen) {
+					text-align: justify;
+				}
+			}
+
+			@media only screen and (max-width: $smallScreen) {
+				width: 90%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	&-title {
+		margin-bottom: 2.1333%;
+		text-align: left;
+		@include transform(translateY(0));
+		@include transition(transform 0.3s ease-out);
+
+		@media only screen and (max-width: $bigScreen) {
+			margin-top: 3.2%;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			margin-top: 6%;
+			margin-bottom: 4%;
+			text-align: center;
+		}
+
+		.content-cell.hidden & {
+			@include transform(translateY(30px));
+		}
+	}
+
+	&-description {
+		margin-bottom: 2.2%;
+		text-align: left;
+		opacity: 1;
+		@include transform(translateY(0));
+		@include transition(all 0.3s 0.2s ease-out);
+
+		@media only screen and (max-width: $bigScreen) {
+			text-align: justify;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			width: 90%;
+			margin: 0 auto 5% auto;
+		}
+
+		.content-cell.hidden & {
+			opacity: 0;
+			@include transform(translateY(30px));
+			@include transition-delay(0s);
+		}
+	}
+}
+
+// Contact me section
+#contact-me {
+
+	&-wrapper {
+		position: relative;
+	}
+
+	&-container {
+		width: 100%;
+
+		@media only screen and (max-width: $bigScreen) {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	&-list-container {
+		width: 93.3%;
+		display: inline-block;
+		margin-left: 5%;
+
+		@media only screen and (max-width: $bigScreen) {
+			margin: 0 auto 40px auto;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			width: 100%;
+		}
+	}
+
+	&-title {
+		margin-bottom: 2.1333%;
+		text-align: left;
+		@include transform(translateY(0));
+		@include transition(transform 0.3s ease-out);
+
+		@media only screen and (max-width: $bigScreen) {
+			margin-top: 3.2%;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			margin-top: 6%;
+			margin-bottom: 4%;
+			text-align: center;
+		}
+
+		.content-cell.hidden & {
+			@include transform(translateY(30px));
+		}
+	}
+
+	&-contents {
+		width: 100%;
+		display: block;
+	}
+
+	&-form-container {
+		width: 49.5%;
+		display: inline-block;
+		vertical-align: top;
+
+		@media only screen and (max-width: $smallScreen) {
+			width: 100%;
+			display: block;
+			text-align: center;
+		}
+
+		.no-show-field {
+			padding: 0;
+			margin: 0;
+			outline: none;
+			border: none;
+			-webkit-appearance: none;
+		}
+
+		.field {
+			display: block;
+			padding: 0 0 5% 0;
+			margin: 0;
+			opacity: 1;
+			border: none;
+			text-align: left;
+
+			.content-cell.hidden & {
+				opacity: 0;
+				@include transform(translateY(30px));
+				@include transition-delay(0s);
+			}
+
+			@for $i from 1 to 5 {
+				&:nth-child(#{$i}) {
+					@include transition(all 0.3s 0.1s + 0.05 * $i ease-out);
+				}
+			}
+
+			@media only screen and (max-width: $smallScreen) {
+				text-align: center;
+			}
+		}
+
+		.input {
+			display: block;
+			resize: none;
+			width: 50%;
+			padding: 5px 0;
+			border: none;
+			border-radius: 0;
+			border-bottom: 2px $mainFontColor solid;
+			-webkit-appearance: none; // Gets rid of box shadow on iOS
+			outline: none; // Gets rid of Chrome focus border
+			background: transparent;
+			font-family: $subFontStack;
+			font-size: 16px;
+			color: rgb(120, 120, 120);
+			@include transition(all 0.3s ease-out);
+
+			@media only screen and (max-width: $smallScreen) {
+				width: 70%;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			&:focus {
+				color: $subtitleColor;
+				width: 80%;
+				border-bottom: 2px $subtitleColor solid;
+			}
+
+			&:invalid {
+				box-shadow: none;
+			}
+
+			&.interacted:invalid {
+				border-bottom: 2px $formInvalidColor solid;
+			}
+
+			&.interacted:valid {
+				border-bottom: 2px $formValidColor solid;
+			}
+		}
+
+		#message-field {
+			width: 80%;
+			padding: 5px;
+			border: 2px $mainFontColor solid;
+			overflow: hidden;
+
+			&:focus {
+				border: 2px $subtitleColor solid;
+			}
+
+			&.interacted:invalid {
+				border: 2px $formInvalidColor solid;
+			}
+
+			&.interacted:valid {
+				border: 2px $formValidColor solid;
+			}
+		}
+
+		#button {
+			width: auto;
+			padding: 5px 8px;
+			background: $mainFontColor;
+			border: none;
+			border-radius: 0;
+			font-size: 18px;
+			font-family: $subFontStack;
+			color: $bg;
+			cursor: pointer;
+			-webkit-appearance: none; // Prevents iOS from rendering the button wrong
+			@include transition(all 0.3s ease-out);
+
+			body.hover-enable &:hover {
+				background: $sidebarActivateColor;
+			}
+		}
+
+		.label {
+			display: inline-block;
+			margin-bottom: 1%;
+			font-family: $subFontStack;
+			font-size: 18px;
+			color: $mainFontColor;
+		}
+	}
+
+	&-links-container {
+		width: 49.5%;
+		display: inline-block;
+		vertical-align: top;
+
+		.list-container {
+			margin-top: 5%;
+
+			.list-title {
+				padding: 5px 0;
+				font-family: $subFontStack;
+				font-size: 24px;
+				color: $mainFontColor;
+				text-align: left;
+				opacity: 1;
+				@include transition(all 0.3s 0.4s ease-out);
+
+				@media only screen and (max-width: $smallScreen) {
+					text-align: center;
+				}
+
+				.content-cell.hidden & {
+					opacity: 0;
+					@include transform(translateY(30px));
+					@include transition-delay(0s);
+				}
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+
+			.contact-me-link-item {
+				list-style: none;
+				opacity: 1;
+
+				@for $i from 1 to 5 {
+					&:nth-child(#{$i}) {
+						@include transition(all 0.3s 0.45s + 0.05 * $i ease-out);
+					}
+				}
+
+				@media only screen and (max-width: $bigScreen) {
+					text-align: left;
+				}
+
+				@media only screen and (max-width: $smallScreen) {
+					text-align: center;
+				}
+
+				.content-cell.hidden & {
+					opacity: 0;
+					@include transform(translateY(30px));
+					@include transition-delay(0s);
+				}
+			}
+
+			.contact-me-link {
+				display: inline-block;
+				padding: 6px 0;
+				text-decoration: none;
+				text-align: left;
+
+				@media only screen and (max-width: $smallScreen) {
+					min-width: 85%;
+					margin: 0 auto;
+				}
+
+				body.hover-enable &:hover .link-text {
+					color: $subtitleColor;
+				}
+			}
+
+			.link-image {
+				display: inline-block;
+				width: 35px;
+				height: 35px;
+				vertical-align: middle;
+				padding-right: 10px;
+				pointer-events: none;
+			}
+
+			.link-text {
+				display: inline-block;
+				vertical-align: middle;
+				font-family: $mainFontStack;
+				font-size: 16px;
+				color: $mainFontColor;
+				@include transition(color 0.3s ease-out);
+			}
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			width: 100%;
+			display: block;
+		}
+	}
+
+	&-description {
+		width: 80%;
+		text-align: left;
+		opacity: 1;
+		@include transition(all 0.3s 0.4s ease-out);
+
+		.content-cell.hidden & {
+			opacity: 0;
+			@include transform(translateX(30px));
+			@include transition-delay(0s);
+		}
+
+		@media only screen and (max-width: $bigScreen) {
+			width: 100%;
+		}
+
+		@media only screen and (max-width: $smallScreen) {
+			display: none;
+		}
+	}
+}
+
+#footer {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: $contentWrapper;
+	margin: 7px 0;
+	text-align: center;
+	font-family: $mainFontStack;
+	font-size: 12px;
+	color: rgb(160, 160, 160);
+	opacity: 1;
+	@include transition(all 0.3s 1s ease-out);
+
+	@media only screen and (max-width: $bigScreen) {
+		width: 100%;
+	}
+
+	.content-cell.hidden & {
+		opacity: 0;
+		@include transition-delay(0s);
+	}
+}
+
+// * {
+  // background: #000 !important;
+  // color: #0f0 !important;
+  // outline: solid #f00 1px !important;
+// }

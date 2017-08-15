@@ -1,0 +1,48 @@
+// Stylesheet for custom scrollbar
+
+$scrollbarWidth: 5%;
+$contentWidth: 100% - $scrollbarWidth;
+
+// Wrapper around entire content + scrollbar
+.scrollbar-content-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+// Content Container
+.scrollbar-content-container {
+	position: relative;
+	top: 0px;
+	float: left;
+	width: $contentWidth; min-height: 1px;
+}
+
+// Scrollbar Container
+.scrollbar-dragger-container {
+	position: relative;
+	float: left;
+	width: $scrollbarWidth; height: 100%;
+}
+
+.scrollbar-dragger {
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+	background: black;
+	border-radius: 100px;
+	cursor: pointer;
+}
+
+.scrollbar-track {
+	position: relative;
+	width: 20%; height: 100%;
+	margin: 0 auto;
+	z-index: 1;
+	background: white;
+}
+
+// * {
+//   background: #000 !important;
+//   color: #0f0 !important;
+//   outline: solid #f00 1px !important;
+// }

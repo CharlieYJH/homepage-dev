@@ -1,0 +1,10 @@
+.sass-cache/
+*.css.map
+node_modules
+public/images/index/icons/rough/
+public/rough_vids
+concept/
+*.swp
+*.ai
+*.psd
+logo.svg
