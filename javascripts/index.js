@@ -227,6 +227,7 @@
 				source.type = 'video/mp4';
 
 				video.appendChild(source);
+				video.load();
 
 				video.addEventListener('mouseenter', function() {
 					video.play();
