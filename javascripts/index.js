@@ -229,6 +229,14 @@
 				video.appendChild(source);
 				video.load();
 
+				// Check for video loading periodically. Stop this check once video is laoded.
+				var loadChecker = setInterval(function() {
+					if (video.readyState === 4) {
+						video.classList.add('loaded');
+						clearInterval(loadChecker);
+					}
+				}, 100);
+				
 				video.addEventListener('mouseenter', function() {
 					video.play();
 				});

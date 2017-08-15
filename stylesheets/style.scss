@@ -1506,7 +1506,7 @@ $linkSpacing: 7%;
 				opacity: 0;
 				@include transition(opacity 0.3s ease-out);
 
-				&:hover {
+				&.loaded:hover {
 					opacity: 1;
 				}
 			}

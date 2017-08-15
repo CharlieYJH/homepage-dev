@@ -1403,7 +1403,7 @@ body {
       -moz-transition: opacity 0.3s ease-out;
       -o-transition: opacity 0.3s ease-out;
       transition: opacity 0.3s ease-out; }
-      #projects-list-container .project-image video:hover {
+      #projects-list-container .project-image video.loaded:hover {
         opacity: 1; }
     @media only screen and (max-width: 640px) {
       #projects-list-container .project-image {
