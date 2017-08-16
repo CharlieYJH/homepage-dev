@@ -678,7 +678,7 @@ $linkSpacing: 7%;
 
 		height: 100%;
 
-		&.before {
+		body.page-loaded &.before {
 			
 			@include animation(moving-cloud-layer-big 30s -15s linear infinite);
 
@@ -699,7 +699,7 @@ $linkSpacing: 7%;
 			}
 		}
 
-		&.after {
+		body.page-loaded &.after {
 
 			@include animation(moving-cloud-layer-big 30s -30s linear infinite);
 
@@ -726,7 +726,7 @@ $linkSpacing: 7%;
 
 		height: 100%;
 
-		&.before {
+		body.page-loaded &.before {
 
 			@include animation(moving-cloud-layer-big 19.5s -9.75s linear infinite);
 
@@ -747,7 +747,7 @@ $linkSpacing: 7%;
 			}
 		}
 
-		&.after {
+		body.page-loaded &.after {
 
 			@include animation(moving-cloud-layer-big 19.5s -19.5s linear infinite);
 

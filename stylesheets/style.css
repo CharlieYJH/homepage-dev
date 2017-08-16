@@ -552,82 +552,82 @@ body {
           height: 30px; } }
   #frontpage-wrapper .foreground {
     height: 100%; }
-    #frontpage-wrapper .foreground.before {
+    body.page-loaded #frontpage-wrapper .foreground.before {
       -webkit-animation: moving-cloud-layer-big 30s -15s linear infinite;
       -moz-animation: moving-cloud-layer-big 30s -15s linear infinite;
       -ms-animation: moving-cloud-layer-big 30s -15s linear infinite;
       -o-animation: moving-cloud-layer-big 30s -15s linear infinite;
       animation: moving-cloud-layer-big 30s -15s linear infinite; }
       @media only screen and (max-width: 1200px) {
-        #frontpage-wrapper .foreground.before {
+        body.page-loaded #frontpage-wrapper .foreground.before {
           -webkit-animation: moving-cloud-layer-small 20s -10s linear infinite;
           -moz-animation: moving-cloud-layer-small 20s -10s linear infinite;
           -ms-animation: moving-cloud-layer-small 20s -10s linear infinite;
           -o-animation: moving-cloud-layer-small 20s -10s linear infinite;
           animation: moving-cloud-layer-small 20s -10s linear infinite; } }
-      #frontpage-wrapper .foreground.before .cloud:nth-child(1) {
+      body.page-loaded #frontpage-wrapper .foreground.before .cloud:nth-child(1) {
         top: 50%;
         left: 20%; }
-      #frontpage-wrapper .foreground.before .cloud:nth-child(2) {
+      body.page-loaded #frontpage-wrapper .foreground.before .cloud:nth-child(2) {
         top: 70%;
         left: 70%; }
-    #frontpage-wrapper .foreground.after {
+    body.page-loaded #frontpage-wrapper .foreground.after {
       -webkit-animation: moving-cloud-layer-big 30s -30s linear infinite;
       -moz-animation: moving-cloud-layer-big 30s -30s linear infinite;
       -ms-animation: moving-cloud-layer-big 30s -30s linear infinite;
       -o-animation: moving-cloud-layer-big 30s -30s linear infinite;
       animation: moving-cloud-layer-big 30s -30s linear infinite; }
       @media only screen and (max-width: 1200px) {
-        #frontpage-wrapper .foreground.after {
+        body.page-loaded #frontpage-wrapper .foreground.after {
           -webkit-animation: moving-cloud-layer-small 20s -20s linear infinite;
           -moz-animation: moving-cloud-layer-small 20s -20s linear infinite;
           -ms-animation: moving-cloud-layer-small 20s -20s linear infinite;
           -o-animation: moving-cloud-layer-small 20s -20s linear infinite;
           animation: moving-cloud-layer-small 20s -20s linear infinite; } }
-      #frontpage-wrapper .foreground.after .cloud:nth-child(1) {
+      body.page-loaded #frontpage-wrapper .foreground.after .cloud:nth-child(1) {
         top: 30%;
         left: 40%; }
-      #frontpage-wrapper .foreground.after .cloud:nth-child(2) {
+      body.page-loaded #frontpage-wrapper .foreground.after .cloud:nth-child(2) {
         top: 80%;
         left: 85%; }
   #frontpage-wrapper .background {
     height: 100%; }
-    #frontpage-wrapper .background.before {
+    body.page-loaded #frontpage-wrapper .background.before {
       -webkit-animation: moving-cloud-layer-big 19.5s -9.75s linear infinite;
       -moz-animation: moving-cloud-layer-big 19.5s -9.75s linear infinite;
       -ms-animation: moving-cloud-layer-big 19.5s -9.75s linear infinite;
       -o-animation: moving-cloud-layer-big 19.5s -9.75s linear infinite;
       animation: moving-cloud-layer-big 19.5s -9.75s linear infinite; }
       @media only screen and (max-width: 1200px) {
-        #frontpage-wrapper .background.before {
+        body.page-loaded #frontpage-wrapper .background.before {
           -webkit-animation: moving-cloud-layer-small 13s -6.5s linear infinite;
           -moz-animation: moving-cloud-layer-small 13s -6.5s linear infinite;
           -ms-animation: moving-cloud-layer-small 13s -6.5s linear infinite;
           -o-animation: moving-cloud-layer-small 13s -6.5s linear infinite;
           animation: moving-cloud-layer-small 13s -6.5s linear infinite; } }
-      #frontpage-wrapper .background.before .cloud:nth-child(1) {
+      body.page-loaded #frontpage-wrapper .background.before .cloud:nth-child(1) {
         top: 40%;
         left: 10%; }
-      #frontpage-wrapper .background.before .cloud:nth-child(2) {
+      body.page-loaded #frontpage-wrapper .background.before .cloud:nth-child(2) {
         top: 90%;
         left: 60%; }
-    #frontpage-wrapper .background.after {
+    body.page-loaded #frontpage-wrapper .background.after {
       -webkit-animation: moving-cloud-layer-big 19.5s -19.5s linear infinite;
       -moz-animation: moving-cloud-layer-big 19.5s -19.5s linear infinite;
       -ms-animation: moving-cloud-layer-big 19.5s -19.5s linear infinite;
       -o-animation: moving-cloud-layer-big 19.5s -19.5s linear infinite;
       animation: moving-cloud-layer-big 19.5s -19.5s linear infinite; }
       @media only screen and (max-width: 1200px) {
-        #frontpage-wrapper .background.after {
+        body.page-loaded #frontpage-wrapper .background.after {
           -webkit-animation: moving-cloud-layer-small 13s -13s linear infinite;
           -moz-animation: moving-cloud-layer-small 13s -13s linear infinite;
           -ms-animation: moving-cloud-layer-small 13s -13s linear infinite;
           -o-animation: moving-cloud-layer-small 13s -13s linear infinite;
           animation: moving-cloud-layer-small 13s -13s linear infinite; } }
-      #frontpage-wrapper .background.after .cloud:nth-child(1) {
+      body.page-loaded #frontpage-wrapper .background.after .cloud:nth-child(1) {
         top: 15%;
         left: 4%; }
-      #frontpage-wrapper .background.after .cloud:nth-child(2) {
+      body.page-loaded #frontpage-wrapper .background.after .cloud:nth-child(2) {
         top: 26%;
         left: 47%; }
   #frontpage-wrapper #frontpage-cell {
