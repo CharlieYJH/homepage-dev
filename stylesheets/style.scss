@@ -123,12 +123,16 @@ $sidebarActivateColor: #74a2ff;
 @mixin animation($animation) {
 	-webkit-animation: $animation;
 	   -moz-animation: $animation;
+	    -ms-animation: $animation;
 	     -o-animation: $animation;
 	    	animation: $animation;
 }
 
 @mixin animation-play-state($state) {
 	-webkit-animation-play-state: $state;
+	   -moz-animation-play-state: $state;
+	    -ms-animation-play-state: $state;
+	     -o-animation-play-state: $state;
 			animation-play-state: $state;
 }
 
@@ -1497,9 +1501,10 @@ $linkSpacing: 7%;
 
 			.load-circle-container {
 				position: absolute;
-				display: none;
 				width: 20%;
+				opacity: 0;
 				@include center();
+				@include transition(all 0.2s ease-out);
 
 				&:after {
 					content: '';
@@ -1508,31 +1513,28 @@ $linkSpacing: 7%;
 				}
 
 				.load-circle {
-					width: 100%;
-					height: 100%;
+					width: 60%;
+					height: 60%;
 					position: absolute;
-					fill: none;
-					stroke: white;
-					stroke-width: 5px;
-					stroke-dasharray: 315;
-					stroke-dashoffset: 315;
-					stroke-linecap: round;
-					z-index: 1;
-					opacity: 0;
-					@include transform(rotate(270deg));
-					@include animation(load 1.5s ease-in-out infinite);
-					@include animation-play-state(paused);
-					@include transition(opacity 0.2s ease-out);
+					border-radius: 100%;
+					border: 5px white solid;
+					background: transparent;
+					@include center();
+					@include animation(load 1s ease-out infinite);
 
 					@include keyframes(load) {
 						0% {
-							stroke-dashoffset: 315;
+							opacity: 0;
+							width: 0%;
+							height: 0%;
 						}
 						50% {
-							stroke-dashoffset: 0;
+							opacity: 1;
 						}
 						100% {
-							stroke-dashoffset: -315;
+							opacity: 0;
+							width: 100%;
+							height: 100%;
 						}
 					}
 				}
@@ -1560,18 +1562,9 @@ $linkSpacing: 7%;
 					opacity: 1;
 				}
 
-				// Stop loading animation once it's loaded and take out loading circle
-				&:not(.loaded) ~ .load-circle-container .load-circle {
-					@include animation-play-state(running);
-				}
-
 				// If it's not loaded, show a loading animation
-				&:not(.loaded):hover ~ .load-circle-container .load-circle {
+				&:not(.loaded):hover ~ .load-circle-container {
 					opacity: 1;
-				}
-
-				&:not(.loaded) ~ .load-circle-container {
-					display: block;
 				}
 			}
 

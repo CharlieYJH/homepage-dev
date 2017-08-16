@@ -8,6 +8,27 @@
 		return check;
 	};
 
+	// Used to detect Internet Explorer
+	var detectIE = function() {
+		var ua = window.navigator.userAgent;
+
+		var msie = ua.indexOf('MSIE ');
+		if (msie > 0) {
+			// IE 10 or older => return version number
+			return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+		}
+
+		var trident = ua.indexOf('Trident/');
+		if (trident > 0) {
+			// IE 11 => return version number
+			var rv = ua.indexOf('rv:');
+			return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+		}
+
+		// other browser
+		return false;
+	}
+
 	// Enable hover features on non-touch device
 	if (mobilecheck()) {
 		document.getElementsByTagName('body')[0].classList.remove('hover-enable');
@@ -231,8 +252,10 @@
 
 				// Check for video loading periodically. Stop this check once video is laoded.
 				var loadChecker = setInterval(function() {
-					if (video.readyState === 4) {
+					// To account for JavaScript floating point errors
+					if (video.buffered.end(0) - video.duration < 0.1) {
 						video.classList.add('loaded');
+						video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
 						clearInterval(loadChecker);
 					}
 				}, 100);
@@ -246,6 +269,7 @@
 				})
 			} else {
 				toRemove.push(video);
+				video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
 			}
 		});
 
