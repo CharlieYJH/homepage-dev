@@ -284,7 +284,10 @@
 				})
 			} else {
 				toRemove.push(video);
-				video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
+				var childCircle = video.parentNode.getElementsByClassName('circle-load')[0];
+				var childStroke = video.parentNode.getElementsByClassName('stroke-load')[0];
+				video.parentNode.removeChild(childCircle);
+				video.parentNode.removeChild(childStroke);
 			}
 		});
 
