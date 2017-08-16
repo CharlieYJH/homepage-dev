@@ -1715,7 +1715,7 @@ body {
     width: 80%;
     padding: 5px;
     border: 2px #31476e solid;
-    overflow: hidden; }
+    text-align: left; }
     #contact-me-form-container #message-field:focus {
       border: 2px #678dcb solid; }
     #contact-me-form-container #message-field.interacted:invalid {

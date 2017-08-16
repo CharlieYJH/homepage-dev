@@ -1798,7 +1798,7 @@ $linkSpacing: 7%;
 			width: 80%;
 			padding: 5px;
 			border: 2px $mainFontColor solid;
-			overflow: hidden;
+			text-align: left;
 
 			&:focus {
 				border: 2px $subtitleColor solid;
