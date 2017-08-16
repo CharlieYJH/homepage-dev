@@ -242,24 +242,23 @@
 
 		Array.prototype.forEach.call(projectVideos, function(video) {
 			if (!isMobile) {
-				// var source = document.createElement('source');
 
-				// source.src = video.dataset.url;
-				// source.type = 'video/mp4';
-
-				// video.appendChild(source);
-				// video.load();
-
+				// Use GET request to load entire video before showing user
 				var req = new XMLHttpRequest();
 				req.open('GET', video.dataset.url, true);
 				req.responseType = 'blob';
 
 				req.onload = function() {
+
+					// Only show if it returns a 200 code
 					if (this.status === 200) {
 						var videoBlob = this.response;
 						var vid = URL.createObjectURL(videoBlob);
+
 						video.src = vid;
 						video.classList.add('loaded');
+
+						// Remove loading circle from DOM
 						setTimeout(function() {
 							video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
 						}, 250);
@@ -268,18 +267,6 @@
 
 				req.send();
 
-				// // Check for video loading periodically. Stop this check once video is laoded.
-				// var loadChecker = setInterval(function() {
-					// // To account for JavaScript floating point errors
-					// if (video.buffered.end(0) - video.duration < 0.1) {
-						// video.classList.add('loaded');
-						// setTimeout(function() {
-							// video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
-						// }, 250);
-						// clearInterval(loadChecker);
-					// }
-				// }, 100);
-				
 				video.addEventListener('mouseenter', function() {
 					video.play();
 				});
