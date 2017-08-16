@@ -194,8 +194,10 @@ body.disable-scroll {
 body {
 	background: $bg;
 	opacity: 0;
-	@include transition(opacity 0.15s ease-out);
-	&.page-loaded {opacity: 1;}
+	&.page-loaded {
+		opacity: 1;
+		@include transition(opacity 0.15s ease-out);
+	}
 }
 
 // Text selection color

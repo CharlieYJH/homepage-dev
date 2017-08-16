@@ -12,13 +12,13 @@ body.disable-scroll {
 
 body {
   background: #f4f5f7;
-  opacity: 0;
-  -webkit-transition: opacity 0.15s ease-out;
-  -moz-transition: opacity 0.15s ease-out;
-  -o-transition: opacity 0.15s ease-out;
-  transition: opacity 0.15s ease-out; }
+  opacity: 0; }
   body.page-loaded {
-    opacity: 1; }
+    opacity: 1;
+    -webkit-transition: opacity 0.15s ease-out;
+    -moz-transition: opacity 0.15s ease-out;
+    -o-transition: opacity 0.15s ease-out;
+    transition: opacity 0.15s ease-out; }
 
 ::-moz-selection {
   background: #8caff6; }
