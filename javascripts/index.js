@@ -243,6 +243,11 @@
 		Array.prototype.forEach.call(projectVideos, function(video) {
 			if (!isMobile) {
 
+				// Append IE tag to display correct loading animation
+				if (detectIE() !== false) {
+					video.classList.add('ie');
+				}
+
 				// Use GET request to load entire video before showing user
 				var req = new XMLHttpRequest();
 				req.open('GET', video.dataset.url, true);
@@ -260,7 +265,10 @@
 
 						// Remove loading circle from DOM
 						setTimeout(function() {
-							video.parentNode.getElementsByClassName('load-circle-container')[0].remove();
+							var childCircle = video.parentNode.getElementsByClassName('circle-load')[0];
+							var childStroke = video.parentNode.getElementsByClassName('stroke-load')[0];
+							video.parentNode.removeChild(childCircle);
+							video.parentNode.removeChild(childStroke);
 						}, 250);
 					}
 				}

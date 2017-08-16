@@ -1542,6 +1542,41 @@ $linkSpacing: 7%;
 				}
 			}
 
+			.stroke-load {
+
+				svg {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					@include transform(rotate(270deg));
+				}
+
+				.load-stroke {
+					stroke: white;
+					fill: none;
+					stroke-width: 5px;
+					stroke-linecap: round;
+					stroke-dasharray: 321;
+					stroke-dashoffset: 321;
+					@include animation(stroke-load 1.5s ease-in-out infinite);
+				}
+
+				@include keyframes(stroke-load) {
+					0% {
+						stroke-dashoffset: 321;
+					}
+
+					50% {
+						stroke-dashoffset: 0;
+					}
+
+					100% {
+						stroke-dashoffset: -321;
+					}
+				}
+			}
+
+
 			img {
 				display: block;
 				width: 100%;
@@ -1565,7 +1600,11 @@ $linkSpacing: 7%;
 				}
 
 				// If it's not loaded, show a loading animation
-				&:not(.loaded):hover ~ .load-circle-container {
+				&.ie:not(.loaded):hover ~ .circle-load {
+					opacity: 1;
+				}
+
+				&:not(.ie):not(.loaded):hover ~ .stroke-load {
 					opacity: 1;
 				}
 			}

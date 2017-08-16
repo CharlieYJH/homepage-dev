@@ -1476,6 +1476,54 @@ body {
     opacity: 0;
     width: 100%;
     height: 100%; } }
+    #projects-list-container .project-image .stroke-load svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-transform: rotate(270deg);
+      -moz-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg); }
+    #projects-list-container .project-image .stroke-load .load-stroke {
+      stroke: white;
+      fill: none;
+      stroke-width: 5px;
+      stroke-linecap: round;
+      stroke-dasharray: 321;
+      stroke-dashoffset: 321;
+      -webkit-animation: stroke-load 1.5s ease-in-out infinite;
+      -moz-animation: stroke-load 1.5s ease-in-out infinite;
+      -ms-animation: stroke-load 1.5s ease-in-out infinite;
+      -o-animation: stroke-load 1.5s ease-in-out infinite;
+      animation: stroke-load 1.5s ease-in-out infinite; }
+@-webkit-keyframes stroke-load {
+  0% {
+    stroke-dashoffset: 321; }
+  50% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: -321; } }
+@-moz-keyframes stroke-load {
+  0% {
+    stroke-dashoffset: 321; }
+  50% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: -321; } }
+@-o-keyframes stroke-load {
+  0% {
+    stroke-dashoffset: 321; }
+  50% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: -321; } }
+@keyframes stroke-load {
+  0% {
+    stroke-dashoffset: 321; }
+  50% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: -321; } }
     #projects-list-container .project-image img {
       display: block;
       width: 100%;
@@ -1496,7 +1544,9 @@ body {
       transition: opacity 0.3s ease-out; }
       #projects-list-container .project-image .project-video.loaded:hover {
         opacity: 1; }
-      #projects-list-container .project-image .project-video:not(.loaded):hover ~ .load-circle-container {
+      #projects-list-container .project-image .project-video.ie:not(.loaded):hover ~ .circle-load {
+        opacity: 1; }
+      #projects-list-container .project-image .project-video:not(.ie):not(.loaded):hover ~ .stroke-load {
         opacity: 1; }
     @media only screen and (max-width: 640px) {
       #projects-list-container .project-image {
