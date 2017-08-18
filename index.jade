@@ -8,12 +8,12 @@ html
 		link(rel="stylesheet" type="text/css" href="./stylesheets/style.css")
 		link(rel="stylesheet" type="text/css" href="./stylesheets/scrollbar.css")
 		link(rel="shortcut icon" href="./favicon.ico")
-		link(rel='apple-touch-icon', sizes='180x180', href='./apple-touch-icon.png')
-		link(rel='icon', type='image/png', sizes='32x32', href='./favicon-32x32.png')
-		link(rel='icon', type='image/png', sizes='16x16', href='./favicon-16x16.png')
-		link(rel='manifest', href='./manifest.json')
-		link(rel='mask-icon', href='./safari-pinned-tab.svg', color='#5bbad5')
-		meta(name='theme-color', content='#f4f5f7')
+		link(rel="apple-touch-icon", sizes="180x180", href="./apple-touch-icon.png")
+		link(rel="icon", type="image/png", sizes="32x32", href="./favicon-32x32.png")
+		link(rel="icon", type="image/png", sizes="16x16", href="./favicon-16x16.png")
+		link(rel="manifest", href="./manifest.json")
+		link(rel="mask-icon", href="./safari-pinned-tab.svg", color="#5bbad5")
+		meta(name="theme-color", content="#f4f5f7")
 
 	body#container.hover-enable
 
@@ -47,14 +47,14 @@ html
 						div.mobile-menu-link-container
 							ul.mobile-menu-external-link-container
 								li.mobile-menu-external-link
-									img(src="./images/index/icons/link-arrow.svg").external-link-icon
+									img(src="./images/index/icons/link-arrow.svg" alt="Link Arrow").external-link-icon
 									a(href="https://www.github.com/charlieyjh/").external-link GitHub
 								li.mobile-menu-external-link
-									img(src="./images/index/icons/link-arrow.svg").external-link-icon
+									img(src="./images/index/icons/link-arrow.svg" alt="Link Arrow").external-link-icon
 									a(href="https://www.linkedin.com/in/charlieyin").external-link LinkedIn
 								li.mobile-menu-external-link
 									img(src="./images/index/icons/link-arrow.svg").external-link-icon
-									a(href='https://www.facebook.com/charlie.yin.35/').external-link Facebook
+									a(href="https://www.facebook.com/charlie.yin.35/" alt="Link Arrow").external-link Facebook
 					div#mobile-menu-scrollbar.scrollbar-dragger-container
 						div#mobile-menu-dragger.scrollbar-dragger
 						div#mobile-menu-track.scrollbar-track
@@ -84,8 +84,8 @@ html
 			div#frontpage-cell.content-cell
 				div#profile-pic-container.frontpage-element-container
 					div#profile-pic-box.frontpage-element
-						img.profile-pic#C-half(src="./images/index/logo-1.svg")
-						img.profile-pic#Y-half(src="./images/index/logo-2.svg")
+						img.profile-pic#C-half(src="./images/index/logo-1.svg" alt="Logo 1")
+						img.profile-pic#Y-half(src="./images/index/logo-2.svg" alt="Logo 2")
 
 				div#name-container.frontpage-element-container
 					div#name.frontpage-element CHARLIE YIN
@@ -100,13 +100,13 @@ html
 
 				div#frontpage-links-container.frontpage-element-container
 					div#frontpage-links-box.frontpage-element
-						a(href='#about-me').frontpage-links.scroll-link about me.
-						a(href='#skills').frontpage-links.scroll-link skills.
-						a(href='#projects').frontpage-links.scroll-link projects.
-						a(href='#contact-me').frontpage-links.scroll-link contact me.
+						a(href="#about-me").frontpage-links.scroll-link about me.
+						a(href="#skills").frontpage-links.scroll-link skills.
+						a(href="#projects").frontpage-links.scroll-link projects.
+						a(href="#contact-me").frontpage-links.scroll-link contact me.
 
 				div#frontpage-scroll-container.frontpage-element-container
-					a(href='#about-me')#frontpage-scroll-indicator.frontpage-element.scroll-link
+					a(href="#about-me")#frontpage-scroll-indicator.frontpage-element.scroll-link
 
 		div#about-me-wrapper.content-wrapper
 			div#about-me.content-spacing.content-marker
@@ -115,13 +115,13 @@ html
 					div#sidebar-links-indicator
 					ul#sidebar-links-list
 						li.sidebar-links
-							a(href='#about-me').scroll-link about me
+							a(href="#about-me").scroll-link about me
 						li.sidebar-links
-							a(href='#skills').scroll-link skills
+							a(href="#skills").scroll-link skills
 						li.sidebar-links
-							a(href='#projects').scroll-link projects
+							a(href="#projects").scroll-link projects
 						li.sidebar-links
-							a(href='#contact-me').scroll-link contact me
+							a(href="#contact-me").scroll-link contact me
 			div.content-cell.content-div.hidden
 				div#about-me-container.content-container
 					div#about-me-image.pixelated
@@ -158,7 +158,7 @@ html
 								- each name in language_names
 									li.skills-list-item
 										div.skills-icon
-											img.icon-image(id=name[0], src='./images/index/icons/' + name[0] + '.svg')
+											img.icon-image(id=name[0] src="./images/index/icons/" + name[0] + ".svg" alt=name[0])
 										div.skills-text=name[0]
 										div.skills-years-text(data-start-year=name[1]) 3 Years
 						div.skills-subtitle Technologies
@@ -178,7 +178,7 @@ html
 								- each name in technologies
 									li.skills-list-item
 										div.skills-icon
-											img.icon-image(id=name[0], src='./images/index/icons/' + name[0] + '.svg')
+											img.icon-image(id=name[0] src="./images/index/icons/" + name[0] + ".svg" alt=name[0])
 										div.skills-text=name[0]
 										div.skills-years-text(data-start-year=name[1]) 3 Years
 					div#skills-description-container
@@ -196,8 +196,8 @@ html
 							ul
 								li.project-item
 									div.project-image
-										video(loop muted preload, data-url="./videos/sailbot.mp4").project-video
-										img(src="./images/index/sailbot.jpg").pixelated
+										video(loop muted preload data-url="./videos/sailbot.mp4").project-video
+										img(src="./images/index/sailbot.jpg" alt="UBC Sailbot").pixelated
 										div.load-circle-container.circle-load
 											div.load-circle
 										div.load-circle-container.stroke-load
@@ -208,8 +208,8 @@ html
 										p UBC’s autonomous sailboat. I worked with a team to implement a distributed real-time network in C/C++ for sensor data transfer over the CAN bus using the CANopen protocol. The result is a reliable network which can support up to 127 separate nodes.
 								li.project-item
 									div.project-image
-										video(loop muted preload, data-url="./videos/gyro.mp4").project-video
-										img(src="./images/index/gyro.jpg").pixelated
+										video(loop muted preload data-url="./videos/gyro.mp4").project-video
+										img(src="./images/index/gyro.jpg" alt="Gyro Stabilized Platform").pixelated
 										div.load-circle-container.circle-load
 											div.load-circle
 										div.load-circle-container.stroke-load
@@ -220,8 +220,8 @@ html
 										p A self-stabilizing platform. I implemented the software in C++ which allowed the platform to self-stabilize within +/-1° of the horizontal in less than 2s with an overshoot or undershoot of no more than +/-4°, all while supporting a weight of up to 200g.
 								li.project-item
 									div.project-image
-										video(loop muted preload, data-url="./videos/helicopter.mp4").project-video
-										img(src="./images/index/helicopter.jpg").pixelated
+										video(loop muted preload data-url="./videos/helicopter.mp4").project-video
+										img(src="./images/index/helicopter.jpg" "Self-Correcting Helicopter").pixelated
 										div.load-circle-container.circle-load
 											div.load-circle
 										div.load-circle-container.stroke-load
@@ -232,8 +232,8 @@ html
 										p A self-correcting helicopter model. I worked with a partner to implement the PID control in C++ necessary for the 2-DOF helicopter to recover from external disturbances in both the pitch and yaw directions. The final product recovers from any external disturbance quickly and with minimal oscillations.
 								li.project-item
 									div.project-image
-										video(loop muted preload, data-url="./videos/homepage.mp4").project-video
-										img(src="./images/index/homepage.png").pixelated
+										video(loop muted preload data-url="./videos/homepage.mp4").project-video
+										img(src="./images/index/homepage.png" alt="Personal Homepage").pixelated
 										div.load-circle-container.circle-load
 											div.load-circle
 										div.load-circle-container.stroke-load
@@ -277,23 +277,23 @@ html
 									ul
 										li.contact-me-link-item
 											a.contact-me-link(href="mailto:charlieyinjunhao@hotmail.com")
-												img.link-image(src="./images/index/icons/email.svg")
+												img.link-image(src="./images/index/icons/email.svg" alt="Email")
 												span.link-text charlieyinjunhao@hotmail.com
 										li.contact-me-link-item
 											a.contact-me-link(href="https://www.github.com/charlieyjh")
-												img.link-image(src="./images/index/icons/GitHub.svg")
+												img.link-image(src="./images/index/icons/GitHub.svg" alt="GitHub")
 												span.link-text CharlieYJH
 										li.contact-me-link-item
-											a.contact-me-link(href="https://www.linkedin.com/in/charlieyin/")
+											a.contact-me-link(href="https://www.linkedin.com/in/charlieyin/" alt="LinkedIn")
 												img.link-image(src="./images/index/icons/linkedin.svg")
 												span.link-text Charlie Yin
 										li.contact-me-link-item
 											a.contact-me-link(href="https://www.facebook.com/charlie.yin.35")
-												img.link-image(src="./images/index/icons/Facebook.svg")
+												img.link-image(src="./images/index/icons/Facebook.svg" alt="Facebook")
 												span.link-text Charlie Yin
 				div#footer
 		div#end-marker
 
-		script(src='javascripts/smoothscroll.js')
-		script(src='javascripts/scrollbar.js')
-		script(src='javascripts/index.js')
+		script(src="javascripts/smoothscroll.js")
+		script(src="javascripts/scrollbar.js")
+		script(src="javascripts/index.js")
