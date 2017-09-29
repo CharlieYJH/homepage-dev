@@ -173,7 +173,7 @@
 	};
 
 	// Initial load events
-	window.addEventListener('load', function() {
+	window.addEventListener('DOMContentLoaded', function() {
 
 		// Initial load animations
 		setTimeout(function() {
