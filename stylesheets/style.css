@@ -1851,6 +1851,11 @@ body {
         -moz-transition: all 0.3s 0.65s ease-out;
         -o-transition: all 0.3s 0.65s ease-out;
         transition: all 0.3s 0.65s ease-out; }
+      #contact-me-links-container .list-container .contact-me-link-item:nth-child(5) {
+        -webkit-transition: all 0.3s 0.7s ease-out;
+        -moz-transition: all 0.3s 0.7s ease-out;
+        -o-transition: all 0.3s 0.7s ease-out;
+        transition: all 0.3s 0.7s ease-out; }
       @media only screen and (max-width: 1200px) {
         #contact-me-links-container .list-container .contact-me-link-item {
           text-align: left; } }
