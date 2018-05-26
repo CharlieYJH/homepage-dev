@@ -1618,11 +1618,43 @@ $linkSpacing: 7%;
 			width: 95%;
 			text-align: left;
 
+            a {
+                text-decoration: none;
+
+                body.hover-enable &:hover {
+
+                    .project-title {
+                        color: $subtitleColor;
+                    }
+
+                    .project-title:after {
+                        opacity: 1;
+                        @include transform(translateX(0));
+                    }
+                }
+            }
+
 			.project-title {
 				margin: 2% 0 1% 0;
 				font-family: $subFontStack;
 				font-size: 24px;
 				color: $mainFontColor;
+                @include transition(0.3s ease-out);
+
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    opacity: 0;
+                    background-image: url($imageLocation + '/icons/project-link-arrow.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    vertical-align: middle;
+                    @include transform(translateX(-30%));
+                    @include transition(0.2s ease-out);
+                }
 
 				@media only screen and (max-width: $smallScreen) {
 					text-align: center;

@@ -1554,11 +1554,44 @@ body {
   #projects-list-container .project-description {
     width: 95%;
     text-align: left; }
+    #projects-list-container .project-description a {
+      text-decoration: none; }
+      body.hover-enable #projects-list-container .project-description a:hover .project-title {
+        color: #678dcb; }
+      body.hover-enable #projects-list-container .project-description a:hover .project-title:after {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0); }
     #projects-list-container .project-description .project-title {
       margin: 2% 0 1% 0;
       font-family: "Open Sans", Lucida, serif;
       font-size: 24px;
-      color: #31476e; }
+      color: #31476e;
+      -webkit-transition: 0.3s ease-out;
+      -moz-transition: 0.3s ease-out;
+      -o-transition: 0.3s ease-out;
+      transition: 0.3s ease-out; }
+      #projects-list-container .project-description .project-title:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        opacity: 0;
+        background-image: url("../images/index/icons/project-link-arrow.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        vertical-align: middle;
+        -webkit-transform: translateX(-30%);
+        -moz-transform: translateX(-30%);
+        -ms-transform: translateX(-30%);
+        transform: translateX(-30%);
+        -webkit-transition: 0.2s ease-out;
+        -moz-transition: 0.2s ease-out;
+        -o-transition: 0.2s ease-out;
+        transition: 0.2s ease-out; }
       @media only screen and (max-width: 640px) {
         #projects-list-container .project-description .project-title {
           text-align: center; } }
