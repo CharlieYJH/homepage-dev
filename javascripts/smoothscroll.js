@@ -26,18 +26,18 @@
 
     // Smooth scroll animation
     var smoothScroll = function(target, duration, callback) {
-		
+        
         // Animation duration
         duration = duration || 500;
 
         // Start location
         var start = window.pageYOffset;
 
-		// Document end location
-		var documentEnd = getTargetTop(document.getElementById('end-marker'));
+        // Document end location
+        var documentEnd = getTargetTop(document.getElementById('end-marker'));
 
-		// Client height
-		var documentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        // Client height
+        var documentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
         // Animation frame function
         var requestAnimationFrame = window.requestAnimationFrame ||
@@ -52,10 +52,10 @@
             var end = getTargetTop(target);
         }
 
-		// Adjust end if the element can't scroll to the top
-		if (documentEnd - end < documentHeight) {
-			end = documentEnd - documentHeight;
-		}
+        // Adjust end if the element can't scroll to the top
+        if (documentEnd - end < documentHeight) {
+            end = documentEnd - documentHeight;
+        }
 
         // Remember start time
         var startTime = Date.now();
