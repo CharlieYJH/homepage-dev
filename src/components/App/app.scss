@@ -1,14 +1,11 @@
-$default-background: #d3d3d3;
+@use "../../resources/style/colors";
+
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     height: 100%;
-    background-color: $default-background;
-}
-
-.container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    width: 100%;
+    background-color: colors.$default-background;
 }

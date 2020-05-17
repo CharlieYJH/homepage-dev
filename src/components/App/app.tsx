@@ -1,10 +1,5 @@
 import React from 'react';
+import { LandingContainer } from '../LandingContainer';
 import './app.scss';
 
-const App: React.FC<{}> = () => (
-    <div className="container">
-        <h1>Hello World, React!</h1>
-    </div>
-);
-
-export default App;
+export const App: React.FC<{}> = () => <LandingContainer />;

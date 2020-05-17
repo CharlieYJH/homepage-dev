@@ -2,5 +2,13 @@
     "parser": "typescript",
     "tabWidth": 4,
     "singleQuote": true,
-    "semi": true
+    "semi": true,
+    "overrides": [
+        {
+            "files": "*.scss",
+            "options": {
+                "parser": "scss"
+            }
+        }
+    ]
 }

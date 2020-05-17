@@ -24,20 +24,11 @@ module.exports = (env, argv) => ({
             {
                 test: /\.(js|jsx|tsx|ts)$/,
                 exclude: /node_modules/,
-                use: [
-                    'babel-loader',
-                    'prettier-loader',
-                    {
-                        loader: 'eslint-loader',
-                        options: {
-                            cache: true
-                        }
-                    }
-                ]
+                use: ['babel-loader', 'eslint-loader', 'prettier-loader']
             },
             {
                 test: /\.s?css$/,
-                use: ['style-loader','css-loader', 'sass-loader']
+                use: ['style-loader','css-loader', 'sass-loader', 'prettier-loader']
             }
         ]
     }
