@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
-module.exports = {
+module.exports = (env, argv) => ({
     entry: 'src/index.tsx',
     output: {
         filename: 'bundle.[hash].js',
@@ -18,7 +18,7 @@ module.exports = {
         modules: [__dirname, 'src', 'node_modules'],
         extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
     },
-    devtool: 'source-map',
+    devtool: argv.mode == 'production' ? false : 'source-map',
     module: {
         rules: [
             {
@@ -38,12 +38,7 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: ['style-loader','css-loader', 'sass-loader']
-            },
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'source-map-loader'
             }
         ]
     }
-}
+})
