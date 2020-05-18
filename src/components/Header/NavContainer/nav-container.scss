@@ -1,10 +1,17 @@
 @use '~src/resources/style/fonts';
 
+$lightFont: #527697;
+$darkFont: #824d95;
+
 .nav-container {
     display: inline-block;
 
-    &.dark .nav-list li a {
-        color: #824d95;
+    &.dark .nav-list a {
+        color: $darkFont;
+
+        &:after {
+            background-color: $darkFont;
+        }
     }
 }
 
@@ -13,12 +20,30 @@
         display: inline-block;
 
         a {
+            display: inline-block;
+            position: relative;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-family: 'Inter', sans-serif;
-            color: #527697;
-            transition: all 0.15s ease-in-out;
+            color: $lightFont;
             padding: 1em 1.2em;
+
+            &:after {
+                content: '';
+                display: block;
+                width: 90%;
+                height: 2px;
+                margin: 4px auto 0 auto;
+                opacity: 0;
+                transform: translateY(5px);
+                background-color: $lightFont;
+                transition: all 0.15s ease-in-out;
+            }
+
+            &:hover:after {
+                opacity: 0.7;
+                transform: translateY(0);
+            }
         }
     }
 }
