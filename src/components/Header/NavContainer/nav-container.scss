@@ -1,19 +1,17 @@
-.nav {
-    &-container {
+.nav-container {
+    display: inline-block;
+}
+
+.nav-list {
+    li {
         display: inline-block;
-    }
 
-    &-list {
-        li {
-            display: inline-block;
+        a {
+            text-decoration: none;
+            color: black;
 
-            a {
-                text-decoration: none;
-                color: black;
-
-                div {
-                    padding: 1em 1.2em;
-                }
+            div {
+                padding: 1em 1.2em;
             }
         }
     }
