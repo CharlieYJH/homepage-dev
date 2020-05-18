@@ -1,3 +1,5 @@
+@use '~src/resources/style/paths';
+
 .theme-icon-container {
     display: flex;
     position: relative;
@@ -51,7 +53,7 @@
     position: absolute;
     height: 80%;
     width: 80%;
-    background: url('../../../resources/images/rays.svg') no-repeat;
+    background: url(paths.$images + '/rays.svg') no-repeat;
     background-size: contain;
     transition: all 0.3s cubic-bezier(0.24, 0.71, 0.43, 1.32);
 }

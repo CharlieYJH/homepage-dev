@@ -31,7 +31,7 @@ module.exports = (env, argv) => ({
                 use: ['style-loader','css-loader', 'sass-loader', 'prettier-loader']
             },
             {
-                test: /\.(jpe?g|png|svg|gif)/,
+                test: /\.(jpe?g|png|svg|gif|ttf)$/,
                 exclude: /node_modules/,
                 loader: 'file-loader'
             }

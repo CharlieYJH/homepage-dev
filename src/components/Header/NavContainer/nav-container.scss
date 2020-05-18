@@ -1,3 +1,5 @@
+@use '~src/resources/style/fonts';
+
 .nav-container {
     display: inline-block;
 
@@ -13,8 +15,8 @@
         a {
             text-decoration: none;
             font-size: 18px;
-            font-family: sans-serif;
-            color: #7c9cb9;
+            font-family: 'Inter', sans-serif;
+            color: #527697;
             transition: all 0.15s ease-in-out;
 
             div {

@@ -1,0 +1,6 @@
+@use '~src/resources/style/paths';
+
+@font-face {
+    font-family: 'Inter';
+    src: url(paths.$fonts + '/Inter-Light-slnt\=0.ttf')
+}
