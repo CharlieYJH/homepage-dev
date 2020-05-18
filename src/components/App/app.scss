@@ -6,8 +6,20 @@
 }
 
 html,
-body {
-    width: 100%;
+body,
+#root {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-page {
+    min-height: 100%;
     background-color: colors.$sky-light;
+    transition: background-color 0.3s linear;
+
+    &.dark {
+        background-color: colors.$sky-dark;
+    }
 }
