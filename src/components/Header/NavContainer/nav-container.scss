@@ -1,5 +1,9 @@
 .nav-container {
     display: inline-block;
+
+    &.dark .nav-list li a {
+        color: #824d95;
+    }
 }
 
 .nav-list {
@@ -8,7 +12,10 @@
 
         a {
             text-decoration: none;
-            color: black;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #7c9cb9;
+            transition: all 0.15s ease-in-out;
 
             div {
                 padding: 1em 1.2em;
