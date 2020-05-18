@@ -1,0 +1,57 @@
+.theme-icon-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+
+    &:hover {
+        .theme-icon-inner {
+            box-shadow: inset -13px 0px #f6c458;
+        }
+
+        .theme-icon-outer {
+            height: 90%;
+            width: 90%;
+        }
+    }
+
+    &.dark {
+        .theme-icon-inner {
+            height: 70%;
+            width: 70%;
+            background-color: #7d8a8c;
+            box-shadow: inset 9px 0px #c9dde1;
+
+            &:hover {
+                box-shadow: inset 13px 0px #c9dde1;
+            }
+        }
+
+        .theme-icon-outer {
+            height: 10%;
+            width: 10%;
+        }
+    }
+}
+
+.theme-icon-inner {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    background-color: #ffab24;
+    box-shadow: inset -9px 0px #f6c458;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.theme-icon-outer {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    background: url('../../../resources/images/rays.svg') no-repeat;
+    background-size: contain;
+    transition: all 0.3s cubic-bezier(0.24, 0.71, 0.43, 1.32);
+}

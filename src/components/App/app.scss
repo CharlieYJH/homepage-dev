@@ -5,7 +5,9 @@
     padding: 0;
 }
 
+html,
 body {
+    width: 100%;
     height: 100%;
-    background-color: colors.$default-background;
+    background-color: colors.$sky-light;
 }

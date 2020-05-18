@@ -10,7 +10,9 @@ export const NavContainer: React.FC<LinkList> = ({ links }) => (
         <ul className="nav-list">
             {links.map((link) => (
                 <li key={link}>
-                    <a href="#">{link}</a>
+                    <a href="#">
+                        <div>{link}</div>
+                    </a>
                 </li>
             ))}
         </ul>

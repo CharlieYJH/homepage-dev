@@ -1,8 +1,20 @@
 .nav {
+    &-container {
+        display: inline-block;
+    }
+
     &-list {
         li {
             display: inline-block;
-            padding: 1.2em 0.5em;
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                div {
+                    padding: 1em 1.2em;
+                }
+            }
         }
     }
 }
