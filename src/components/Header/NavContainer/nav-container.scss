@@ -1,6 +1,6 @@
 @use '~src/resources/style/fonts';
+@use '~src/resources/style/colors';
 
-$lightFont: #527697;
 $darkFont: #824d95;
 
 .nav-container {
@@ -25,7 +25,7 @@ $darkFont: #824d95;
             text-decoration: none;
             font-size: 16px;
             font-family: 'Inter', sans-serif;
-            color: $lightFont;
+            color: colors.$light-secondary;
             padding: 1em 1.2em;
 
             &:after {
@@ -36,7 +36,7 @@ $darkFont: #824d95;
                 margin: 4px auto 0 auto;
                 opacity: 0;
                 transform: translateY(5px);
-                background-color: $lightFont;
+                background-color: colors.$light-secondary;
                 transition: all 0.15s ease-in-out;
             }
 
