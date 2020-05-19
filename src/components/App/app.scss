@@ -16,10 +16,10 @@ body,
 
 .app-page {
     min-height: 100%;
-    background-color: colors.$sky-light;
+    background-color: colors.$bg-light;
     transition: background-color 0.15s ease-in-out;
 
     &.dark {
-        background-color: colors.$sky-dark;
+        background-color: colors.$bg-dark;
     }
 }
