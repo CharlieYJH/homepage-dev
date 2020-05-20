@@ -1,0 +1,19 @@
+@use '~src/resources/style/colors';
+
+.landing-title-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.landing-title {
+    display: inline-block;
+    width: 50%;
+    list-style: none;
+}
+
+.landing-title-svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background: colors.$light-secondary;
+}

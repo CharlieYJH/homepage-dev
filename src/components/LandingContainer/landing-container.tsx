@@ -3,7 +3,7 @@ import { Header } from '../Header';
 import { NameTitleContainer } from './NameTitleContainer';
 import './landing-container.scss';
 
-const titles = ['Backend Developer', 'Software Engineer', 'UI/UX Enthusiast'];
+const titles = ['BACKEND DEVELOPER', 'SOFTWARE ENGINEER', 'UI/UX ENTHUSIAST'];
 
 export const LandingContainer: React.FC<{}> = () => (
     <div className="landing-container">
