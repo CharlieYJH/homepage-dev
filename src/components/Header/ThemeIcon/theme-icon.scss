@@ -1,5 +1,14 @@
 @use '~src/resources/style/colors';
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .theme-icon-container {
     display: flex;
     position: relative;
@@ -68,7 +77,8 @@
 
 .theme-icon-outer {
     position: absolute;
-    height: 80%;
-    width: 80%;
+    height: 75%;
+    width: 75%;
+    animation: spin 20s linear infinite;
     transition: all 0.3s cubic-bezier(0.24, 0.71, 0.43, 1.32);
 }
