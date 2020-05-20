@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgTitle } from './svg-title.tsx';
+import { SvgTitle } from './svg-title';
 import './landing-title.scss';
 
 interface Title {
