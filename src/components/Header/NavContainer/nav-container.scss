@@ -1,16 +1,14 @@
 @use '~src/resources/style/fonts';
 @use '~src/resources/style/colors';
 
-$darkFont: #824d95;
-
 .nav-container {
     display: inline-block;
 
     &.dark .nav-list a {
-        color: $darkFont;
+        color: colors.$dark-secondary;
 
         &:after {
-            background-color: $darkFont;
+            background-color: colors.$dark-secondary;
         }
     }
 }
