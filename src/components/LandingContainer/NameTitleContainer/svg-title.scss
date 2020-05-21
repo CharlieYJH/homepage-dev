@@ -5,10 +5,11 @@
     display: block;
 
     text {
+        dominant-baseline: central;
         height: 100%;
         width: 100%;
         fill: colors.$light-primary;
-        font-size: 10px;
+        font-size: 8px;
         font-family: 'Inter', sans-serif;
         font-weight: 300;
     }
