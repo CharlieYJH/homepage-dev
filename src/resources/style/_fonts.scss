@@ -2,5 +2,12 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url(paths.$fonts + '/Inter-Light-slnt\=0.ttf')
+    src: url(paths.$fonts + '/Inter-Light-slnt\=0.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(paths.$fonts + '/Inter-ExtraLight-slnt\=0.ttf');
+    font-weight: 300;
 }

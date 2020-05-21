@@ -3,17 +3,30 @@
 .landing-title-container {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    margin-top: 2%;
 }
 
 .landing-title {
     display: inline-block;
-    width: 50%;
-    list-style: none;
+    position: relative;
+    width: 39.9%;
 }
 
-.landing-title-svg-container {
-    display: inline-block;
-    position: relative;
+.landing-title-stretcher {
     width: 100%;
-    background: colors.$light-secondary;
+
+    &:after {
+        content: '';
+        display: block;
+        padding-top: 6.27%;
+        background: colors.$light-secondary;
+    }
+}
+
+.landing-title-carousel {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }

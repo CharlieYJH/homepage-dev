@@ -8,14 +8,13 @@ interface Title {
 
 export const LandingTitle: React.FC<Title> = ({ titles }) => (
     <div className="landing-title-container">
-        <ul className="landing-title">
-            {titles.map((title) => (
-                <li key={title}>
-                    <div className="landing-title-svg-container">
-                        <SvgTitle title={title} />
-                    </div>
-                </li>
-            ))}
-        </ul>
+        <div className="landing-title">
+            <div className="landing-title-stretcher" />
+            <div className="landing-title-carousel">
+                {titles.map((title) => (
+                    <SvgTitle key={title} title={title} />
+                ))}
+            </div>
+        </div>
     </div>
 );

@@ -2,14 +2,14 @@
 @use '~src/resources/style/fonts';
 
 .svg-title {
-    display: inline-block;
-    width: 100%;
+    display: block;
 
     text {
         height: 100%;
         width: 100%;
         fill: colors.$light-primary;
-        font-size: 12px;
+        font-size: 10px;
         font-family: 'Inter', sans-serif;
+        font-weight: 300;
     }
 }
