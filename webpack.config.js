@@ -28,7 +28,7 @@ module.exports = (env, argv) => ({
             },
             {
                 test: /\.s?css$/,
-                use: ['style-loader','css-loader', 'sass-loader', 'prettier-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader', 'prettier-loader']
             },
             {
                 test: /\.(jpe?g|png|svg|gif|ttf)$/,
