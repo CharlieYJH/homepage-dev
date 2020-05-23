@@ -28,7 +28,7 @@ module.exports = (env, argv) => ({
             },
             {
                 test: /\.s?css$/,
-                exclude: /\.module.s?css$/,
+                exclude: /\.module\.s?css$/,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -37,13 +37,13 @@ module.exports = (env, argv) => ({
                 ],
             },
             {
-                test: /\.module.s?css$/,
-                exclude: /\.s?css$/,
+                test: /\.module\.s?css$/,
                 use: [
                     'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
+                            importLoaders: 1,
                             modules: {
                                 localIdentName: '[name]__[local]--[hash:base64:5]',
                             },
