@@ -1,19 +1,19 @@
 @use '~src/resources/style/colors';
 
-.landing-title-container {
+.container {
     display: flex;
     justify-content: flex-end;
     position: relative;
     margin-top: 2%;
 }
 
-.landing-title {
+.title {
     display: inline-block;
     position: relative;
     width: 37%;
 }
 
-.landing-title-stretcher {
+.spacer {
     width: 100%;
 
     &:after {
@@ -24,7 +24,7 @@
     }
 }
 
-.landing-title-carousel {
+.carousel {
     display: block;
     position: absolute;
     top: 0;
