@@ -1,12 +1,12 @@
 import React from 'react';
 import { SvgTitle } from './svg-title';
-import './landing-title.scss';
+import './subtitle.scss';
 
 interface Title {
     titles: string[];
 }
 
-export const LandingTitle: React.FC<Title> = ({ titles }) => (
+export const Subtitle: React.FC<Title> = ({ titles }) => (
     <div className="landing-title-container">
         <div className="landing-title">
             <div className="landing-title-stretcher" />

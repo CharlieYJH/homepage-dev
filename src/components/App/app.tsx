@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LandingContainer } from '../LandingContainer';
+import { LandingPage } from '../LandingPage';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import styles from './app.module.scss';
 
@@ -9,6 +9,6 @@ export const App: React.FC<{}> = () => (
             useContext(ThemeContext).useLight ? styles.light : styles.dark
         }
     >
-        <LandingContainer />
+        <LandingPage />
     </div>
 );
