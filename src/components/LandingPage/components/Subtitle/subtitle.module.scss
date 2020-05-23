@@ -15,13 +15,7 @@
 
 .spacer {
     width: 100%;
-
-    &:after {
-        content: '';
-        display: block;
-        padding-top: 6.27%;
-        background: colors.$light-secondary;
-    }
+    background: colors.$light-secondary;
 }
 
 .carousel {
