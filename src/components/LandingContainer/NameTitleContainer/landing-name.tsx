@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from '../../../resources/images/logo.svg';
-import './landing-name.scss';
+import styles from './landing-name.module.scss';
 
 export const LandingName: React.FC<{}> = () => (
-    <div className="landing-name-container">
-        <Logo className="landing-name" />
+    <div>
+        <Logo className={styles.name} />
     </div>
 );
