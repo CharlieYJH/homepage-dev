@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../../providers/ThemeProvider';
-import SunRays from '../../../resources/images/rays.svg';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
+import SunRays from '../../../../resources/images/rays.svg';
 import styles from './theme-icon.module.scss';
 
 export const ThemeIcon: React.FC<{}> = () => {

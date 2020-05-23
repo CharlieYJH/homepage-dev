@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../../providers/ThemeProvider';
+import { ThemeContext } from '../../../../providers/ThemeProvider';
 import styles from './navigation.module.scss';
 
 interface LinkList {

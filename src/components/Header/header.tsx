@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navigation } from './Navigation';
-import { ThemeIcon } from './ThemeIcon';
+import { Navigation } from './components/Navigation';
+import { ThemeIcon } from './components/ThemeIcon';
 import styles from './header.module.scss';
 
 const navlinks = ['about me', 'experience', 'contact me'];
