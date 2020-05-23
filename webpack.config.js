@@ -6,11 +6,11 @@ module.exports = (env, argv) => ({
     entry: 'src/index.tsx',
     output: {
         filename: 'bundle.[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'public/index.html'
+            template: 'public/index.html',
         }),
         new CleanWebpackPlugin(),
     ],
@@ -24,17 +24,40 @@ module.exports = (env, argv) => ({
             {
                 test: /\.(js|jsx|tsx|ts)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader', 'eslint-loader', 'prettier-loader']
+                use: ['babel-loader', 'eslint-loader', 'prettier-loader'],
             },
             {
                 test: /\.s?css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader', 'prettier-loader']
+                exclude: /\.module.s?css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                    'prettier-loader',
+                ],
+            },
+            {
+                test: /\.module.s?css$/,
+                exclude: /\.s?css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                            },
+                        },
+                    },
+                    'sass-loader',
+                    'prettier-loader',
+                ],
             },
             {
                 test: /\.(jpe?g|png|svg|gif|ttf)$/,
                 exclude: /node_modules/,
-                loader: 'file-loader'
-            }
-        ]
-    }
-})
+                loader: 'file-loader',
+            },
+        ],
+    },
+});
