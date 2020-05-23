@@ -6,7 +6,7 @@ import styles from './app.module.scss';
 export const App: React.FC<{}> = () => (
     <div
         className={
-            useContext(ThemeContext).useLight ? styles.light : styles.dark
+            useContext(ThemeContext).lightTheme ? styles.light : styles.dark
         }
     >
         <LandingPage />

@@ -9,16 +9,16 @@ export const ThemeIcon: React.FC<{}> = () => {
     return (
         <div
             className={styles.container}
-            onClick={(): void => context.setLight(!context.useLight)}
+            onClick={(): void => context.setLight(!context.lightTheme)}
         >
             <SunRays
                 className={
-                    context.useLight ? styles.outerLight : styles.outerDark
+                    context.lightTheme ? styles.outerLight : styles.outerDark
                 }
             />
             <div
                 className={
-                    context.useLight ? styles.innerLight : styles.innerDark
+                    context.lightTheme ? styles.innerLight : styles.innerDark
                 }
             />
         </div>

@@ -10,7 +10,7 @@ export const Navigation: React.FC<LinkList> = ({ links }) => (
     <div className={styles.container}>
         <ul
             className={
-                useContext(ThemeContext).useLight ? styles.light : styles.dark
+                useContext(ThemeContext).lightTheme ? styles.light : styles.dark
             }
         >
             {links.map((link) => (

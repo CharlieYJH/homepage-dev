@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const ThemeContext = React.createContext({
-    useLight: true,
+    lightTheme: true,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     setLight: (v: boolean): void => {
         // Placeholder
@@ -10,9 +10,9 @@ export const ThemeContext = React.createContext({
 
 export const ThemeContextProvider: React.FC<{}> = (props) => {
     const [state, setState] = useState({
-        useLight: true,
+        lightTheme: true,
         setLight: (v: boolean): void => {
-            setState({ ...state, useLight: v });
+            setState({ ...state, lightTheme: v });
         },
     });
 
