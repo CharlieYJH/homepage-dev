@@ -44,6 +44,7 @@ module.exports = (env, argv) => ({
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
+                            localsConvention: 'dashes',
                             modules: {
                                 localIdentName: '[name]__[local]--[hash:base64:5]',
                             },

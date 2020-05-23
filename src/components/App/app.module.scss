@@ -21,10 +21,12 @@ body,
 
 .light {
     composes: main;
+
     background-color: colors.$light-primary;
 }
 
 .dark {
     composes: main;
+
     background-color: colors.$dark-primary;
 }
