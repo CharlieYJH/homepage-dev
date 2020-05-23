@@ -1,19 +1,11 @@
 @use '~src/resources/style/fonts';
 @use '~src/resources/style/colors';
 
-.nav-container {
+.container {
     display: inline-block;
-
-    &.dark .nav-list a {
-        color: colors.$dark-secondary;
-
-        &:after {
-            background-color: colors.$dark-secondary;
-        }
-    }
 }
 
-.nav-list {
+.nav {
     li {
         display: inline-block;
 
@@ -23,7 +15,6 @@
             text-decoration: none;
             font-size: 16px;
             font-family: 'Inter', sans-serif;
-            color: colors.$light-secondary;
             padding: 1em 1.2em;
 
             &:after {
@@ -34,7 +25,6 @@
                 margin: 4px auto 0 auto;
                 opacity: 0;
                 transform: translateY(5px);
-                background-color: colors.$light-secondary;
                 transition: all 0.15s ease-in-out;
             }
 
@@ -42,6 +32,30 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+    }
+}
+
+.light {
+    composes: nav;
+
+    a {
+        color: colors.$light-secondary;
+
+        &:after {
+            background-color: colors.$light-secondary;
+        }
+    }
+}
+
+.dark {
+    composes: nav;
+
+    a {
+        color: colors.$dark-secondary;
+
+        &:after {
+            background-color: colors.$dark-secondary;
         }
     }
 }
