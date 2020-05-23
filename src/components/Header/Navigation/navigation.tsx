@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../../providers/ThemeProvider';
-import styles from './nav-container.module.scss';
+import styles from './navigation.module.scss';
 
 interface LinkList {
     links: string[];
 }
 
-export const NavContainer: React.FC<LinkList> = ({ links }) => (
+export const Navigation: React.FC<LinkList> = ({ links }) => (
     <div className={styles.container}>
         <ul
             className={
