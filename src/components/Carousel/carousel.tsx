@@ -30,7 +30,7 @@ export const Carousel: React.FC<Properties> = (props) => {
     return (): void => clearTimeout(id);
   }, [current, translate]);
 
-  const overflow = props.overflow != undefined ? props.overflow : 0;
+  const overflow = props.overflow !== undefined ? props.overflow : 0;
   const containerStyle = {
     transform: `translateY(-${translate}%)`,
     transition: `all ${
