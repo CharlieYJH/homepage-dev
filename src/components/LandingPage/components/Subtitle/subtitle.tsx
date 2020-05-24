@@ -1,5 +1,6 @@
 import React from 'react';
 import { SvgTitle } from './svg-title';
+import { Carousel } from '../../../Carousel';
 import styles from './subtitle.module.scss';
 
 interface Title {
@@ -12,11 +13,15 @@ export const Subtitle: React.FC<Title> = ({ titles }) => (
             <div className={styles.spacer}>
                 <SvgTitle title={''} />
             </div>
-            <div className={styles.carousel}>
+            <Carousel
+                className={styles.carousel}
+                scrollTimeout={3000}
+                transitionDuration={300}
+            >
                 {titles.map((title) => (
                     <SvgTitle key={title} title={title} />
                 ))}
-            </div>
+            </Carousel>
         </div>
     </div>
 );

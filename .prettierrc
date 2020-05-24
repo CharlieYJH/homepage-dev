@@ -3,6 +3,7 @@
     "tabWidth": 4,
     "singleQuote": true,
     "semi": true,
+    "printWidth": 90,
     "overrides": [
         {
             "files": "*.scss",

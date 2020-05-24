@@ -12,15 +12,9 @@ export const ThemeIcon: React.FC<{}> = () => {
             onClick={(): void => context.setLight(!context.lightTheme)}
         >
             <SunRays
-                className={
-                    context.lightTheme ? styles.outerLight : styles.outerDark
-                }
+                className={context.lightTheme ? styles.outerLight : styles.outerDark}
             />
-            <div
-                className={
-                    context.lightTheme ? styles.innerLight : styles.innerDark
-                }
-            />
+            <div className={context.lightTheme ? styles.innerLight : styles.innerDark} />
         </div>
     );
 };

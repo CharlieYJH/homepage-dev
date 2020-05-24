@@ -16,9 +16,5 @@ export const ThemeContextProvider: React.FC<{}> = (props) => {
         },
     });
 
-    return (
-        <ThemeContext.Provider value={state}>
-            {props.children}
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={state}>{props.children}</ThemeContext.Provider>;
 };
