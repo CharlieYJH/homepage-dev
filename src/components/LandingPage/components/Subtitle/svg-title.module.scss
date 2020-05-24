@@ -1,5 +1,4 @@
 @use '~src/resources/style/colors';
-@use '~src/resources/style/fonts';
 
 .title {
   display: block;
@@ -8,9 +7,6 @@
     dominant-baseline: central;
     height: 100%;
     width: 100%;
-    fill: colors.$light-primary;
-    font-size: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    font-size: 9px;
   }
 }
