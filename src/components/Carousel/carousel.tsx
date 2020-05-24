@@ -55,7 +55,7 @@ export const Carousel: React.FC<Properties> = (props) => {
             : child
         )}
         {
-          /* Render some extra items that show up but are inactive */
+          // Clone some elements to make the last frame look like the first
           React.Children.toArray(props.children)
             .slice(0, overflow + 1)
             .map((child, idx) =>
