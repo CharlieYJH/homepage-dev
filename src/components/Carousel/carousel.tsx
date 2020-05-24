@@ -22,10 +22,11 @@ export const Carousel: React.FC<Properties> = (props) => {
     const next = (current + 1) % (numChildren + 1);
     const id = setTimeout(
       () => {
-        setTranslate(next == 0 ? 0 : translate + 100 / numItems);
+        setTranslate(next === 0 ? 0 : translate + 100 / numItems);
         setCurrent(next);
       },
-      next == 0 ? props.transitionDuration : props.scrollTimeout
+      // Need to wait for the transition to be done before resetting to the first item
+      next === 0 ? props.transitionDuration : props.scrollTimeout
     );
     return (): void => clearTimeout(id);
   }, [current, translate]);
@@ -47,28 +48,31 @@ export const Carousel: React.FC<Properties> = (props) => {
                 className: classnames(
                   styles.item,
                   child.props.className,
-                  current == idx ? props.classActive : props.classInactive,
+                  current === idx ? props.classActive : props.classInactive,
                   current > idx || idx > current + overflow ? styles.hidden : ''
                 ),
               })
             : child
         )}
-        {React.Children.toArray(props.children)
-          .slice(0, overflow + 1)
-          .map((child, idx) =>
-            React.isValidElement(child)
-              ? React.cloneElement(child, {
-                  className: classnames(
-                    styles.item,
-                    child.props.className,
-                    current == numChildren + idx
-                      ? props.classActive
-                      : props.classInactive,
-                    idx + numChildren > current + overflow ? styles.hidden : ''
-                  ),
-                })
-              : child
-          )}
+        {
+          /* Render some extra items that show up but are inactive */
+          React.Children.toArray(props.children)
+            .slice(0, overflow + 1)
+            .map((child, idx) =>
+              React.isValidElement(child)
+                ? React.cloneElement(child, {
+                    className: classnames(
+                      styles.item,
+                      child.props.className,
+                      current === numChildren + idx
+                        ? props.classActive
+                        : props.classInactive,
+                      idx + numChildren > current + overflow ? styles.hidden : ''
+                    ),
+                  })
+                : child
+            )
+        }
       </div>
     </div>
   );
