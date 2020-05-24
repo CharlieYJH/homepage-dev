@@ -18,8 +18,10 @@ export const LandingPage: React.FC<{}> = () => (
     <div className={styles.title}>
       <Title />
     </div>
-    <div className={styles.subtitle}>
-      <Subtitle titles={titles} />
+    <div className={styles.content}>
+      <div className={styles.subtitle}>
+        <Subtitle titles={titles} />
+      </div>
     </div>
   </div>
 );

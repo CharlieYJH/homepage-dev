@@ -2,15 +2,8 @@
 @use '~src/resources/style/fonts';
 
 .container {
-  display: flex;
-  justify-content: flex-end;
   position: relative;
-}
-
-.title {
-  display: inline-block;
-  position: relative;
-  width: 37%;
+  width: 100%;
 }
 
 .spacer {

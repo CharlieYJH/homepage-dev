@@ -7,6 +7,12 @@
   margin-top: 2.5%;
 }
 
-.subtitle {
+.content {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 2%;
+}
+
+.subtitle {
+  width: 37%;
 }
