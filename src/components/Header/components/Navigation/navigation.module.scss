@@ -2,60 +2,60 @@
 @use '~src/resources/style/colors';
 
 .container {
-    display: inline-block;
+  display: inline-block;
 }
 
 .nav {
-    li {
-        display: inline-block;
+  li {
+    display: inline-block;
 
-        a {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-            padding: 1em 1.2em;
+    a {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      padding: 1em 1.2em;
 
-            &:after {
-                content: '';
-                display: block;
-                width: 90%;
-                height: 2px;
-                margin: 4px auto 0 auto;
-                opacity: 0;
-                transform: translateY(5px);
-                transition: all 0.15s ease-in-out;
-            }
+      &:after {
+        content: '';
+        display: block;
+        width: 90%;
+        height: 2px;
+        margin: 4px auto 0 auto;
+        opacity: 0;
+        transform: translateY(5px);
+        transition: all 0.15s ease-in-out;
+      }
 
-            &:hover:after {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      &:hover:after {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+  }
 }
 
 .light {
-    composes: nav;
+  composes: nav;
 
-    a {
-        color: colors.$light-secondary;
+  a {
+    color: colors.$light-secondary;
 
-        &:after {
-            background-color: colors.$light-secondary;
-        }
+    &:after {
+      background-color: colors.$light-secondary;
     }
+  }
 }
 
 .dark {
-    composes: nav;
+  composes: nav;
 
-    a {
-        color: colors.$dark-secondary;
+  a {
+    color: colors.$dark-secondary;
 
-        &:after {
-            background-color: colors.$dark-secondary;
-        }
+    &:after {
+      background-color: colors.$dark-secondary;
     }
+  }
 }

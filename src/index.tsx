@@ -4,8 +4,8 @@ import { App } from './components/App';
 import { ThemeContextProvider } from './providers/ThemeProvider';
 
 ReactDOM.render(
-    <ThemeContextProvider>
-        <App />
-    </ThemeContextProvider>,
-    document.getElementById('root')
+  <ThemeContextProvider>
+    <App />
+  </ThemeContextProvider>,
+  document.getElementById('root')
 );

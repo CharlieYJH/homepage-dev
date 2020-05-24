@@ -2,15 +2,15 @@
 @use '~src/resources/style/fonts';
 
 .title {
-    display: block;
+  display: block;
 
-    text {
-        dominant-baseline: central;
-        height: 100%;
-        width: 100%;
-        fill: colors.$light-primary;
-        font-size: 8px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 300;
-    }
+  text {
+    dominant-baseline: central;
+    height: 100%;
+    width: 100%;
+    fill: colors.$light-primary;
+    font-size: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
 }

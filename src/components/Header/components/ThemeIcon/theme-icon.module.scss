@@ -1,97 +1,97 @@
 @use '~src/resources/style/colors';
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .container {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    width: 60px;
-    cursor: pointer;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
 }
 
 .inner {
-    position: absolute;
-    border-radius: 100%;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
+  position: absolute;
+  border-radius: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 
-    &:after {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        border-radius: 100%;
-        transition: all 0.3s ease-in-out;
-    }
+  &:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+  }
 }
 
 .inner-light {
-    composes: inner;
+  composes: inner;
 
-    height: 40%;
-    width: 40%;
-    background-color: colors.$light-secondary;
-    border: 2px solid colors.$light-secondary;
+  height: 40%;
+  width: 40%;
+  background-color: colors.$light-secondary;
+  border: 2px solid colors.$light-secondary;
 
-    &:after {
-        transform: translateX(-8px);
-        background: colors.$light-primary;
-    }
+  &:after {
+    transform: translateX(-8px);
+    background: colors.$light-primary;
+  }
 
-    .container:hover &:after {
-        transform: translateX(-4px);
-    }
+  .container:hover &:after {
+    transform: translateX(-4px);
+  }
 }
 
 .inner-dark {
-    composes: inner;
+  composes: inner;
 
-    height: 70%;
-    width: 70%;
-    background-color: colors.$light-primary;
-    border: 2px solid colors.$light-primary;
+  height: 70%;
+  width: 70%;
+  background-color: colors.$light-primary;
+  border: 2px solid colors.$light-primary;
 
-    &:after {
-        transform: translateX(8px);
-        background-color: colors.$light-secondary;
-    }
+  &:after {
+    transform: translateX(8px);
+    background-color: colors.$light-secondary;
+  }
 
-    .container:hover &:after {
-        transform: translateX(12px);
-    }
+  .container:hover &:after {
+    transform: translateX(12px);
+  }
 }
 
 .outer {
-    position: absolute;
-    animation: spin 20s linear infinite;
-    transition: all 0.3s cubic-bezier(0.24, 0.71, 0.43, 1.32);
+  position: absolute;
+  animation: spin 20s linear infinite;
+  transition: all 0.3s cubic-bezier(0.24, 0.71, 0.43, 1.32);
 }
 
 .outer-light {
-    composes: outer;
+  composes: outer;
 
-    height: 75%;
-    width: 75%;
+  height: 75%;
+  width: 75%;
 
-    .container:hover & {
-        height: 90%;
-        width: 90%;
-    }
+  .container:hover & {
+    height: 90%;
+    width: 90%;
+  }
 }
 
 .outer-dark {
-    composes: outer;
+  composes: outer;
 
-    height: 10%;
-    width: 10%;
+  height: 10%;
+  width: 10%;
 }
