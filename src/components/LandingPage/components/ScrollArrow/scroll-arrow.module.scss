@@ -1,0 +1,51 @@
+@use 'sass:math';
+@use '~src/resources/style/colors';
+
+@keyframes float {
+  0% {
+    transform: translateY(250%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40%,
+  100% {
+    transform: translateY(-250%);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.bar {
+  width: 100%;
+  margin-bottom: 5%;
+  background: colors.$light-secondary;
+  animation: float 2s linear infinite;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 5%;
+  }
+}
+
+.arrow {
+  width: 100%;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    width: math.percentage(1 / math.sqrt(2));
+    padding-bottom: math.percentage(1 / math.sqrt(2));
+    background: colors.$light-secondary;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+  }
+}

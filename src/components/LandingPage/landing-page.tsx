@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '../Header';
 import { Title } from './components/Title';
 import { Subtitle } from './components/Subtitle';
+import { ScrollArrow } from './components/ScrollArrow';
 import styles from './landing-page.module.scss';
 
 const titles = [
@@ -19,6 +20,9 @@ export const LandingPage: React.FC<{}> = () => (
       <Title />
     </div>
     <div className={styles.content}>
+      <div className={styles.arrow}>
+        <ScrollArrow />
+      </div>
       <div className={styles.subtitle}>
         <Subtitle titles={titles} />
       </div>
