@@ -9,6 +9,19 @@
 .spacer {
   width: 100%;
   background: colors.$light-secondary;
+  transition: all 0.3s ease-in-out;
+}
+
+.spacer-light {
+  composes: spacer;
+
+  background: colors.$light-secondary;
+}
+
+.spacer-dark {
+  composes: spacer;
+
+  background: colors.$dark-secondary;
 }
 
 .carousel {
@@ -21,7 +34,6 @@
 
 .carousel-item {
   text {
-    fill: colors.$light-primary;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
   }
@@ -32,8 +44,23 @@
 
   text {
     opacity: 1;
-    fill: colors.$light-primary;
     transition: inherit;
+  }
+}
+
+.carousel-item-active-light {
+  composes: carousel-item-active;
+
+  text {
+    fill: colors.$light-primary;
+  }
+}
+
+.carousel-item-active-dark {
+  composes: carousel-item-active;
+
+  text {
+    fill: colors.$dark-primary;
   }
 }
 
@@ -42,7 +69,22 @@
 
   text {
     opacity: 0.5;
-    fill: colors.$light-secondary;
     transition: inherit;
+  }
+}
+
+.carousel-item-inactive-light {
+  composes: carousel-item-inactive;
+
+  text {
+    fill: colors.$light-secondary;
+  }
+}
+
+.carousel-item-inactive-dark {
+  composes: carousel-item-inactive;
+
+  text {
+    fill: colors.$dark-secondary;
   }
 }
