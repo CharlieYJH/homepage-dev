@@ -25,14 +25,26 @@
 .bar {
   width: 100%;
   margin-bottom: 10%;
-  background: colors.$light-secondary;
   animation: float 3s linear infinite;
+  transition: background 0.3s ease-in-out;
 
   &:after {
     content: '';
     display: block;
     padding-bottom: 5%;
   }
+}
+
+.bar-light {
+  composes: bar;
+
+  background: colors.$light-secondary;
+}
+
+.bar-dark {
+  composes: bar;
+
+  background: colors.$dark-secondary;
 }
 
 .arrow {
@@ -44,8 +56,24 @@
     display: block;
     width: math.percentage(1 / math.sqrt(2));
     padding-bottom: math.percentage(1 / math.sqrt(2));
-    background: colors.$light-secondary;
     transform-origin: 0 0;
     transform: rotate(-45deg);
+    transition: background 0.3s ease-in-out;
+  }
+}
+
+.arrow-light {
+  composes: arrow;
+
+  &:after {
+    background: colors.$light-secondary;
+  }
+}
+
+.arrow-dark {
+  composes: arrow;
+
+  &:after {
+    background: colors.$dark-secondary;
   }
 }
