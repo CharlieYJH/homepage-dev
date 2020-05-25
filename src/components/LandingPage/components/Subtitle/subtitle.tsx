@@ -15,6 +15,11 @@ export const Subtitle: React.FC<Title> = ({ titles }) => {
       <div className={context.lightTheme ? styles.spacerLight : styles.spacerDark}>
         <SvgTitle title={''} />
       </div>
+      {Array(3).fill(
+        <div className={context.lightTheme ? styles.spacer : styles.spacer}>
+          <SvgTitle title={''} />
+        </div>
+      )}
       <Carousel
         className={styles.carousel}
         scrollTimeout={3000}
