@@ -3,4 +3,24 @@
 .name {
   height: 100%;
   width: 100%;
+
+  g {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.light {
+  composes: name;
+
+  g {
+    fill: colors.$light-secondary;
+  }
+}
+
+.dark {
+  composes: name;
+
+  g {
+    fill: colors.$dark-secondary;
+  }
 }
