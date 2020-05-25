@@ -41,10 +41,10 @@
   composes: nav;
 
   a {
-    color: colors.$light-secondary;
+    color: colors.$light-primary;
 
     &:after {
-      background-color: colors.$light-secondary;
+      background-color: colors.$light-primary;
     }
   }
 }
@@ -53,10 +53,10 @@
   composes: nav;
 
   a {
-    color: colors.$dark-secondary;
+    color: colors.$dark-primary;
 
     &:after {
-      background-color: colors.$dark-secondary;
+      background-color: colors.$dark-primary;
     }
   }
 }

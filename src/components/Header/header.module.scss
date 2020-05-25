@@ -1,7 +1,23 @@
+@use '~src/resources/style/colors';
+
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 2.5%;
+  transition: all 0.3s ease-in-out;
+}
+
+.light {
+  composes: container;
+
+  background: colors.$light-secondary;
+}
+
+.dark {
+  composes: container;
+
+  background: colors.$dark-secondary;
 }
 
 .nav {

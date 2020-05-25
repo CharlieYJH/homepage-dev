@@ -41,7 +41,7 @@
   height: 40%;
   width: 40%;
   background-color: colors.$light-secondary;
-  border: 2px solid colors.$light-secondary;
+  border: 2px solid colors.$light-primary;
 
   &:after {
     transform: translateX(-8px);
@@ -58,12 +58,12 @@
 
   height: 70%;
   width: 70%;
-  background-color: colors.$light-primary;
-  border: 2px solid colors.$light-primary;
+  background-color: colors.$dark-secondary;
+  border: 2px solid colors.$dark-primary;
 
   &:after {
     transform: translateX(8px);
-    background-color: colors.$light-secondary;
+    background-color: colors.$dark-primary;
   }
 
   .container:hover &:after {
