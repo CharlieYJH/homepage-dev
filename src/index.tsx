@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './components/App';
 import { ThemeContextProvider } from './providers/ThemeProvider';
+import { WindowSizeContextProvider } from './providers/WindowSizeProvider';
 
 ReactDOM.render(
-  <ThemeContextProvider>
-    <App />
-  </ThemeContextProvider>,
+  <WindowSizeContextProvider>
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>
+  </WindowSizeContextProvider>,
   document.getElementById('root')
 );
