@@ -15,7 +15,9 @@ const titles = [
 
 export const LandingPage: React.FC<{}> = () => (
   <div className={styles.page}>
-    <Header />
+    <div className={styles.header}>
+      <Header />
+    </div>
     <div className={styles.title}>
       <Title />
     </div>

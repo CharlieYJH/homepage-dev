@@ -3,6 +3,14 @@
   overflow: hidden;
 }
 
+.header {
+  width: 100%;
+
+  & > div {
+    padding-bottom: 2.5%;
+  }
+}
+
 .title {
   margin-top: 0;
 }
