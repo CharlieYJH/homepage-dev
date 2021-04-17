@@ -10,6 +10,7 @@ interface Title {
 
 export const Subtitle: React.FC<Title> = ({ titles }) => {
   const context = useContext(ThemeContext);
+
   return (
     <div className={styles.container}>
       <div className={context.lightTheme ? styles.spacerLight : styles.spacerDark}>

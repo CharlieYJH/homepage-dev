@@ -4,6 +4,7 @@ import styles from './scroll-arrow.module.scss';
 
 export const ScrollArrow: React.FC<{}> = () => {
   const context = useContext(ThemeContext);
+
   return (
     <div className={styles.container}>
       <div className={context.lightTheme ? styles.barLight : styles.barDark} />

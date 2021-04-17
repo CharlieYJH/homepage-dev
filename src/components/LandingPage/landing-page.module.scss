@@ -15,17 +15,33 @@
   margin-top: 0;
 }
 
-.content {
+.content-wide {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
-.arrow {
+.content-narrow {
+  display: block;
+  position: relative;
+}
+
+.arrow-wide {
   width: 6%;
   margin-left: 29%;
   margin-top: 1.5%;
 }
 
-.subtitle {
+.arrow-narrow {
+  width: 15%;
+  margin: 10% auto 0 auto;
+}
+
+.subtitle-wide {
   width: 47%;
+}
+
+.subtitle-narrow {
+  width: 80%;
+  margin-left: 20%;
 }
