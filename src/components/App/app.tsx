@@ -7,6 +7,6 @@ import styles from './app.module.scss';
 export const App: React.FC<{}> = () => (
   <div>
     <Header />
-    <LandingPage className={styles.landingPage} />
+    <LandingPage />
   </div>
 );
