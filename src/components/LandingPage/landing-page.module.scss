@@ -1,47 +1,11 @@
-.page {
-  min-height: 100%;
-  overflow: hidden;
-}
-
-.header {
-  width: 100%;
-
-  & > div {
-    padding-bottom: 2.5%;
-  }
+.landing-container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .title {
-  margin-top: 0;
-}
-
-.content-wide {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-}
-
-.content-narrow {
-  display: block;
   position: relative;
-}
-
-.arrow-wide {
-  width: 6%;
-  margin-left: 29%;
-  margin-top: 1.5%;
-}
-
-.arrow-narrow {
-  width: 15%;
-  margin: 10% auto 0 auto;
-}
-
-.subtitle-wide {
-  width: 47%;
-}
-
-.subtitle-narrow {
-  width: 80%;
-  margin-left: 20%;
+  width: 1000px;
+  margin: 0 auto;
 }

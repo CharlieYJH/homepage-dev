@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
-import Logo from '../../../../resources/images/logo.svg';
-import LogoNarrow from '../../../../resources/images/logo-narrow.svg';
-import { ThemeContext } from '../../../../providers/ThemeProvider';
+import classnames from 'classnames';
 import { WindowSizeContext } from '../../../../providers/WindowSizeProvider';
+import { Greeting } from '../Greeting';
+import LogoWide from '../../../../resources/images/logo-wide.svg';
 import styles from './title.module.scss';
 
-export const Title: React.FC<{}> = () => {
-  const className = useContext(ThemeContext).lightTheme ? styles.light : styles.dark;
-
+export const Title: React.FC<{}> = (props) => {
   return (
-    <div>
-      {useContext(WindowSizeContext).width > 720 ? (
-        <Logo className={className} />
-      ) : (
-        <LogoNarrow className={className} />
-      )}
+    <div className={classnames(props.className, styles.container)}>
+      <div className={styles.overlay}>
+        <div className={styles.overlayItem}>
+          <Greeting className={styles.greeting} />
+        </div>
+        <div className={styles.overlayItem} />
+      </div>
+      <LogoWide className={styles.logo} />
     </div>
   );
 };

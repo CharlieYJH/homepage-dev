@@ -1,0 +1,56 @@
+@use '~src/resources/style/fonts';
+@use '~src/resources/style/colors';
+
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+}
+
+.name {
+  composes: intro;
+
+  color: colors.$midtone;
+}
+
+.title-container {
+  composes: intro;
+
+  position: relative;
+  color: colors.$page-background;
+
+  & > p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.carousel-container {
+  composes: intro;
+
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.title {
+  composes: intro;
+
+  display: flex;
+  justify-content: center;
+  color: colors.$highlight;
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.carousel {
+  composes: intro;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

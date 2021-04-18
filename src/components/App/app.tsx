@@ -4,7 +4,7 @@ import { ThemeContext } from '../../providers/ThemeProvider';
 import styles from './app.module.scss';
 
 export const App: React.FC<{}> = () => (
-  <div className={useContext(ThemeContext).lightTheme ? styles.light : styles.dark}>
-    <LandingPage />
+  <div>
+    <LandingPage className={styles.landingPage} />
   </div>
 );

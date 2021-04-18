@@ -3,30 +3,13 @@
 html,
 body {
   height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 :global(#root) {
-  min-height: 100%;
-}
-
-.main {
-  position: absolute;
-  min-height: 100%;
-  width: 100%;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.light {
-  composes: main;
-
-  background-color: colors.$light-primary;
-}
-
-.dark {
-  composes: main;
-
-  background-color: colors.$dark-primary;
+  position: relative;
+  display: inline-block;
+  min-width: 100%;
 }
