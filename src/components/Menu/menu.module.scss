@@ -1,0 +1,68 @@
+@use '~src/resources/style/colors';
+
+.container {
+  display: flex;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item-container {
+  position: relative;
+  padding: 10px 10px;
+}
+
+.item {
+  position: relative;
+  color: colors.$midtone;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    color: colors.$highlight;
+  }
+
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 80%;
+    width: 2px;
+    opacity: 0;
+    background: colors.$highlight;
+    transition: all 0.15s ease-in-out;
+  }
+
+  &:before {
+    left: 0;
+    transform: translate(-20px, -50%);
+  }
+
+  &:after {
+    right: 0;
+    transform: translate(20px, -50%);
+  }
+
+  &:hover:before,
+  &:hover:after {
+    opacity: 1;
+  }
+
+  &:hover:before {
+    transform: translate(-10px, -50%);
+  }
+
+  &:hover:after {
+    transform: translate(10px, -50%);
+  }
+}

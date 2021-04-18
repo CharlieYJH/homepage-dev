@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { WindowSizeContext } from '../../../../providers/WindowSizeProvider';
 import { Greeting } from '../Greeting';
+import { Menu } from '../../../Menu';
 import LogoWide from '../../../../resources/images/logo-wide.svg';
 import styles from './title.module.scss';
 
@@ -12,7 +13,9 @@ export const Title: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => 
         <div className={styles.overlayItem}>
           <Greeting className={styles.greeting} />
         </div>
-        <div className={styles.overlayItem} />
+        <div className={styles.overlayItem}>
+          <Menu />
+        </div>
       </div>
       <LogoWide className={styles.logo} />
     </div>
