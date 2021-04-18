@@ -8,10 +8,12 @@ interface LinkList {
 
 export const Navigation: React.FC<LinkList> = ({ links }) => (
   <div className={styles.container}>
-    <ul className={useContext(ThemeContext).lightTheme ? styles.light : styles.dark}>
+    <ul className={styles.nav}>
       {links.map((link) => (
         <li key={link}>
-          <a href="#">{link}</a>
+          <a href="#" className={styles.navLink}>
+            {link}
+          </a>
         </li>
       ))}
     </ul>

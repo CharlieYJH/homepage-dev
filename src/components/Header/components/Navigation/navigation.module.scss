@@ -11,55 +11,33 @@
 
   li {
     display: inline-block;
-
-    a {
-      display: inline-block;
-      position: relative;
-      text-decoration: none;
-      font-size: 16px;
-      font-family: 'Inter', sans-serif;
-      padding: 1em 1.2em;
-      transition: all 0.3s ease-in-out;
-
-      &:after {
-        content: '';
-        display: block;
-        width: 90%;
-        height: 2px;
-        margin: 4px auto 0 auto;
-        opacity: 0;
-        transform: translateY(5px);
-        transition: all 0.15s ease-in-out;
-      }
-
-      &:hover:after {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   }
 }
 
-.light {
-  composes: nav;
+.nav-link {
+  display: inline-block;
+  position: relative;
+  color: colors.$midtone;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  padding: 0.7em 1.2em;
+  transition: all 0.3s ease-in-out;
 
-  a {
-    color: colors.$light-primary;
-
-    &:after {
-      background-color: colors.$light-primary;
-    }
+  &:after {
+    content: '';
+    display: block;
+    width: 90%;
+    height: 2px;
+    margin: 4px auto 0 auto;
+    opacity: 0;
+    background: colors.$midtone;
+    transform: translateY(5px);
+    transition: all 0.15s ease-in-out;
   }
-}
 
-.dark {
-  composes: nav;
-
-  a {
-    color: colors.$dark-primary;
-
-    &:after {
-      background-color: colors.$dark-primary;
-    }
+  &:hover:after {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
