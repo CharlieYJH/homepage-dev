@@ -5,16 +5,15 @@
 	 width="1409.268px" height="689.917px" viewBox="0 0 1409.268 689.917" enable-background="new 0 0 1409.268 689.917"
 	 xml:space="preserve">
 <g>
-	<path display="none" fill="none" stroke="#C0C0C0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="
-		M704.634,344.959c0,189.134,153.324,342.458,342.46,342.458"/>
-	<path fill="none" stroke="#7AD1F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M362.174,2.5
-		c189.135,0,342.459,153.324,342.459,342.459c0,189.134-153.324,342.458-342.459,342.458"/>
 	<path fill="none" stroke="#C0C0C0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M1064.307,2.5
 		c189.137,0,342.461,153.324,342.461,342.459c0,189.134-153.324,342.458-342.461,342.458"/>
-	<path fill="none" stroke="#53C4F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M1047.092,687.417"/>
 	<path fill="none" stroke="#7AD1F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M344.959,2.5
 		C155.824,2.5,2.5,155.824,2.5,344.959c0,189.134,153.324,342.458,342.459,342.458"/>
-	<path fill="none" stroke="#7AD1F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M1047.092,2.5
-		c-189.135,0-342.458,153.324-342.458,342.459"/>
+	<g>
+		<path fill="none" stroke="#7AD1F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M362.174,2.5
+			c189.135,0,342.459,153.324,342.459,342.459c0,189.134-153.324,342.458-342.459,342.458"/>
+		<path fill="none" stroke="#7AD1F0" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M1047.092,2.5
+			c-189.135,0-342.458,153.324-342.458,342.459"/>
+	</g>
 </g>
 </svg>

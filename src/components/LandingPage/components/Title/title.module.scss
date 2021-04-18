@@ -4,9 +4,34 @@
   position: relative;
 }
 
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .logo {
   min-width: 100%;
   height: auto;
+
+  & > g > path:nth-child(1),
+  & > g > path:nth-child(2) {
+    stroke-dasharray: 1077;
+    stroke-dashoffset: 1077;
+    animation: dash 1s ease-out forwards;
+  }
+
+  & > g > g > path:nth-child(1) {
+    stroke-dasharray: 1615;
+    stroke-dashoffset: -1615;
+    animation: dash 1s ease-out forwards;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
 }
 
 .overlay {
@@ -14,6 +39,8 @@
   align-items: center;
   position: absolute;
   width: 100%;
+  opacity: 0;
+  animation: fade-in 0.6s ease-out forwards;
 }
 
 .overlay-item {
