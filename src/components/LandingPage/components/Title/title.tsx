@@ -5,7 +5,7 @@ import { Greeting } from '../Greeting';
 import LogoWide from '../../../../resources/images/logo-wide.svg';
 import styles from './title.module.scss';
 
-export const Title: React.FC<{}> = (props) => {
+export const Title: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <div className={classnames(props.className, styles.container)}>
       <div className={styles.overlay}>

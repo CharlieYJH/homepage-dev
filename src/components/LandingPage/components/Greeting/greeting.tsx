@@ -10,7 +10,7 @@ const titles = [
   'lifelong student',
 ];
 
-export const Greeting: React.FC<{}> = (props) => {
+export const Greeting: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <div className={classnames(props.className, styles.container)}>
       <div className={styles.name}>{`Hi, I'm Charlie, a`}</div>
