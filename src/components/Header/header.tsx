@@ -5,6 +5,7 @@ import styles from './header.module.scss';
 const navlinks = [
   { name: 'Resume', url: 'https://1drv.ms/b/s!AgyyYFbzbIYQlBeLXAfk0_hj9kg4' },
   { name: 'GitHub', url: 'https://github.com/charlieyjh' },
+  { name: 'LinkedIn', url: 'https://ca.linkedin.com/in/charlieyin' },
 ];
 
 export const Header: React.FC<{}> = () => (
