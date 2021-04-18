@@ -2,17 +2,22 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../../../../providers/ThemeProvider';
 import styles from './navigation.module.scss';
 
+interface Link {
+  name: string;
+  url: string;
+}
+
 interface LinkList {
-  links: string[];
+  links: Link[];
 }
 
 export const Navigation: React.FC<LinkList> = ({ links }) => (
   <div className={styles.container}>
     <ul className={styles.nav}>
       {links.map((link) => (
-        <li key={link}>
-          <a href="#" className={styles.navLink}>
-            {link}
+        <li key={link.name}>
+          <a href={link.url} className={styles.navLink}>
+            {link.name}
           </a>
         </li>
       ))}
