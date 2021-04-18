@@ -13,7 +13,9 @@ const titles = [
 export const Greeting: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
     <div className={classnames(props.className, styles.container)}>
-      <div className={styles.name}>{`Hi, I'm Charlie, a`}</div>
+      <div className={styles.message}>
+        {`Hi, I'm`} <span className={styles.name}>Charlie</span>, {`a`}
+      </div>
       <div className={styles.titleContainer}>
         <p>.</p>
         <div className={styles.carouselContainer}>

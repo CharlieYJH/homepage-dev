@@ -6,19 +6,25 @@
   position: relative;
 }
 
-.intro {
+.text {
   font-family: 'Inter', sans-serif;
   font-size: 30px;
 }
 
-.name {
-  composes: intro;
+.message {
+  composes: text;
 
   color: colors.$midtone;
 }
 
+.name {
+  composes: text;
+
+  color: colors.$highlight;
+}
+
 .title-container {
-  composes: intro;
+  composes: text;
 
   position: relative;
   color: colors.$page-background;
@@ -30,7 +36,7 @@
 }
 
 .carousel-container {
-  composes: intro;
+  composes: text;
 
   position: absolute;
   top: 0;
@@ -38,7 +44,7 @@
 }
 
 .title {
-  composes: intro;
+  composes: text;
 
   display: flex;
   justify-content: center;
@@ -48,7 +54,7 @@
 }
 
 .carousel {
-  composes: intro;
+  composes: text;
 
   position: absolute;
   bottom: 0;
