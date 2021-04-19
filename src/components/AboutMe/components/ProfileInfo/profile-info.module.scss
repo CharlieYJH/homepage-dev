@@ -1,0 +1,30 @@
+@use '~src/resources/style/fonts';
+@use '~src/resources/style/colors';
+
+.container {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  margin-bottom: 5%;
+  color: colors.$midtone;
+  font-size: 43px;
+}
+
+.info {
+  font-size: 20px;
+}
+
+.entry {
+  padding-top: 5%;
+}
+
+.question {
+  padding: 15px 0;
+  color: colors.$highlight;
+}
+
+.answer {
+  color: colors.$midtone;
+}

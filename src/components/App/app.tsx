@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
 import { Header } from '../Header';
 import { LandingPage } from '../LandingPage';
-import { ThemeContext } from '../../providers/ThemeProvider';
+import { ContentContainer } from '../ContentContainer';
+import { AboutMe } from '../AboutMe';
 import styles from './app.module.scss';
 
 export const App: React.FC<{}> = () => (
   <div>
     <Header />
-    <LandingPage />
+    <div className={styles.container}>
+      <LandingPage />
+      <ContentContainer>
+        <AboutMe />
+      </ContentContainer>
+    </div>
   </div>
 );
