@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../../../../providers/ThemeProvider';
+import React from 'react';
 import styles from './navigation.module.scss';
 
 interface Link {

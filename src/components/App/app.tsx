@@ -3,6 +3,7 @@ import { Header } from '../Header';
 import { LandingPage } from '../LandingPage';
 import { ContentContainer } from '../ContentContainer';
 import { AboutMe } from '../AboutMe';
+import { ScrollContext } from '../../providers/ScrollProvider';
 import styles from './app.module.scss';
 
 export const App: React.FC<{}> = () => (

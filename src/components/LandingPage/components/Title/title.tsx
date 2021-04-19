@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Greeting } from '../Greeting';
 import { Menu } from '../../../Menu';
 import LogoWide from '../../../../resources/images/logo-wide.svg';
