@@ -9,9 +9,13 @@ export const App: React.FC<{}> = () => (
   <div>
     <Header />
     <div className={styles.container}>
-      <LandingPage />
+      <div className={styles.landingContainer}>
+        <LandingPage />
+      </div>
       <ContentContainer>
-        <AboutMe />
+        <div className={styles.aboutContainer}>
+          <AboutMe />
+        </div>
       </ContentContainer>
     </div>
   </div>
