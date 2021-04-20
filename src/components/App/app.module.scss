@@ -1,11 +1,14 @@
 @use "~src/resources/style/colors";
 
-html,
-body {
+html {
   height: 100%;
+}
+
+body {
+  position: absolute; // Fix body not stretching to content width
+  min-width: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
 }
 
 :global(#root) {

@@ -1,23 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { Header } from '../Header';
 import { LandingPage } from '../LandingPage';
 import { ContentContainer } from '../ContentContainer';
 import { AboutMe } from '../AboutMe';
-import { ScrollContext } from '../../providers/ScrollProvider';
+import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
-export const App: React.FC<{}> = () => (
-  <div>
-    <Header />
-    <div className={styles.container}>
-      <div className={styles.landingContainer}>
-        <LandingPage />
-      </div>
-      <ContentContainer>
-        <div className={styles.aboutContainer}>
-          <AboutMe />
+export const App: React.FC<{}> = () => {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useScrollPosition(
+    (currpos: { x: number; y: number }) => {
+      setPos(currpos);
+      console.log(pos);
+    },
+    [pos],
+    document.getElementById('root'),
+    100
+  );
+
+  return (
+    <div>
+      <Header />
+      <div className={styles.container}>
+        <div className={styles.landingContainer}>
+          <LandingPage />
         </div>
-      </ContentContainer>
+        <ContentContainer>
+          <div className={styles.aboutContainer}>
+            <AboutMe />
+          </div>
+        </ContentContainer>
+      </div>
     </div>
-  </div>
-);
+  );
+};
