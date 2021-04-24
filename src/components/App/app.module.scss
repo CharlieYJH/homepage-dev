@@ -1,7 +1,9 @@
+@use '~src/resources/style/fonts';
 @use "~src/resources/style/colors";
 
 html {
   height: 100%;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -28,6 +30,11 @@ body {
   display: flex;
   align-items: center;
   min-height: 100vh;
+}
+
+.menu-container {
+  position: relative;
+  width: 100%;
 }
 
 .about-container {
