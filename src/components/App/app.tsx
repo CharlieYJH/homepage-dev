@@ -18,22 +18,30 @@ export const App: React.FC<{}> = () => {
   const [progress, setProgress] = useState(0);
 
   const updateProgress = (): void => {
+    let progress = 0;
+    const scale = 1 / (checkpoints.length - 1);
+
     for (let i = 0; i < checkpoints.length; i++) {
       if (!checkpoints[i].current) {
         return;
       }
+
+      const rect = checkpoints[i].current.getBoundingClientRect();
+
+      if (rect.top > 0 && rect.bottom > 0) {
+        // Not past this element yet, no point adding anymore
+        break;
+      } else if (rect.top < 0 && rect.bottom < 0) {
+        // We're past this element completely, add the entire segment
+        progress += scale;
+      } else if (rect.top <= 0 && rect.bottom > 0) {
+        // We're in the middle of this element, calculate its percentage and scale it
+        // by the segment length
+        progress += scale * (Math.abs(rect.top) / (rect.bottom - rect.top));
+      }
     }
 
-    const start = checkpoints[0].current.getBoundingClientRect().top;
-    const end = checkpoints[checkpoints.length - 1].current.getBoundingClientRect().top;
-    const len = end - start;
-
-    if (start > 0) {
-      setProgress(0);
-      return;
-    }
-
-    setProgress(Math.abs(checkpoints[0].current.getBoundingClientRect().top) / len);
+    setProgress(progress);
   };
 
   useScrollPosition(
