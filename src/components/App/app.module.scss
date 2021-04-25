@@ -75,3 +75,17 @@ body {
   width: 1200px;
   min-height: 100vh;
 }
+
+.placeholder-long {
+  width: 100%;
+  height: 200vh;
+  background: red;
+  border: 5px solid black;
+}
+
+.placeholder-short {
+  width: 100%;
+  height: 100vh;
+  background: red;
+  border: 5px solid black;
+}
