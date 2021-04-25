@@ -7,7 +7,9 @@ export const useScrollPosition = (
   timeout?: number
 ): void => {
   const getScroll = (element: HTMLElement): { x: number; y: number } => {
-    const pos = element.getBoundingClientRect();
+    const pos = element
+      ? element.getBoundingClientRect()
+      : document.body.getBoundingClientRect();
     return { x: pos.left, y: pos.top };
   };
 

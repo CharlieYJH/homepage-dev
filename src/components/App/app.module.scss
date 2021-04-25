@@ -25,6 +25,25 @@ body {
   align-items: center;
 }
 
+.menu {
+  z-index: -999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  padding: 0 10%;
+  background: colors.$page-background;
+  transform: translateY(-50%);
+  transition: all 0.25s ease-out;
+  opacity: 0;
+}
+
+.menu-active {
+  z-index: 999;
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .landing-container {
   position: relative;
   display: flex;
@@ -32,9 +51,21 @@ body {
   min-height: 100vh;
 }
 
-.menu-container {
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
+  height: 100px;
+
+  &:after {
+    content: '';
+    width: 10%;
+    height: 4px;
+    background: colors.$midtone-light;
+    border-radius: 10px;
+  }
 }
 
 .about-container {

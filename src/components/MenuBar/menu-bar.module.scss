@@ -32,7 +32,7 @@
 
 .progress-fill {
   height: 100%;
-  border-radius: 10px;
+  border-radius: 7px;
   background: colors.$highlight;
   transition: all 0.1s ease-out;
 }
@@ -68,7 +68,8 @@ $max-dot-size: 30px;
 .text {
   padding: 10px 10px;
   color: colors.$midtone;
-  font-size: 20px;
+  font-size: 16px;
+  cursor: pointer;
   transition: color 0.3s ease-out;
 }
 
