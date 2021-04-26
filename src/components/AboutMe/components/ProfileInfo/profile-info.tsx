@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styles from './profile-info.module.scss';
 
 export const ProfileInfo: React.FC<{}> = () => {
-  const info = [
+  const pages = [
     [
       {
         question: `Who am I?`,
@@ -15,7 +15,7 @@ export const ProfileInfo: React.FC<{}> = () => {
       },
       {
         question: `What's my expertise?`,
-        answer: `I specialise in backend development for applications running on Linux environments. My languages of choice are C and C++, but I’ve also have a good working knowledge of Golang.`,
+        answer: `I specialise in backend development for applications running on Linux environments. My languages of choice are C and C++, but I also have a good working knowledge of Golang.`,
       },
       {
         question: `Any other interests?`,
@@ -48,7 +48,7 @@ export const ProfileInfo: React.FC<{}> = () => {
     <div className={styles.container}>
       <div className={styles.title}>about me</div>
       <div className={styles.dotsContainer}>
-        {[...Array(info.length)].map((x, i) => (
+        {[...Array(pages.length)].map((x, i) => (
           <div
             key={i}
             className={classnames(styles.dot, i === page ? styles.dotActive : '')}
@@ -57,10 +57,20 @@ export const ProfileInfo: React.FC<{}> = () => {
         ))}
       </div>
       <div className={styles.info}>
-        {info[page].map((entry) => (
-          <div key={entry.question} className={styles.entry}>
-            <div className={styles.question}>{entry.question}</div>
-            <div className={styles.answer}>{entry.answer}</div>
+        {pages.map((info, i) => (
+          <div
+            key={i}
+            className={classnames(
+              styles.entryContainer,
+              page !== i ? styles.entryInactive : ''
+            )}
+          >
+            {info.map((entry) => (
+              <div key={entry.question} className={styles.entry}>
+                <div className={styles.question}>{entry.question}</div>
+                <div className={styles.answer}>{entry.answer}</div>
+              </div>
+            ))}
           </div>
         ))}
       </div>

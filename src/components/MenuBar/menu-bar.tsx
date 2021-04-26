@@ -31,7 +31,7 @@ export const MenuBar: React.FC<{ progress: number }> = (props) => {
             <div
               className={classnames(
                 styles.dot,
-                position == i ? styles.dotActive : '',
+                position === i ? styles.dotActive : '',
                 position > i ? styles.dotDone : ''
               )}
             />
