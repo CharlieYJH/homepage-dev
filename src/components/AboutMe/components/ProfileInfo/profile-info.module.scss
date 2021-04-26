@@ -5,9 +5,30 @@
 }
 
 .title {
-  margin-bottom: 36px;
   color: colors.$midtone;
   font-size: 43px;
+}
+
+.dots-container {
+  display: flex;
+  align-items: center;
+  padding: 36px 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 15px;
+  border-radius: 100%;
+  background: colors.$midtone;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.1s ease-out;
+}
+
+.dot-active {
+  opacity: 1;
 }
 
 .info {
@@ -15,11 +36,11 @@
 }
 
 .entry {
-  padding-top: 36px;
+  padding-bottom: 51px;
 }
 
 .question {
-  padding: 15px 0;
+  padding-bottom: 15px;
   color: colors.$highlight;
 }
 
