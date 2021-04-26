@@ -65,16 +65,15 @@ export const App: React.FC<{}> = () => {
         <MenuBar progress={progress} />
       </div>
       <div className={styles.container}>
-        <div className={styles.landingContainer}>
+        <div ref={checkpoints[0]} className={styles.landingContainer}>
           <LandingPage />
         </div>
         <div ref={menuRef} className={styles.separator} />
         <ContentContainer>
-          <div ref={checkpoints[0]} className={styles.aboutContainer}>
+          <div ref={checkpoints[1]} className={styles.aboutContainer}>
             <AboutMe />
           </div>
-          <div ref={checkpoints[1]} className={styles.placeholderLong} />
-          <div ref={checkpoints[2]} className={styles.placeholderShort} />
+          <div ref={checkpoints[2]} className={styles.placeholderLong} />
           <div ref={checkpoints[3]} className={styles.placeholderShort} />
         </ContentContainer>
       </div>

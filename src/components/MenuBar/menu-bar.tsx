@@ -4,6 +4,10 @@ import styles from './menu-bar.module.scss';
 
 const items = [
   {
+    name: 'home',
+    href: '#home',
+  },
+  {
     name: 'about me',
     href: '#about-me',
   },
@@ -12,12 +16,8 @@ const items = [
     href: '#experience',
   },
   {
-    name: 'projects',
-    href: '#projects',
-  },
-  {
-    name: 'contact me',
-    href: '#contact-me',
+    name: 'contact',
+    href: '#contact',
   },
 ];
 
