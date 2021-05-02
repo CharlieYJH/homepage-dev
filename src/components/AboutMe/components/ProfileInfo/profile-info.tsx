@@ -47,11 +47,14 @@ export const ProfileInfo: React.FC<{}> = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>about me</div>
-      <div className={styles.dotsContainer}>
+      <div className={styles.selectorContainer}>
         {[...Array(pages.length)].map((x, i) => (
           <div
             key={i}
-            className={classnames(styles.dot, i === page ? styles.dotActive : '')}
+            className={classnames(
+              styles.selector,
+              i === page ? styles.selectorActive : ''
+            )}
             onClick={(): void => setPage(i)}
           />
         ))}
