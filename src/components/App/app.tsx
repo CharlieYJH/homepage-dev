@@ -5,6 +5,7 @@ import { LandingPage } from '../LandingPage';
 import { ContentContainer } from '../ContentContainer';
 import { MenuBar } from '../MenuBar';
 import { AboutMe } from '../AboutMe';
+import { Experience } from '../Experience';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
@@ -73,7 +74,9 @@ export const App: React.FC<{}> = () => {
           <div ref={checkpoints[1]} className={styles.aboutContainer}>
             <AboutMe />
           </div>
-          <div ref={checkpoints[2]} className={styles.placeholderLong} />
+          <div ref={checkpoints[2]} className={styles.experienceContainer}>
+            <Experience />
+          </div>
           <div ref={checkpoints[3]} className={styles.placeholderShort} />
         </ContentContainer>
       </div>

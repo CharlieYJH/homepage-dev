@@ -1,0 +1,40 @@
+@use "~src/resources/style/colors";
+
+.sidebar {
+  display: flex;
+  justify-content: right;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 120px; // This should be greater than the header height
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+.text-holder {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.text {
+  display: flex;
+  vertical-align: top;
+  justify-content: right;
+  font-size: 43px;
+}
+
+.title {
+  color: colors.$midtone;
+}
+
+.content {
+  color: colors.$highlight;
+}
+
+.divider {
+  display: inline-block;
+  vertical-align: top;
+  width: 5px;
+  height: 300px;
+  background: colors.$highlight;
+  border-radius: 10px;
+}

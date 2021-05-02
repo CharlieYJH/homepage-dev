@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.sidebar {
+  width: 30%;
+  // background: red;
+}
+
+.content {
+  width: 70%;
+  height: 2000px;
+  // background: green;
+}
