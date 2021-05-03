@@ -12,13 +12,12 @@
 
 .text-holder {
   display: inline-block;
+  vertical-align: top;
   margin-right: 10px;
 }
 
 .text {
-  display: flex;
-  vertical-align: top;
-  justify-content: right;
+  text-align: right;
   font-size: 43px;
 }
 
@@ -26,8 +25,30 @@
   color: colors.$midtone;
 }
 
-.content {
+.content-container {
+  position: relative;
   color: colors.$highlight;
+}
+
+.content {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.active {
+  opacity: 1;
+}
+
+.placeholder {
+  visibility: hidden;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform 0.15s ease-out;
 }
 
 .divider {
