@@ -78,6 +78,7 @@ export const App: React.FC<{}> = () => {
           <div ref={checkpoints[2]} className={styles.experienceContainer}>
             <Experience />
           </div>
+          <div className={styles.divider} />
           <div ref={checkpoints[3]} className={styles.placeholderShort} />
         </ContentContainer>
       </div>
