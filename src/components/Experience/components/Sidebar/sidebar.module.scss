@@ -2,7 +2,7 @@
 
 .sidebar {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   position: -webkit-sticky;
   position: sticky;
   top: 120px; // This should be greater than the header height
@@ -67,7 +67,7 @@
 .divider {
   display: inline-block;
   vertical-align: top;
-  width: 4px;
+  width: 3px;
   height: 300px;
   background: colors.$highlight;
   border-radius: 10px;
