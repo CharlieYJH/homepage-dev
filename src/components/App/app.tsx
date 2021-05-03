@@ -74,6 +74,7 @@ export const App: React.FC<{}> = () => {
           <div ref={checkpoints[1]} className={styles.aboutContainer}>
             <AboutMe />
           </div>
+          <div className={styles.divider} />
           <div ref={checkpoints[2]} className={styles.experienceContainer}>
             <Experience />
           </div>
