@@ -7,7 +7,6 @@
   position: sticky;
   top: 120px; // This should be greater than the header height
   width: 100%;
-  padding-bottom: 100px;
 }
 
 .text-holder {
@@ -18,35 +17,49 @@
 
 .text {
   text-align: right;
-  font-size: 43px;
 }
 
 .title {
+  composes: text;
+
   color: colors.$midtone;
+  font-size: 43px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  composes: text;
+
+  color: colors.$midtone;
+  font-size: 34px;
 }
 
 .content-container {
   position: relative;
-  color: colors.$highlight;
 }
 
 .content {
+  composes: subtitle;
+
   display: block;
   opacity: 0;
+  color: colors.$highlight;
   transition: opacity 0.15s ease-out;
 }
 
-.active {
+.content-inactive {
+  composes: content;
+
+  opacity: 0;
+}
+
+.content-active {
+  composes: content;
+
   opacity: 1;
 }
 
-.placeholder {
-  visibility: hidden;
-}
-
 .carousel {
-  position: absolute;
-  top: 0;
   right: 0;
   transition: transform 0.15s ease-out;
 }
@@ -54,7 +67,7 @@
 .divider {
   display: inline-block;
   vertical-align: top;
-  width: 5px;
+  width: 4px;
   height: 300px;
   background: colors.$highlight;
   border-radius: 10px;
