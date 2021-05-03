@@ -9,8 +9,8 @@ interface Properties {
   activeTo: string;
 }
 
-export const Sidebar: React.FC<Properties> = (props) => (
-  <div className={styles.sidebar}>
+export const Sidebar = React.forwardRef<HTMLDivElement, Properties>((props, ref) => (
+  <div ref={ref} className={styles.sidebar}>
     <div className={styles.textHolder}>
       <div className={styles.title}>experience</div>
       <div className={styles.contentContainer}>
@@ -35,4 +35,6 @@ export const Sidebar: React.FC<Properties> = (props) => (
     </div>
     <div className={styles.divider} />
   </div>
-);
+));
+
+Sidebar.displayName = 'Sidebar';

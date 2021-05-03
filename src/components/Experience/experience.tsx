@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { ExperienceItem } from './components/ExperienceItem';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
@@ -54,12 +54,35 @@ export const Experience: React.FC<{}> = () => {
 
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState({ from: fromTags[0], to: toTags[0] });
+  const sidebarRef = useRef(null);
+  const itemRefs = useRef([]);
 
-  const setActiveTags = (pos: number): void => {
+  itemRefs.current = Array(entries.length)
+    .fill(null)
+    .map((_, i) => itemRefs.current[i] || createRef());
+
+  const setActiveTags = (): void => {
     let idx = 0;
 
-    if (pos > 2500) {
-      idx = 1;
+    if (!sidebarRef.current || itemRefs.current.length !== entries.length) {
+      setActive({ from: fromTags[0], to: toTags[0] });
+      return;
+    }
+
+    for (let i = itemRefs.current.length - 1; i >= 0 && sidebarRef.current; i--) {
+      if (!itemRefs.current[i]) {
+        break;
+      }
+
+      const top = itemRefs.current[i].current.getBoundingClientRect().top;
+      const rect = sidebarRef.current.getBoundingClientRect();
+
+      if (top > rect.top + rect.height * 0.5) {
+        continue;
+      } else {
+        idx = i;
+        break;
+      }
     }
 
     setActive({ from: fromTags[idx], to: toTags[idx] });
@@ -72,12 +95,13 @@ export const Experience: React.FC<{}> = () => {
     50
   );
 
-  useEffect(() => setActiveTags(Math.abs(pos.y)), [pos]);
+  useEffect(() => setActiveTags(), [pos]);
 
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <Sidebar
+          ref={sidebarRef}
           fromTags={fromTags}
           toTags={toTags}
           activeFrom={active.from}
@@ -89,6 +113,7 @@ export const Experience: React.FC<{}> = () => {
           {entries.map((entry, i) => (
             <ExperienceItem
               key={i}
+              ref={itemRefs.current[i]}
               title={entry.title}
               subtitle={entry.subtitle}
               content={entry.content}
