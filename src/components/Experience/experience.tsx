@@ -53,7 +53,8 @@ export const Experience: React.FC<{}> = () => {
   });
 
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [active, setActive] = useState({ from: fromTags[0], to: toTags[0] });
+  const [activeTags, setActiveTags] = useState({ from: fromTags[0], to: toTags[0] });
+  const [activeItem, setActiveItem] = useState(0);
   const sidebarRef = useRef(null);
   const itemRefs = useRef([]);
 
@@ -61,11 +62,11 @@ export const Experience: React.FC<{}> = () => {
     .fill(null)
     .map((_, i) => itemRefs.current[i] || createRef());
 
-  const setActiveTags = (): void => {
+  const updateActiveTags = (): void => {
     let idx = 0;
 
     if (!sidebarRef.current || itemRefs.current.length !== entries.length) {
-      setActive({ from: fromTags[0], to: toTags[0] });
+      setActiveTags({ from: fromTags[0], to: toTags[0] });
       return;
     }
 
@@ -85,7 +86,8 @@ export const Experience: React.FC<{}> = () => {
       }
     }
 
-    setActive({ from: fromTags[idx], to: toTags[idx] });
+    setActiveTags({ from: fromTags[idx], to: toTags[idx] });
+    setActiveItem(idx);
   };
 
   useScrollPosition(
@@ -95,7 +97,7 @@ export const Experience: React.FC<{}> = () => {
     50
   );
 
-  useEffect(() => setActiveTags(), [pos]);
+  useEffect(() => updateActiveTags(), [pos]);
 
   return (
     <div className={styles.container}>
@@ -104,20 +106,24 @@ export const Experience: React.FC<{}> = () => {
           ref={sidebarRef}
           fromTags={fromTags}
           toTags={toTags}
-          activeFrom={active.from}
-          activeTo={active.to}
+          activeFrom={activeTags.from}
+          activeTo={activeTags.to}
         />
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.content}>
           {entries.map((entry, i) => (
-            <ExperienceItem
+            <div
               key={i}
               ref={itemRefs.current[i]}
-              title={entry.title}
-              subtitle={entry.subtitle}
-              content={entry.content}
-            />
+              className={i === activeItem ? styles.itemActive : styles.itemInactive}
+            >
+              <ExperienceItem
+                title={entry.title}
+                subtitle={entry.subtitle}
+                content={entry.content}
+              />
+            </div>
           ))}
         </div>
       </div>

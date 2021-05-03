@@ -17,3 +17,19 @@
   width: 90%;
   margin-left: 20px;
 }
+
+.item {
+  transition: opacity 0.15s ease-out;
+}
+
+.item-active {
+  composes: item;
+
+  opacity: 1;
+}
+
+.item-inactive {
+  composes: item;
+
+  opacity: 0.3;
+}
