@@ -77,7 +77,7 @@ export const App: React.FC<{}> = () => {
             <LandingPage />
           </div>
           <ContentContainer>
-            <div ref={menuRef} className={styles.separator} />
+            <div ref={menuRef} className={styles.divider} />
             <div
               ref={checkpoints.current[1]}
               id="about-me"

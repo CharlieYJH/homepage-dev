@@ -68,14 +68,27 @@ $max-dot-size: 30px;
   background: colors.$page-background;
 }
 
+.text-container {
+  &:hover > .text {
+    color: colors.$highlight;
+  }
+}
+
 .text {
   padding: 10px 10px;
-  color: colors.$midtone;
   font-size: 18px;
   cursor: pointer;
   transition: color 0.3s ease-out;
 }
 
 .text-active {
+  composes: text;
+
   color: colors.$highlight;
+}
+
+.text-inactive {
+  composes: text;
+
+  color: colors.$midtone;
 }

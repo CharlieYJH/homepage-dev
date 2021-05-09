@@ -63,17 +63,14 @@ body {
   &:after {
     content: '';
     width: 10%;
-    height: 3px;
+    height: 2px;
     background: colors.$midtone-light;
     border-radius: 10px;
   }
 }
 
-.separator {
-  composes: divider;
-}
-
 .content-container {
+  position: relative;
   padding-top: 120px;
   padding-bottom: 120px;
 }
@@ -81,7 +78,6 @@ body {
 .about-container {
   composes: content-container;
 
-  position: relative;
   display: flex;
   align-items: center;
   width: 1200px;
@@ -90,14 +86,12 @@ body {
 .experience-container {
   composes: content-container;
 
-  position: relative;
   width: 1200px;
 }
 
 .projects-container {
   composes: content-container;
 
-  position: relative;
   width: 1200px;
 }
 

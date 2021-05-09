@@ -54,10 +54,13 @@ export const MenuBar: React.FC<{ progress: number }> = (props) => {
       </div>
       <div className={styles.itemContainer}>
         {items.map((item, i) => (
-          <HashLink key={i} smooth to={item.href} className={styles.item}>
-            <div
-              className={classnames(styles.text, position === i ? styles.textActive : '')}
-            >
+          <HashLink
+            key={i}
+            smooth
+            to={item.href}
+            className={classnames(styles.item, styles.textContainer)}
+          >
+            <div className={position === i ? styles.textActive : styles.textInactive}>
               {item.name}
             </div>
           </HashLink>
