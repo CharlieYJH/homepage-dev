@@ -1,0 +1,39 @@
+@use '~src/resources/style/colors';
+
+.text {
+  font-size: 22px;
+}
+
+.description {
+  composes: text;
+
+  color: colors.$midtone;
+  margin-bottom: 20px;
+}
+
+.link {
+  composes: text;
+
+  position: relative;
+  text-decoration: none;
+  color: colors.$highlight;
+  padding: 5px 0;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0;
+    background: colors.$highlight;
+    transform: translateY(5px);
+    transition: all 0.15s ease-out;
+  }
+
+  &:hover:after {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

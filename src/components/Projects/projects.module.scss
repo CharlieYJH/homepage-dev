@@ -10,7 +10,13 @@
   margin-bottom: 40px;
 }
 
+.projects {
+  position: relative;
+}
+
 .project-titles {
+  display: inline-block;
+  vertical-align: top;
   width: 50%;
 }
 
@@ -68,6 +74,33 @@
 .arrow-inactive {
   composes: arrow;
 
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.description-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+
+.description {
+  position: absolute;
+  transition: all 0.25s ease-out;
+}
+
+.description-active {
+  composes: description;
+
+  z-index: 1;
+  opacity: 1;
+}
+
+.description-inactive {
+  composes: description;
+
+  z-index: -999;
   transform: translateX(30px);
   opacity: 0;
 }
