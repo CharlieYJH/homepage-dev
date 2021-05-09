@@ -16,6 +16,10 @@ const items = [
     href: '#experience',
   },
   {
+    name: 'projects',
+    href: '#experience',
+  },
+  {
     name: 'contact',
     href: '#contact',
   },

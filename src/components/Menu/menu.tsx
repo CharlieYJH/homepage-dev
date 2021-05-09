@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './menu.module.scss';
 
-const menuItems = ['about me', 'experience', 'contact'];
+const menuItems = ['about me', 'experience', 'projects', 'contact'];
 
 export const Menu: React.FC<{}> = () => {
   return (

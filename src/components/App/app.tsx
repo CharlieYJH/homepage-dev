@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, createRef } from 'react';
 import classnames from 'classnames';
 import { Header } from '../Header';
 import { LandingPage } from '../LandingPage';
@@ -16,19 +16,23 @@ export const App: React.FC<{}> = () => {
   const menuRef = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
 
-  const checkpoints = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const checkpoints = useRef([]);
   const [progress, setProgress] = useState(0);
+
+  checkpoints.current = Array(5)
+    .fill(null)
+    .map((_, i) => checkpoints.current[i] || createRef());
 
   const updateProgress = (): void => {
     let progress = 0;
-    const scale = 1 / (checkpoints.length - 1);
+    const scale = 1 / (checkpoints.current.length - 1);
 
-    for (let i = 0; i < checkpoints.length; i++) {
-      if (!checkpoints[i].current) {
+    for (let i = 0; i < checkpoints.current.length; i++) {
+      if (!checkpoints.current[i].current) {
         return;
       }
 
-      const rect = checkpoints[i].current.getBoundingClientRect();
+      const rect = checkpoints.current[i].current.getBoundingClientRect();
 
       if (rect.top > 0 && rect.bottom > 0) {
         // Not past this element yet, no point adding anymore
@@ -58,7 +62,7 @@ export const App: React.FC<{}> = () => {
   useEffect(() => {
     setShowMenu(menuRef.current.getBoundingClientRect().top <= 0);
     updateProgress();
-  }, [menuRef, pos, ...checkpoints]);
+  }, [pos]);
 
   return (
     <div>
@@ -67,24 +71,24 @@ export const App: React.FC<{}> = () => {
         <MenuBar progress={progress} />
       </div>
       <div className={styles.container}>
-        <div ref={checkpoints[0]} className={styles.landingContainer}>
+        <div ref={checkpoints.current[0]} className={styles.landingContainer}>
           <LandingPage />
         </div>
         <div ref={menuRef} className={styles.separator} />
         <ContentContainer>
-          <div ref={checkpoints[1]} className={styles.aboutContainer}>
+          <div ref={checkpoints.current[1]} className={styles.aboutContainer}>
             <AboutMe />
           </div>
           <div className={styles.divider} />
-          <div ref={checkpoints[2]} className={styles.experienceContainer}>
+          <div ref={checkpoints.current[2]} className={styles.experienceContainer}>
             <Experience />
           </div>
           <div className={styles.divider} />
-          <div className={styles.projectsContainer}>
+          <div ref={checkpoints.current[3]} className={styles.projectsContainer}>
             <Projects />
           </div>
           <div className={styles.divider} />
-          <div ref={checkpoints[3]} className={styles.placeholderShort} />
+          <div ref={checkpoints.current[4]} className={styles.placeholderShort} />
         </ContentContainer>
       </div>
     </div>
