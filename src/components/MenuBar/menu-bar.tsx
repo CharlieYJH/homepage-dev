@@ -1,11 +1,12 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 import classnames from 'classnames';
 import styles from './menu-bar.module.scss';
 
 const items = [
   {
     name: 'home',
-    href: '#home',
+    href: '#',
   },
   {
     name: 'about me',
@@ -17,7 +18,7 @@ const items = [
   },
   {
     name: 'projects',
-    href: '#experience',
+    href: '#projects',
   },
   {
     name: 'contact',
@@ -53,13 +54,13 @@ export const MenuBar: React.FC<{ progress: number }> = (props) => {
       </div>
       <div className={styles.itemContainer}>
         {items.map((item, i) => (
-          <div key={item.name} className={styles.item}>
+          <HashLink key={i} smooth to={item.href} className={styles.item}>
             <div
               className={classnames(styles.text, position === i ? styles.textActive : '')}
             >
               {item.name}
             </div>
-          </div>
+          </HashLink>
         ))}
       </div>
     </div>

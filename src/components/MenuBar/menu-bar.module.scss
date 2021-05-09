@@ -19,6 +19,7 @@
   justify-content: center;
   flex-basis: 0;
   flex-grow: 1;
+  text-decoration: none;
 }
 
 .progress {
@@ -50,7 +51,7 @@ $max-dot-size: 30px;
   width: $min-dot-size;
   height: $min-dot-size;
   border-radius: 100%;
-  border: 3px solid colors.$highlight;
+  border: 2px solid colors.$highlight;
   background: colors.$page-background;
   transition: all 0.15s ease-out;
 }
@@ -58,12 +59,12 @@ $max-dot-size: 30px;
 .dot-active {
   width: $max-dot-size;
   height: $max-dot-size;
-  border: 3px solid colors.$page-background;
+  border: 2px solid colors.$page-background;
   background: colors.$highlight;
 }
 
 .dot-done {
-  border: 3px solid colors.$highlight;
+  border: 2px solid colors.$highlight;
   background: colors.$page-background;
 }
 

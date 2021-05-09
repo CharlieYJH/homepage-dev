@@ -21,9 +21,12 @@
   },
   "homepage": "https://github.com/CharlieYJH/charlieyjh.github.io#readme",
   "dependencies": {
+    "@types/react-router-hash-link": "^2.0.0",
     "classnames": "^2.3.1",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, createRef } from 'react';
+import { HashRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { Header } from '../Header';
 import { LandingPage } from '../LandingPage';
@@ -65,32 +66,46 @@ export const App: React.FC<{}> = () => {
   }, [pos]);
 
   return (
-    <div>
-      <Header />
-      <div className={classnames(styles.menu, showMenu ? styles.menuActive : '')}>
-        <MenuBar progress={progress} />
-      </div>
-      <div className={styles.container}>
-        <div ref={checkpoints.current[0]} className={styles.landingContainer}>
-          <LandingPage />
+    <HashRouter>
+      <div>
+        <Header />
+        <div className={classnames(styles.menu, showMenu ? styles.menuActive : '')}>
+          <MenuBar progress={progress} />
         </div>
-        <div ref={menuRef} className={styles.separator} />
-        <ContentContainer>
-          <div ref={checkpoints.current[1]} className={styles.aboutContainer}>
-            <AboutMe />
+        <div className={styles.container}>
+          <div ref={checkpoints.current[0]} className={styles.landingContainer}>
+            <LandingPage />
           </div>
-          <div className={styles.divider} />
-          <div ref={checkpoints.current[2]} className={styles.experienceContainer}>
-            <Experience />
-          </div>
-          <div className={styles.divider} />
-          <div ref={checkpoints.current[3]} className={styles.projectsContainer}>
-            <Projects />
-          </div>
-          <div className={styles.divider} />
-          <div ref={checkpoints.current[4]} className={styles.placeholderShort} />
-        </ContentContainer>
+          <ContentContainer>
+            <div ref={menuRef} className={styles.separator} />
+            <div
+              ref={checkpoints.current[1]}
+              id="about-me"
+              className={styles.aboutContainer}
+            >
+              <AboutMe />
+            </div>
+            <div className={styles.divider} />
+            <div
+              ref={checkpoints.current[2]}
+              id="experience"
+              className={styles.experienceContainer}
+            >
+              <Experience />
+            </div>
+            <div className={styles.divider} />
+            <div
+              ref={checkpoints.current[3]}
+              id="projects"
+              className={styles.projectsContainer}
+            >
+              <Projects />
+            </div>
+            <div className={styles.divider} />
+            <div ref={checkpoints.current[4]} className={styles.placeholderShort} />
+          </ContentContainer>
+        </div>
       </div>
-    </div>
+    </HashRouter>
   );
 };

@@ -59,7 +59,6 @@ body {
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 240px;
 
   &:after {
     content: '';
@@ -74,7 +73,14 @@ body {
   composes: divider;
 }
 
+.content-container {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
 .about-container {
+  composes: content-container;
+
   position: relative;
   display: flex;
   align-items: center;
@@ -82,16 +88,22 @@ body {
 }
 
 .experience-container {
+  composes: content-container;
+
   position: relative;
   width: 1200px;
 }
 
 .projects-container {
+  composes: content-container;
+
   position: relative;
   width: 1200px;
 }
 
 .placeholder-short {
+  composes: content-container;
+
   width: 100%;
   height: 100vh;
   background: red;
