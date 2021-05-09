@@ -6,6 +6,7 @@ import { ContentContainer } from '../ContentContainer';
 import { MenuBar } from '../MenuBar';
 import { AboutMe } from '../AboutMe';
 import { Experience } from '../Experience';
+import { Projects } from '../Projects';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
@@ -77,6 +78,10 @@ export const App: React.FC<{}> = () => {
           <div className={styles.divider} />
           <div ref={checkpoints[2]} className={styles.experienceContainer}>
             <Experience />
+          </div>
+          <div className={styles.divider} />
+          <div className={styles.projectsContainer}>
+            <Projects />
           </div>
           <div className={styles.divider} />
           <div ref={checkpoints[3]} className={styles.placeholderShort} />

@@ -1,0 +1,73 @@
+@use '~src/resources/style/colors';
+
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 43px;
+  color: colors.$midtone;
+  margin-bottom: 40px;
+}
+
+.project-titles {
+  width: 50%;
+}
+
+.project-title {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 34px;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.project-title-active {
+  composes: project-title;
+
+  color: colors.$highlight;
+  opacity: 1;
+}
+
+.project-title-inactive {
+  composes: project-title;
+
+  color: colors.$midtone-light;
+
+  &:hover {
+    color: colors.$midtone;
+  }
+}
+
+.arrow {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: all 0.25s ease-out;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid colors.$highlight;
+    border-right: 2px solid colors.$highlight;
+    transform: rotate(45deg);
+  }
+}
+
+.arrow-active {
+  composes: arrow;
+
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.arrow-inactive {
+  composes: arrow;
+
+  transform: translateX(30px);
+  opacity: 0;
+}
