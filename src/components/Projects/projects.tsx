@@ -10,7 +10,7 @@ const projects = [
   },
   {
     title: 'Libcumat',
-    description: `An intuitive GPU matrix library based on CUDA that offers component-wise arithmetic operations, matrix multiplcations/transposes, and a variety of different math operations.`,
+    description: `An intuitive GPU matrix library based on CUDA that offers component-wise arithmetic operations, matrix multiplications/transposes, and a variety of different math operations.`,
     link: 'https://github.com/CharlieYJH/libcumat',
   },
   {

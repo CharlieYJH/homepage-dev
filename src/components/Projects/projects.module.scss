@@ -23,7 +23,7 @@
 .project-title {
   display: inline-block;
   vertical-align: middle;
-  font-size: 34px;
+  font-size: 28px;
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.1s ease-out;
@@ -40,9 +40,10 @@
   composes: project-title;
 
   color: colors.$midtone-light;
+  opacity: 0.6;
 
   &:hover {
-    color: colors.$midtone;
+    opacity: 1;
   }
 }
 
