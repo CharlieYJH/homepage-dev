@@ -41,6 +41,16 @@ const entries = [
     from: '2016',
     to: '2017',
   },
+  {
+    title: 'University of British Columbia',
+    subtitle: 'Undergrad Student',
+    content: [
+      'Graduated from the University of British Columbia with a Bachelor of Applied Science in Electrical Engineering',
+      'Achieved an overall GPA of 94.3% and received various honours and awards',
+    ],
+    from: '2013',
+    to: '2017',
+  },
 ];
 
 export const Experience: React.FC<{}> = () => {
