@@ -8,6 +8,7 @@ import { MenuBar } from '../MenuBar';
 import { AboutMe } from '../AboutMe';
 import { Experience } from '../Experience';
 import { Projects } from '../Projects';
+import { Contact } from '../Contact';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
@@ -102,7 +103,13 @@ export const App: React.FC<{}> = () => {
               <Projects />
             </div>
             <div className={styles.divider} />
-            <div ref={checkpoints.current[4]} className={styles.placeholderShort} />
+            <div
+              ref={checkpoints.current[4]}
+              id="contact"
+              className={styles.contactContainer}
+            >
+              <Contact />
+            </div>
           </ContentContainer>
         </div>
       </div>

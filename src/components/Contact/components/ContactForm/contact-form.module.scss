@@ -1,0 +1,19 @@
+@use '~src/resources/style/colors';
+
+.input-container {
+  margin-top: 50px;
+  transition: all 0.15s ease-out;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  color: colors.$midtone-light;
+  transition: inherit;
+
+  &:focus {
+    outline: none;
+    color: colors.$midtone;
+  }
+}
