@@ -6,7 +6,11 @@ export const ContactForm: React.FC<{}> = () => {
   return (
     <form>
       <div className={styles.inputContainer}>
-        <SingleLineInput label="name" placeholder="Your name" inputStyle={styles.input} />
+        <SingleLineInput
+          label="name"
+          placeholder="First Last"
+          inputStyle={styles.input}
+        />
       </div>
       <div className={styles.inputContainer}>
         <SingleLineInput
