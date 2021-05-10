@@ -28,7 +28,7 @@ export const Menu: React.FC<{}> = () => {
         {menuItems.map((item, i) => (
           <li key={i} className={styles.itemContainer}>
             <HashLink smooth to={item.href} className={styles.item}>
-              {item.name}
+              <span className={styles.itemName}>{item.name}</span>
             </HashLink>
           </li>
         ))}

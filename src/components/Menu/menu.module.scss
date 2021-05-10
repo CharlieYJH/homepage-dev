@@ -32,25 +32,20 @@
 
   &:after,
   &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    height: 80%;
-    width: 2px;
+    content: '|';
+    display: inline-block;
     opacity: 0;
-    background: colors.$highlight;
     transition: all 0.15s ease-in-out;
   }
 
   &:before {
     left: 0;
-    transform: translate(-20px, -50%);
+    transform: translateX(-20px);
   }
 
   &:after {
     right: 0;
-    transform: translate(20px, -50%);
+    transform: translate(20px);
   }
 
   &:hover:before,
@@ -59,10 +54,14 @@
   }
 
   &:hover:before {
-    transform: translate(-10px, -50%);
+    transform: translateX(0);
   }
 
   &:hover:after {
-    transform: translate(10px, -50%);
+    transform: translateX(0);
   }
+}
+
+.item-name {
+  margin: 0 8px;
 }
