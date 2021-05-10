@@ -50,7 +50,7 @@ module.exports = (env, argv) => ({
         ],
       },
       {
-        test: /\.(jpe?g|png|svg|gif|ttf)$/,
+        test: /\.(jpe?g|png|svg|gif|ttf|pdf)$/,
         exclude: /node_modules/,
         loader: 'file-loader',
       },
