@@ -1,11 +1,7 @@
-.label {
-  font-size: 20px;
-  color: rgb(var(--highlight-color));
-}
-
 .input {
   padding: 10px 0;
   margin-top: 10px;
+  border: none;
 
   &:focus + .underline:after {
     width: 100%;

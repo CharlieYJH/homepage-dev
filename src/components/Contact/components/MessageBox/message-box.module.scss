@@ -1,0 +1,103 @@
+.input-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+$border-size: 2px solid rgb(var(--highlight-color));
+$animation-time: 0.3s;
+
+.border {
+  box-sizing: border-box;
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.border-surround {
+  z-index: -1;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid rgba(var(--midtone-color), 0.2);
+}
+
+.border-top-right {
+  composes: border;
+
+  top: 0;
+  left: 0;
+  border-top: $border-size;
+  border-right: $border-size;
+  transition: height $animation-time / 2 ease-in,
+    width $animation-time / 2 $animation-time / 2 ease-out,
+    opacity 0s $animation-time linear;
+}
+
+.border-bottom-left {
+  composes: border;
+
+  bottom: 0;
+  right: 0;
+  border-bottom: $border-size;
+  border-left: $border-size;
+  transition: height $animation-time / 2 ease-in,
+    width $animation-time / 2 $animation-time / 2 ease-out,
+    opacity 0s $animation-time linear;
+}
+
+.textarea {
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  resize: none;
+  border: 2px solid transparent;
+  background: transparent;
+
+  &:focus ~ .border-top-right {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    border-top: $border-size;
+    border-right: $border-size;
+    transition: width $animation-time / 2 ease-in,
+      height $animation-time / 2 $animation-time / 2 ease-out;
+  }
+
+  &:focus ~ .border-bottom-left {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    border-bottom: $border-size;
+    border-left: $border-size;
+    transition: width $animation-time / 2 ease-in,
+      height $animation-time / 2 $animation-time / 2 ease-out;
+  }
+
+  &:valid ~ .border-top-right {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    border-top: $border-size;
+    border-right: $border-size;
+    transition: width $animation-time / 2 ease-in,
+      height $animation-time / 2 $animation-time / 2 ease-out;
+  }
+
+  &:valid ~ .border-bottom-left {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    border-bottom: $border-size;
+    border-left: $border-size;
+    transition: width $animation-time / 2 ease-in,
+      height $animation-time / 2 $animation-time / 2 ease-out;
+  }
+}
