@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/CharlieYJH/charlieyjh.github.io#readme",
   "dependencies": {
-    "@types/react-router-hash-link": "^2.0.0",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "react": "^16.14.0",
@@ -38,6 +37,7 @@
     "@types/classnames": "^2.3.1",
     "@types/react": "^16.14.6",
     "@types/react-dom": "^16.9.12",
+    "@types/react-router-hash-link": "^2.0.0",
     "@types/react-transition-group": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
