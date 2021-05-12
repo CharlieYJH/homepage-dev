@@ -69,9 +69,13 @@ export const ContactForm: React.FC<{}> = () => {
           inputStyle={styles.input}
         />
       </div>
-      <button className={styles.button}>
-        <span className={styles.submit}>submit</span>
-      </button>
+      {!submitState.submitted ? (
+        <button className={styles.button}>submit</button>
+      ) : (
+        <div className={styles.result}>
+          {submitState.ok ? 'Thank you!' : 'An error occurred'}
+        </div>
+      )}
     </form>
   );
 };

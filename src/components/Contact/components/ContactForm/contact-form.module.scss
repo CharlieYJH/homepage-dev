@@ -24,14 +24,20 @@
   }
 }
 
-.button {
+.submit {
   padding: 10px 0;
   margin-top: 20px;
-  color: rgb(var(--midtone-color));
   font-size: 20px;
   font-family: inherit;
+}
+
+.button {
+  composes: submit;
+
+  color: rgb(var(--midtone-color));
   background: transparent;
   border: none;
+  cursor: pointer;
 
   &:after {
     content: '→';
@@ -48,6 +54,8 @@
   }
 }
 
-.submit {
-  cursor: pointer;
+.result {
+  composes: submit;
+
+  color: rgb(var(--highlight-color));
 }
