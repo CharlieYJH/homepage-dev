@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import axios from 'axios';
 import { SingleLineInput } from '../SingleLineInput';
 import { MessageBox } from '../MessageBox';
@@ -21,6 +22,16 @@ export const ContactForm: React.FC<{}> = () => {
     if (ok) {
       form.reset();
     }
+
+    setTimeout(
+      () =>
+        setSubmitState({
+          submitted: false,
+          submitting: false,
+          ok: true,
+        }),
+      5000
+    );
   };
 
   const handleSubmit = (
@@ -41,6 +52,13 @@ export const ContactForm: React.FC<{}> = () => {
       .catch((_) => {
         handleResponse(false, form);
       });
+  };
+
+  const transitionClasses = {
+    enterActive: styles.submitEnterActive,
+    enterDone: styles.submitEnterDone,
+    exitActive: styles.submitExitActive,
+    exitDone: styles.submitExit,
   };
 
   return (
@@ -69,13 +87,24 @@ export const ContactForm: React.FC<{}> = () => {
           inputStyle={styles.input}
         />
       </div>
-      {!submitState.submitted ? (
-        <button className={styles.button}>submit</button>
-      ) : (
-        <div className={styles.result}>
-          {submitState.ok ? 'Thank you!' : 'An error occurred'}
-        </div>
-      )}
+      <SwitchTransition mode="out-in">
+        <CSSTransition
+          key={+!!submitState.submitted}
+          timeout={200}
+          classNames={transitionClasses}
+          appear={true}
+          unmountOnExit
+          mountOnEnter
+        >
+          {!submitState.submitted ? (
+            <button className={styles.button}>submit</button>
+          ) : (
+            <div className={submitState.ok ? styles.goodResult : styles.badResult}>
+              {submitState.ok ? 'Thanks!' : 'An error occurred'}
+            </div>
+          )}
+        </CSSTransition>
+      </SwitchTransition>
     </form>
   );
 };
