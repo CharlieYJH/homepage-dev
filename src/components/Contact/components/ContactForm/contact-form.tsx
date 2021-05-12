@@ -30,6 +30,9 @@ export const ContactForm: React.FC<{}> = () => {
           inputStyle={styles.input}
         />
       </div>
+      <button className={styles.button}>
+        <span className={styles.submit}>submit</span>
+      </button>
     </form>
   );
 };
