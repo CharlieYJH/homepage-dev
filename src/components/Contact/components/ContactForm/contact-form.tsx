@@ -1,37 +1,22 @@
 import React, { useState } from 'react';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import axios from 'axios';
 import { SingleLineInput } from '../SingleLineInput';
 import { MessageBox } from '../MessageBox';
+import { SubmitButton, SubmitState } from '../SubmitButton';
 import styles from './contact-form.module.scss';
 
 export const ContactForm: React.FC<{}> = () => {
-  const [submitState, setSubmitState] = useState({
-    submitted: false,
-    submitting: false,
-    ok: true,
-  });
+  const [submitState, setSubmitState] = useState(SubmitState.Unsubmitted);
 
   const handleResponse = (ok: boolean, form: HTMLFormElement): void => {
-    setSubmitState({
-      submitted: true,
-      submitting: false,
-      ok: ok,
-    });
-
     if (ok) {
+      setSubmitState(SubmitState.SubmitSuccess);
       form.reset();
+    } else {
+      setSubmitState(SubmitState.SubmitError);
     }
 
-    setTimeout(
-      () =>
-        setSubmitState({
-          submitted: false,
-          submitting: false,
-          ok: true,
-        }),
-      5000
-    );
+    setTimeout(() => setSubmitState(SubmitState.Unsubmitted), 4000);
   };
 
   const handleSubmit = (
@@ -52,13 +37,6 @@ export const ContactForm: React.FC<{}> = () => {
       .catch((_) => {
         handleResponse(false, form);
       });
-  };
-
-  const transitionClasses = {
-    enterActive: styles.submitEnterActive,
-    enterDone: styles.submitEnterDone,
-    exitActive: styles.submitExitActive,
-    exitDone: styles.submitExit,
   };
 
   return (
@@ -87,24 +65,9 @@ export const ContactForm: React.FC<{}> = () => {
           inputStyle={styles.input}
         />
       </div>
-      <SwitchTransition mode="out-in">
-        <CSSTransition
-          key={+!!submitState.submitted}
-          timeout={200}
-          classNames={transitionClasses}
-          appear={true}
-          unmountOnExit
-          mountOnEnter
-        >
-          {!submitState.submitted ? (
-            <button className={styles.button}>submit</button>
-          ) : (
-            <div className={submitState.ok ? styles.goodResult : styles.badResult}>
-              {submitState.ok ? 'Thanks!' : 'An error occurred'}
-            </div>
-          )}
-        </CSSTransition>
-      </SwitchTransition>
+      <div className={styles.submit}>
+        <SubmitButton state={submitState} />
+      </div>
     </form>
   );
 };

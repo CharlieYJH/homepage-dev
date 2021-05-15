@@ -1,0 +1,65 @@
+.submit {
+  padding: 10px 0;
+  font-size: 20px;
+  font-family: inherit;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.button {
+  composes: submit;
+
+  color: rgb(var(--midtone-color));
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:after {
+    content: '→';
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.15s ease-out;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.result {
+  composes: submit;
+
+  display: inline-block;
+  opacity: 0;
+}
+
+.good-result {
+  composes: result;
+
+  color: rgb(var(--highlight-color));
+}
+
+.bad-result {
+  composes: result;
+
+  color: #e33b3b;
+}
+
+.submit-enter-active {
+  opacity: 1;
+}
+
+.submit-enter-done {
+  opacity: 1;
+}
+
+.submit-exit {
+  opacity: 1;
+}
+
+.submit-exit-active {
+  opacity: 0;
+}
