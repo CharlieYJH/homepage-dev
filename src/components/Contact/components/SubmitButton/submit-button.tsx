@@ -4,8 +4,9 @@ import styles from './submit-buttom.module.scss';
 
 export const SubmitState = {
   Unsubmitted: 1,
-  SubmitSuccess: 2,
-  SubmitError: 3,
+  Submitted: 2,
+  SubmitSuccess: 3,
+  SubmitError: 4,
 };
 
 interface Properties {
@@ -24,6 +25,8 @@ export const SubmitButton: React.FC<Properties> = (props) => {
     switch (state) {
       case SubmitState.Unsubmitted:
         return <button className={styles.button}>submit</button>;
+      case SubmitState.Submitted:
+        return <div className={styles.loader} />;
       case SubmitState.SubmitSuccess:
         return <div className={styles.goodResult}>Thanks!</div>;
       case SubmitState.SubmitError:

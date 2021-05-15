@@ -23,20 +23,26 @@ export const ContactForm: React.FC<{}> = () => {
     e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }
   ): void => {
     e.preventDefault();
-
     const form = e.target;
 
-    axios({
-      method: 'post',
-      url: 'http://localhost:8090/post',
-      data: new FormData(form),
-    })
-      .then((_) => {
-        handleResponse(true, form);
-      })
-      .catch((_) => {
-        handleResponse(false, form);
-      });
+    setSubmitState(SubmitState.Submitted);
+
+    // Setting a small pause just for some better UX
+    setTimeout(
+      () =>
+        axios({
+          method: 'post',
+          url: 'http://localhost:8090/post',
+          data: new FormData(form),
+        })
+          .then((_) => {
+            handleResponse(true, form);
+          })
+          .catch((_) => {
+            handleResponse(false, form);
+          }),
+      1000
+    );
   };
 
   return (
