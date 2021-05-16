@@ -13,6 +13,15 @@ import { SocialAccounts } from '../SocialAccounts';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
+interface ContentPage {
+  active: boolean;
+  ref: React.RefObject<HTMLDivElement>;
+}
+
+interface Contents {
+  [key: string]: ContentPage;
+}
+
 export const App: React.FC<{}> = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -25,6 +34,25 @@ export const App: React.FC<{}> = () => {
   checkpoints.current = Array(5)
     .fill(null)
     .map((_, i) => checkpoints.current[i] || createRef());
+
+  const [contents, setContents] = useState<Contents>({
+    aboutMe: {
+      active: false,
+      ref: checkpoints.current[1],
+    },
+    experience: {
+      active: false,
+      ref: checkpoints.current[2],
+    },
+    projects: {
+      active: false,
+      ref: checkpoints.current[3],
+    },
+    contact: {
+      active: false,
+      ref: checkpoints.current[4],
+    },
+  });
 
   const updateProgress = (): void => {
     let progress = 0;
@@ -53,6 +81,26 @@ export const App: React.FC<{}> = () => {
     setProgress(progress);
   };
 
+  // Unhide the content containers as they scroll up
+  const showContents = (): void => {
+    Object.entries(contents).map(([key, value]) => {
+      if (!value.ref.current) {
+        return;
+      }
+
+      // Once unhidden, it is never hidden again
+      setContents((prev) => ({
+        ...prev,
+        [key]: {
+          active:
+            value.active ||
+            value.ref.current.getBoundingClientRect().top < window.innerHeight * 0.7,
+          ref: value.ref,
+        },
+      }));
+    });
+  };
+
   useScrollPosition(
     (currpos: { x: number; y: number }) => {
       setPos(currpos);
@@ -65,7 +113,15 @@ export const App: React.FC<{}> = () => {
   useEffect(() => {
     setShowMenu(menuRef.current.getBoundingClientRect().top <= 0);
     updateProgress();
+    showContents();
   }, [pos]);
+
+  const getContainerVisible = (
+    active: boolean
+  ): { opacity: number; transform: string } => ({
+    opacity: active ? 1 : 0,
+    transform: active ? 'translateY(0)' : 'translateY(30px)',
+  });
 
   return (
     <HashRouter>
@@ -84,6 +140,7 @@ export const App: React.FC<{}> = () => {
               ref={checkpoints.current[1]}
               id="about-me"
               className={styles.aboutContainer}
+              style={getContainerVisible(contents.aboutMe.active)}
             >
               <AboutMe />
             </div>
@@ -92,6 +149,7 @@ export const App: React.FC<{}> = () => {
               ref={checkpoints.current[2]}
               id="experience"
               className={styles.experienceContainer}
+              style={getContainerVisible(contents.experience.active)}
             >
               <Experience />
             </div>
@@ -100,6 +158,7 @@ export const App: React.FC<{}> = () => {
               ref={checkpoints.current[3]}
               id="projects"
               className={styles.projectsContainer}
+              style={getContainerVisible(contents.projects.active)}
             >
               <Projects />
             </div>
@@ -108,6 +167,7 @@ export const App: React.FC<{}> = () => {
               ref={checkpoints.current[4]}
               id="contact"
               className={styles.contactContainer}
+              style={getContainerVisible(contents.contact.active)}
             >
               <Contact />
               <div className={styles.socialContainer}>
