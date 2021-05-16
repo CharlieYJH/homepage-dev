@@ -4,6 +4,7 @@ import styles from './single-line-input.module.scss';
 
 interface Properties {
   id: string;
+  name?: string;
   type?: string;
   placeholder?: string;
   inputStyle?: string;
@@ -16,6 +17,7 @@ export const SingleLineInput: React.FC<Properties> = (props) => {
     <>
       <input
         id={props.id}
+        name={props.name}
         type={props.type}
         required
         placeholder={props.placeholder}

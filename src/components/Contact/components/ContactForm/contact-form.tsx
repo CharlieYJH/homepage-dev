@@ -109,7 +109,10 @@ export const ContactForm: React.FC<{}> = () => {
       () =>
         axios({
           method: 'post',
-          url: 'http://localhost:8090/post',
+          url:
+            process.env.NODE_ENV === 'development'
+              ? 'http://localhost:8090/post'
+              : 'https://formspree.io/f/xleajwpj',
           data: new FormData(form),
         })
           .then((_) => {
@@ -135,6 +138,7 @@ export const ContactForm: React.FC<{}> = () => {
         />
         <SingleLineInput
           id="name"
+          name="name"
           placeholder="First Last"
           value={inputs.name}
           onChange={handleInputChange}
@@ -152,6 +156,7 @@ export const ContactForm: React.FC<{}> = () => {
         />
         <SingleLineInput
           id="email"
+          name="email"
           placeholder="email@domain.com"
           value={inputs.email}
           onChange={handleInputChange}
@@ -169,6 +174,7 @@ export const ContactForm: React.FC<{}> = () => {
         />
         <MessageBox
           id="message"
+          name="message"
           placeholder="Enter your message here"
           value={inputs.message}
           onChange={handleInputChange}

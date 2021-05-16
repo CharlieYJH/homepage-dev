@@ -4,6 +4,7 @@ import styles from './message-box.module.scss';
 
 interface Properties {
   id: string;
+  name?: string;
   placeholder?: string;
   inputStyle?: string;
   value?: string;
@@ -17,6 +18,7 @@ export const MessageBox: React.FC<Properties> = (props) => {
         <textarea
           className={classnames(props.inputStyle, styles.textarea)}
           id={props.id}
+          name={props.name}
           rows={10}
           placeholder={props.placeholder}
           required
