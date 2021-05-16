@@ -3,9 +3,21 @@
   margin-top: 50px;
 }
 
-.label {
+.input-label {
   font-size: 20px;
+  transition: all 0.2s ease-out;
+}
+
+.label {
+  composes: input-label;
+
   color: rgb(var(--highlight-color));
+}
+
+.error {
+  composes: input-label;
+
+  color: #e33b3b;
 }
 
 .input {

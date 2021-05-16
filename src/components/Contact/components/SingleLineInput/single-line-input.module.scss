@@ -30,3 +30,23 @@
     transition: all 0.2s ease-out;
   }
 }
+
+.label {
+  opacity: 0;
+}
+
+.error-enter-active {
+  opacity: 1;
+}
+
+.error-enter-done {
+  opacity: 1;
+}
+
+.error-exit-done {
+  opacity: 1;
+}
+
+.error-exit-active {
+  opacity: 0;
+}

@@ -1,13 +1,81 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { SingleLineInput } from '../SingleLineInput';
+import { InputLabel } from '../InputLabel';
 import { MessageBox } from '../MessageBox';
 import { SubmitButton, SubmitState } from '../SubmitButton';
 import styles from './contact-form.module.scss';
 
+interface Inputs {
+  [key: string]: string;
+}
+
+interface Errors {
+  [key: string]: boolean;
+}
+
+interface InputRules {
+  [key: string]: (val: string) => boolean;
+}
+
 export const ContactForm: React.FC<{}> = () => {
   const [submitState, setSubmitState] = useState(SubmitState.Unsubmitted);
 
+  // Keep track of current input values
+  const [inputs, setInputs] = useState<Inputs>({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  // Keep track of current input errors
+  const [errors, setErrors] = useState<Errors>({
+    name: false,
+    email: false,
+    message: false,
+  });
+
+  // Validity rules for each input field
+  const inputRules: InputRules = {
+    name: (val: string): boolean => !!val,
+    email: (val: string): boolean => val && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+    message: (val: string): boolean => !!val,
+  };
+
+  // Validate the inputs according to the defined rules
+  const inputsAreValid = (): boolean => {
+    const fieldErrors: Errors = {};
+    let hasError = false;
+
+    for (const key of Object.keys(inputs)) {
+      fieldErrors[key] = !inputRules[key](inputs[key]);
+      hasError = hasError || fieldErrors[key];
+    }
+
+    setErrors((prev) => ({ ...prev, ...fieldErrors }));
+
+    return !hasError;
+  };
+
+  // Update the current tracked values
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+
+    if (errors[e.target.id]) {
+      setErrors((prev) => ({
+        ...prev,
+        [e.target.id]: !inputRules[e.target.id](e.target.value),
+      }));
+    }
+  };
+
+  // Handle API response and update page state
   const handleResponse = (ok: boolean, form: HTMLFormElement): void => {
     if (ok) {
       setSubmitState(SubmitState.SubmitSuccess);
@@ -19,11 +87,16 @@ export const ContactForm: React.FC<{}> = () => {
     setTimeout(() => setSubmitState(SubmitState.Unsubmitted), 4000);
   };
 
+  // Submit the POST request for the form
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }
   ): void => {
     e.preventDefault();
     const form = e.target;
+
+    if (!inputsAreValid()) {
+      return;
+    }
 
     setSubmitState(SubmitState.Submitted);
 
@@ -46,28 +119,55 @@ export const ContactForm: React.FC<{}> = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} noValidate>
       <div className={styles.inputContainer}>
-        <SingleLineInput
+        <InputLabel
+          htmlFor="name"
           label="name"
-          placeholder="First Last"
-          labelStyle={styles.label}
-          inputStyle={styles.input}
+          error="Please input a valid name"
+          hasError={errors.name}
+          validStyle={styles.label}
+          invalidStyle={styles.error}
         />
-      </div>
-      <div className={styles.inputContainer}>
         <SingleLineInput
-          label="email"
-          placeholder="email@domain.com"
-          labelStyle={styles.label}
+          id="name"
+          placeholder="First Last"
+          value={inputs.name}
+          onChange={handleInputChange}
           inputStyle={styles.input}
         />
       </div>
       <div className={styles.inputContainer}>
-        <MessageBox
+        <InputLabel
+          htmlFor="email"
+          label="email"
+          error="Please input a valid email"
+          hasError={errors.email}
+          validStyle={styles.label}
+          invalidStyle={styles.error}
+        />
+        <SingleLineInput
+          id="email"
+          placeholder="email@domain.com"
+          value={inputs.email}
+          onChange={handleInputChange}
+          inputStyle={styles.input}
+        />
+      </div>
+      <div className={styles.inputContainer}>
+        <InputLabel
+          htmlFor="message"
           label="message"
+          error="Please input a valid message"
+          hasError={errors.message}
+          validStyle={styles.label}
+          invalidStyle={styles.error}
+        />
+        <MessageBox
+          id="message"
           placeholder="Enter your message here"
-          labelStyle={styles.label}
+          value={inputs.message}
+          onChange={handleInputChange}
           inputStyle={styles.input}
         />
       </div>

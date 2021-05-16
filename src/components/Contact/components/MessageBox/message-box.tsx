@@ -3,25 +3,25 @@ import classnames from 'classnames';
 import styles from './message-box.module.scss';
 
 interface Properties {
-  label: string;
+  id: string;
   placeholder?: string;
-  labelStyle?: string;
   inputStyle?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export const MessageBox: React.FC<Properties> = (props) => {
   return (
     <>
-      <label htmlFor={props.label}>
-        <span className={props.labelStyle}>{props.label}</span>
-      </label>
       <div className={styles.inputContainer}>
         <textarea
           className={classnames(props.inputStyle, styles.textarea)}
-          name={props.label}
+          id={props.id}
           rows={10}
           placeholder={props.placeholder}
           required
+          value={props.value}
+          onChange={props.onChange}
         ></textarea>
         <div className={styles.borderSurround} />
         <div className={styles.borderTopRight} />

@@ -3,23 +3,25 @@ import classnames from 'classnames';
 import styles from './single-line-input.module.scss';
 
 interface Properties {
-  label: string;
+  id: string;
+  type?: string;
   placeholder?: string;
-  labelStyle?: string;
   inputStyle?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const SingleLineInput: React.FC<Properties> = (props) => {
   return (
     <>
-      <label htmlFor={props.label}>
-        <span className={props.labelStyle}>{props.label}</span>
-      </label>
       <input
-        id={props.label}
+        id={props.id}
+        type={props.type}
         required
         placeholder={props.placeholder}
         className={classnames(props.inputStyle, styles.input)}
+        value={props.value}
+        onChange={props.onChange}
       ></input>
       <div className={styles.underline} />
     </>
