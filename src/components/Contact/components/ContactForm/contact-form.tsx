@@ -76,10 +76,14 @@ export const ContactForm: React.FC<{}> = () => {
   };
 
   // Handle API response and update page state
-  const handleResponse = (ok: boolean, form: HTMLFormElement): void => {
+  const handleResponse = (ok: boolean): void => {
     if (ok) {
       setSubmitState(SubmitState.SubmitSuccess);
-      form.reset();
+      setInputs({
+        name: '',
+        email: '',
+        message: '',
+      });
     } else {
       setSubmitState(SubmitState.SubmitError);
     }
@@ -109,10 +113,10 @@ export const ContactForm: React.FC<{}> = () => {
           data: new FormData(form),
         })
           .then((_) => {
-            handleResponse(true, form);
+            handleResponse(true);
           })
           .catch((_) => {
-            handleResponse(false, form);
+            handleResponse(false);
           }),
       1000
     );
