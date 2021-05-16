@@ -28,7 +28,7 @@ const projects = [
     title: 'Self-Balance Platform',
     description:
       'An Arduino-driven self-balancing platform made for my ECE capstone project which corrects angular deviations using a pair of motion sensors.',
-    link: 'https://www.charlieyin.com/kanatrainer',
+    link: 'https://github.com/CharlieYJH/self-balance-platform',
   },
 ];
 
