@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: rgb(var(--midtone-color));
+  font-size: 16px;
+}
+
+.links-container {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+.link {
+  &:hover > .account {
+    opacity: 1;
+  }
+}
+
+.account {
+  width: 30px;
+  height: auto;
+  margin: 0 5px;
+  fill: rgb(var(--midtone-color));
+  opacity: 0.6;
+  transition: opacity 0.15s ease-out;
+}

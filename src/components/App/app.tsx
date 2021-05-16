@@ -9,6 +9,7 @@ import { AboutMe } from '../AboutMe';
 import { Experience } from '../Experience';
 import { Projects } from '../Projects';
 import { Contact } from '../Contact';
+import { SocialAccounts } from '../SocialAccounts';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import styles from './app.module.scss';
 
@@ -109,6 +110,9 @@ export const App: React.FC<{}> = () => {
               className={styles.contactContainer}
             >
               <Contact />
+              <div className={styles.socialContainer}>
+                <SocialAccounts />
+              </div>
             </div>
           </ContentContainer>
         </div>
