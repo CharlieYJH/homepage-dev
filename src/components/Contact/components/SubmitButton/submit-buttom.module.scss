@@ -58,7 +58,7 @@
 .bad-result {
   composes: result;
 
-  color: #e33b3b;
+  color: rgb(var(--error-color));
 }
 
 .loader {

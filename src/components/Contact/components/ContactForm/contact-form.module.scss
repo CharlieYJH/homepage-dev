@@ -17,7 +17,7 @@
 .error {
   composes: input-label;
 
-  color: #e33b3b;
+  color: rgb(var(--error-color));
 }
 
 .input {
