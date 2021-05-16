@@ -106,8 +106,15 @@ body {
   align-items: center;
   min-height: 100vh;
   min-width: 45%;
+  margin-bottom: 0;
 }
 
 .social-container {
   margin-top: 50px;
+}
+
+.copyright {
+  margin: 20px 0;
+  font-size: 12px;
+  color: rgba(var(--midtone-color), 0.75);
 }

@@ -114,6 +114,9 @@ export const App: React.FC<{}> = () => {
                 <SocialAccounts />
               </div>
             </div>
+            <footer className={styles.copyright}>
+              Copyright © {new Date().getFullYear()} Charlie Yin All Rights Reserved
+            </footer>
           </ContentContainer>
         </div>
       </div>
