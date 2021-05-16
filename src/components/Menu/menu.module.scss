@@ -1,5 +1,3 @@
-@use '~src/resources/style/colors';
-
 .container {
   display: flex;
 }
@@ -20,14 +18,14 @@
 
 .item {
   position: relative;
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
   text-decoration: none;
   font-size: 1.3208rem;
   font-family: 'Inter', sans-serif;
   transition: all 0.15s ease-in-out;
 
   &:hover {
-    color: colors.$highlight;
+    color: rgb(var(--highlight-color));
   }
 
   &:after,

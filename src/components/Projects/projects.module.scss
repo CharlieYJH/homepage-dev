@@ -1,12 +1,10 @@
-@use '~src/resources/style/colors';
-
 .container {
   width: 100%;
 }
 
 .title {
   font-size: 43px;
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
   margin-bottom: 40px;
 }
 
@@ -32,15 +30,14 @@
 .project-title-active {
   composes: project-title;
 
-  color: colors.$highlight;
+  color: rgb(var(--highlight-color));
   opacity: 1;
 }
 
 .project-title-inactive {
   composes: project-title;
 
-  color: colors.$midtone-light;
-  opacity: 0.6;
+  color: rgba(var(--midtone-color), 0.4);
 
   &:hover {
     opacity: 1;
@@ -59,8 +56,8 @@
     display: block;
     width: 20px;
     height: 20px;
-    border-top: 2px solid colors.$highlight;
-    border-right: 2px solid colors.$highlight;
+    border-top: 2px solid rgb(var(--highlight-color));
+    border-right: 2px solid rgb(var(--highlight-color));
     transform: rotate(45deg);
   }
 }

@@ -1,5 +1,3 @@
-@use '~src/resources/style/colors';
-
 .container {
   display: inline-block;
   position: relative;
@@ -12,20 +10,20 @@
 .message {
   composes: text;
 
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
 }
 
 .name {
   composes: text;
 
-  color: colors.$highlight;
+  color: rgb(var(--highlight-color));
 }
 
 .title-container {
   composes: text;
 
   position: relative;
-  color: colors.$page-background;
+  color: rgb(var(--page-color));
 
   & > p {
     margin: 0;
@@ -46,7 +44,7 @@
 
   display: flex;
   justify-content: center;
-  color: colors.$highlight;
+  color: rgb(var(--highlight-color));
   white-space: nowrap;
 }
 

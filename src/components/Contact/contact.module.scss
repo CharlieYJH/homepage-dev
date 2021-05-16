@@ -1,8 +1,6 @@
-@use '~src/resources/style/colors';
-
 .title {
   font-size: 43px;
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
 }
 
 .form-container {

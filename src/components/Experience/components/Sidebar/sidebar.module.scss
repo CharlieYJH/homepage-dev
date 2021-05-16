@@ -1,5 +1,3 @@
-@use "~src/resources/style/colors";
-
 .sidebar {
   display: flex;
   justify-content: flex-end;
@@ -22,7 +20,7 @@
 .title {
   composes: text;
 
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
   font-size: 43px;
   margin-bottom: 20px;
 }
@@ -30,7 +28,7 @@
 .subtitle {
   composes: text;
 
-  color: colors.$midtone;
+  color: rgb(var(--midtone-color));
   font-size: 34px;
 }
 
@@ -43,7 +41,7 @@
 
   display: block;
   opacity: 0;
-  color: colors.$highlight;
+  color: rgb(var(--highlight-color));
   transition: opacity 0.15s ease-out;
 }
 
@@ -69,6 +67,6 @@
   vertical-align: top;
   width: 3px;
   height: 300px;
-  background: colors.$highlight;
+  background: rgb(var(--highlight-color));
   border-radius: 10px;
 }
