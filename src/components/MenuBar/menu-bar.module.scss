@@ -32,7 +32,7 @@
 .progress-fill {
   height: 100%;
   border-radius: 7px;
-  background: rgb(var(--highlight-color));
+  background: rgb(var(--color-highlight));
   transition: all 0.1s ease-out;
 }
 
@@ -49,26 +49,26 @@ $max-dot-size: 30px;
   width: $min-dot-size;
   height: $min-dot-size;
   border-radius: 100%;
-  border: 2px solid rgb(var(--highlight-color));
-  background: rgb(var(--page-color));
+  border: 2px solid rgb(var(--color-highlight));
+  background: rgb(var(--color-page));
   transition: all 0.15s ease-out;
 }
 
 .dot-active {
   width: $max-dot-size;
   height: $max-dot-size;
-  border: 2px solid rgb(var(--page-color));
-  background: rgb(var(--highlight-color));
+  border: 2px solid rgb(var(--color-page));
+  background: rgb(var(--color-highlight));
 }
 
 .dot-done {
-  border: 2px solid rgb(var(--highlight-color));
-  background: rgb(var(--page-color));
+  border: 2px solid rgb(var(--color-highlight));
+  background: rgb(var(--color-page));
 }
 
 .text-container {
   &:hover > .text {
-    color: rgb(var(--highlight-color));
+    color: rgb(var(--color-highlight));
   }
 }
 
@@ -82,11 +82,11 @@ $max-dot-size: 30px;
 .text-active {
   composes: text;
 
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
 }
 
 .text-inactive {
   composes: text;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
 }

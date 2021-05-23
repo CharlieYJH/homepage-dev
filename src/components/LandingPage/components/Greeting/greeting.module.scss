@@ -10,20 +10,20 @@
 .message {
   composes: text;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
 }
 
 .name {
   composes: text;
 
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
 }
 
 .title-container {
   composes: text;
 
   position: relative;
-  color: rgb(var(--page-color));
+  color: rgb(var(--color-page));
 
   & > p {
     margin: 0;
@@ -44,7 +44,7 @@
 
   display: flex;
   justify-content: center;
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
   white-space: nowrap;
 }
 

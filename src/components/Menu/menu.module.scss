@@ -18,14 +18,14 @@
 
 .item {
   position: relative;
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   text-decoration: none;
   font-size: 1.3208rem;
   font-family: 'Inter', sans-serif;
   transition: all 0.15s ease-in-out;
 
   &:hover {
-    color: rgb(var(--highlight-color));
+    color: rgb(var(--color-highlight));
   }
 
   &:after,

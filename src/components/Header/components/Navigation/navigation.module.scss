@@ -14,7 +14,7 @@
 .nav-link {
   display: inline-block;
   position: relative;
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   text-decoration: none;
   font-size: var(--text-sm-0);
   padding: 0.7em 1.2em;
@@ -27,7 +27,7 @@
     height: 2px;
     margin: 4px auto 0 auto;
     opacity: 0;
-    background: rgb(var(--midtone-color));
+    background: rgb(var(--color-midtone));
     transform: translateY(5px);
     transition: all 0.15s ease-in-out;
   }

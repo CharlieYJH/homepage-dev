@@ -22,7 +22,7 @@
 .button {
   composes: submit;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   background: transparent;
   border: none;
   cursor: pointer;
@@ -52,13 +52,13 @@
 .good-result {
   composes: result;
 
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
 }
 
 .bad-result {
   composes: result;
 
-  color: rgb(var(--error-color));
+  color: rgb(var(--color-error));
 }
 
 .loader {
@@ -75,8 +75,8 @@
     width: 20px;
     height: 20px;
     box-sizing: border-box;
-    border: 2px solid rgba(var(--midtone-color), 0.3);
-    border-right: 2px solid rgb(var(--highlight-color));
+    border: 2px solid rgba(var(--color-midtone), 0.3);
+    border-right: 2px solid rgb(var(--color-highlight));
     border-radius: 50%;
     animation: spin 0.5s linear infinite;
   }

@@ -3,7 +3,7 @@
   margin-top: 20px;
 }
 
-$border-size: 2px solid rgb(var(--highlight-color));
+$border-size: 2px solid rgb(var(--color-highlight));
 $animation-time: 0.3s;
 
 .border {
@@ -22,7 +22,7 @@ $animation-time: 0.3s;
   left: 0;
   height: 100%;
   width: 100%;
-  border: 2px solid rgba(var(--midtone-color), 0.2);
+  border: 2px solid rgba(var(--color-midtone), 0.2);
 }
 
 .border-top-right {

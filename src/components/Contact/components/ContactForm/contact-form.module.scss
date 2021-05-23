@@ -11,20 +11,20 @@
 .label {
   composes: input-label;
 
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
 }
 
 .error {
   composes: input-label;
 
-  color: rgb(var(--error-color));
+  color: rgb(var(--color-error));
 }
 
 .input {
   width: 100%;
   font-family: inherit;
   font-size: var(--text-md-0);
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   transition: all 0.15s ease-out;
 
   &:focus {
@@ -32,7 +32,7 @@
   }
 
   &::placeholder {
-    color: rgba(var(--midtone-color), 0.5);
+    color: rgba(var(--color-midtone), 0.5);
   }
 }
 

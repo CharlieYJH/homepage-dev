@@ -20,7 +20,7 @@
 .title {
   composes: text;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   font-size: var(--text-lg-1);
   margin-bottom: 20px;
 }
@@ -28,7 +28,7 @@
 .subtitle {
   composes: text;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   font-size: var(--text-lg-0);
 }
 
@@ -41,7 +41,7 @@
 
   display: block;
   opacity: 0;
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
   transition: opacity 0.15s ease-out;
 }
 
@@ -67,6 +67,6 @@
   vertical-align: top;
   width: 3px;
   height: 300px;
-  background: rgb(var(--highlight-color));
+  background: rgb(var(--color-highlight));
   border-radius: 10px;
 }

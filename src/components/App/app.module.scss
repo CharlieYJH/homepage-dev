@@ -5,10 +5,10 @@ html {
   font-family: 'Inter', sans-serif;
   font-size: 1vw;
 
-  --highlight-color: 47, 186, 236;
-  --midtone-color: 136, 136, 136;
-  --error-color: 227, 59, 59;
-  --page-color: 255, 255, 255;
+  --color-highlight: 47, 186, 236;
+  --color-midtone: 136, 136, 136;
+  --color-error: 227, 59, 59;
+  --color-page: 255, 255, 255;
 
   --text-base: 12px;
   --text-sm-0: calc(var(--text-base) * 7 / 6);
@@ -46,7 +46,7 @@ body {
   left: 0;
   width: 80%;
   padding: 0 10%;
-  background: rgb(var(--page-color));
+  background: rgb(var(--color-page));
   transform: translateY(-50%);
   transition: all 0.25s ease-out;
   opacity: 0;
@@ -77,7 +77,7 @@ body {
     content: '';
     width: 10%;
     height: 2px;
-    background: rgba(var(--midtone-color), 0.5);
+    background: rgba(var(--color-midtone), 0.5);
     border-radius: 10px;
   }
 }
@@ -127,5 +127,5 @@ body {
 .copyright {
   margin: 20px 0;
   font-size: var(--text-base);
-  color: rgba(var(--midtone-color), 0.75);
+  color: rgba(var(--color-midtone), 0.75);
 }

@@ -5,7 +5,7 @@
 .description {
   composes: text;
 
-  color: rgb(var(--midtone-color));
+  color: rgb(var(--color-midtone));
   margin-bottom: 20px;
 }
 
@@ -14,7 +14,7 @@
 
   position: relative;
   text-decoration: none;
-  color: rgb(var(--highlight-color));
+  color: rgb(var(--color-highlight));
   padding: 5px 0;
 
   &:after {
