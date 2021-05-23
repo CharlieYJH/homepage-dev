@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-size: 43px;
+  font-size: var(--text-lg-1);
   color: rgb(var(--midtone-color));
   margin-bottom: 40px;
 }
@@ -21,7 +21,7 @@
 .project-title {
   display: inline-block;
   vertical-align: middle;
-  font-size: 28px;
+  font-size: var(--text-md-1);
   padding: 10px 0;
   cursor: pointer;
   transition: all 0.1s ease-out;

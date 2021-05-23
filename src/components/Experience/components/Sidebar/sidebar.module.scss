@@ -21,7 +21,7 @@
   composes: text;
 
   color: rgb(var(--midtone-color));
-  font-size: 43px;
+  font-size: var(--text-lg-1);
   margin-bottom: 20px;
 }
 
@@ -29,7 +29,7 @@
   composes: text;
 
   color: rgb(var(--midtone-color));
-  font-size: 34px;
+  font-size: var(--text-lg-0);
 }
 
 .content-container {

@@ -9,6 +9,15 @@ html {
   --midtone-color: 136, 136, 136;
   --error-color: 227, 59, 59;
   --page-color: 255, 255, 255;
+
+  --text-base: 12px;
+  --text-sm-0: calc(var(--text-base) * 7 / 6);
+  --text-sm-1: calc(var(--text-base) * 4 / 3);
+  --text-sm-2: calc(var(--text-base) * 3 / 2);
+  --text-md-0: calc(var(--text-base) * 5 / 3);
+  --text-md-1: calc(var(--text-base) * 7 / 3);
+  --text-lg-0: calc(var(--text-base) * 17 / 6);
+  --text-lg-1: calc(var(--text-base) * 43 / 12);
 }
 
 body {
@@ -117,6 +126,6 @@ body {
 
 .copyright {
   margin: 20px 0;
-  font-size: 12px;
+  font-size: var(--text-base);
   color: rgba(var(--midtone-color), 0.75);
 }

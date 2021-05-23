@@ -4,7 +4,7 @@
 
 .title {
   color: rgb(var(--midtone-color));
-  font-size: 43px;
+  font-size: var(--text-lg-1);
 }
 
 .selector-container {
@@ -37,7 +37,7 @@
 }
 
 .info {
-  font-size: 20px;
+  font-size: var(--text-md-0);
   padding-bottom: 576px;
 }
 

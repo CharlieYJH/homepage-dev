@@ -74,7 +74,7 @@ $max-dot-size: 30px;
 
 .text {
   padding: 10px 10px;
-  font-size: 18px;
+  font-size: var(--text-sm-2);
   cursor: pointer;
   transition: color 0.3s ease-out;
 }

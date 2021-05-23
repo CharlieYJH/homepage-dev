@@ -3,12 +3,12 @@
 }
 
 .title {
-  font-size: 43px;
+  font-size: var(--text-lg-1);
   color: rgb(var(--highlight-color));
 }
 
 .subtitle {
-  font-size: 28px;
+  font-size: var(--text-md-1);
   color: rgb(var(--midtone-color));
 }
 
@@ -17,7 +17,7 @@
 }
 
 .detail {
-  font-size: 20px;
+  font-size: var(--text-md-0);
   color: rgba(var(--midtone-color), 0.7);
   padding-top: 25px;
 }

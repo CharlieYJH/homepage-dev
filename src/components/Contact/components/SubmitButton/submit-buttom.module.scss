@@ -13,7 +13,7 @@
 
 .submit {
   padding: 10px 0;
-  font-size: 20px;
+  font-size: var(--text-md-0);
   font-family: inherit;
   opacity: 0;
   transition: all 0.2s ease-out;

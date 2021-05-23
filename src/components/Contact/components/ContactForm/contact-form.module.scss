@@ -4,7 +4,7 @@
 }
 
 .input-label {
-  font-size: 20px;
+  font-size: var(--text-md-0);
   transition: all 0.2s ease-out;
 }
 
@@ -23,7 +23,7 @@
 .input {
   width: 100%;
   font-family: inherit;
-  font-size: 20px;
+  font-size: var(--text-md-0);
   color: rgb(var(--midtone-color));
   transition: all 0.15s ease-out;
 
